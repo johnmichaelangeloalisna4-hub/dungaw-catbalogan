@@ -3878,3 +3878,178 @@ body.subpage .page-main>section:first-child {
 .sv-modal-backdrop:not(.open) {
   display: none !important;
 }
+
+
+/* ========================================================
+   VEHICLE TERMINALS & TRANSPORT HUBS STYLES
+   ======================================================== */
+.map-pin-badge.pin-terminal {
+  background: #7c3aed !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.55) !important;
+}
+
+.chip-dest.chip-terminal {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+  color: #6d28d9;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  padding: 6px 12px;
+}
+
+.chip-dest.chip-terminal i {
+  color: #7c3aed;
+  font-size: 11px;
+}
+
+.chip-dest.chip-terminal:hover,
+.chip-dest.chip-terminal.active {
+  background: #7c3aed !important;
+  color: #ffffff !important;
+  border-color: #7c3aed !important;
+}
+
+.chip-dest.chip-terminal:hover i,
+.chip-dest.chip-terminal.active i {
+  color: #ffffff !important;
+}
+
+.btn-nearest-terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  transition: all 0.22s ease;
+}
+
+.btn-nearest-terminal:hover {
+  background: #3730a3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+.terminal-dir-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.terminal-dir-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1.5px solid #ede9fe;
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.terminal-dir-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.12);
+  border-color: #c4b5fd;
+}
+
+.terminal-dir-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.terminal-dir-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f5f3ff;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.terminal-dir-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0c2333;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.terminal-dir-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.terminal-dir-body {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.terminal-dir-meta {
+  background: #faf5ff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 14px;
+  font-size: 11.5px;
+  color: #334155;
+}
+
+.terminal-dir-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-dir-actions button {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-term-dest {
+  background: #7c3aed;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-term-dest:hover {
+  background: #6d28d9;
+}
+
+.btn-term-start {
+  background: #ffffff;
+  color: #0c2333;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-term-start:hover {
+  background: #0c2333;
+  color: #ffffff;
+  border-color: #0c2333;
+}

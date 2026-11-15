@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- Site Styles -->
-  <link rel="stylesheet" href="css/style.css?v=61">
+  <link rel="stylesheet" href="css/style.css?v=62">
   <link rel="stylesheet" href="css/transit.css?v=13">
 </head>
 <body class="subpage">
@@ -335,7 +335,223 @@
       </section>
 
     </div>
-  </main>
+  
+      <!-- ========================================================
+           CATBALOGAN VEHICLE TERMINALS & TRANSPORT DIRECTORY
+           ======================================================== -->
+      <section class="transit-matrix-section" id="terminals-directory" style="margin-top: 48px;">
+        <div class="section-subhead">
+          <span class="badge" style="background: #f5f3ff; color: #7c3aed; border: 1px solid #ddd6fe;">Official Transport Hubs</span>
+          <h2>Vehicle Terminals &amp; Transport Stations</h2>
+          <p>
+            Locate the nearest passenger terminal, van dispatch, boat wharf, or tricycle stand in Catbalogan City. Easily track vehicles to your next destination.
+          </p>
+        </div>
+
+        <div class="terminal-dir-grid">
+          <!-- 1. Integrated Bus Terminal -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-bus"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Catbalogan Integrated Bus Terminal</h3>
+                  <span class="terminal-dir-badge">Provincial Bus Hub</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> Diversion Road / North Coastal Highway, Brgy. Muñoz<br>
+                <strong>Vehicles:</strong> Aircon &amp; Regular Provincial Buses (Philtranco, DLTBCo, Silver Star, Ultra Bus)<br>
+                <strong>Destinations:</strong> Metro Manila, Tacloban City, Calbayog City, Ormoc, Southern Leyte
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-regular fa-clock" style="color: #7c3aed;"></i> Operating 24/7 with daily scheduled dispatch
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('bus_terminal')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('bus_terminal')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 2. Grand Tours Van Terminal -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-van-shuttle"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Grand Tours Van Terminal</h3>
+                  <span class="terminal-dir-badge">Regional UV Express Terminal</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> San Francisco St. corner Del Rosario, City Proper<br>
+                <strong>Vehicles:</strong> Aircon UV Express Passenger Vans<br>
+                <strong>Destinations:</strong> Tacloban (approx. 2 hrs), Calbayog (1.5 hrs), Borongan (2.5 hrs), Guiuan, Catarman
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-regular fa-clock" style="color: #7c3aed;"></i> Departs every 30-45 minutes (5:00 AM – 7:00 PM)
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('grand_tours')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('grand_tours')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 3. Duptours Shuttle Terminal -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-van-shuttle"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Duptours Shuttle Terminal</h3>
+                  <span class="terminal-dir-badge">Inter-City Van Express</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> Mabini Avenue corner Allen Avenue, Downtown<br>
+                <strong>Vehicles:</strong> Aircon Passenger Van Shuttles<br>
+                <strong>Destinations:</strong> Direct non-stop shuttle service to Tacloban City &amp; Calbayog City
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-regular fa-clock" style="color: #7c3aed;"></i> Hourly departures (5:30 AM – 6:30 PM)
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('duptours')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('duptours')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 4. Catbalogan Port / Pier 1 -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-ship"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Catbalogan Port / Pier 1</h3>
+                  <span class="terminal-dir-badge">Passenger Ferry Seaport</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> Curry Avenue Seafront, Port Area<br>
+                <strong>Vehicles:</strong> Commercial Passenger &amp; RORO Ferries (Roble Shipping, Cokaliong)<br>
+                <strong>Destinations:</strong> Cebu City Pier (overnight passenger voyages) &amp; Island Ports
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-regular fa-clock" style="color: #7c3aed;"></i> Nightly passenger ferry departures (7:00 PM – 8:00 PM)
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('port')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('port')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 5. Island Pumpboat Wharf -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-sailboat"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Catbalogan Motorboat &amp; Pumpboat Wharf</h3>
+                  <span class="terminal-dir-badge">Island Banca Pier</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> Lower Curry Avenue Seafront (near Port Area)<br>
+                <strong>Vehicles:</strong> Motorized Outrigger Bancas (Pumpboats)<br>
+                <strong>Destinations:</strong> Sierra Island (La Sierra Resort), Darahuway Guti, Buri Island, Daram
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-solid fa-coins" style="color: #7c3aed;"></i> Regular fare: PHP 30 - 80 &bull; Private charter available
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('pier_boat_wharf')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('pier_boat_wharf')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 6. Central Downtown Tricycle Terminal -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Central Downtown Tricycle Terminal</h3>
+                  <span class="terminal-dir-badge">City Tricycle Stand</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> Rizal Avenue corner San Bartolome St. (City Plaza / Imelda Park)<br>
+                <strong>Vehicles:</strong> Motorized Tricycles (TODA Licensed)<br>
+                <strong>Destinations:</strong> Downtown hotels, accredited restaurants, pier, public market, hospitals
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-solid fa-coins" style="color: #7c3aed;"></i> Regulated standard fare: PHP 12.00 – 15.00 within city proper
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('central_tricycle_stand')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('central_tricycle_stand')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 7. Northbound Tricycle Terminal -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Northbound Tricycle Terminal (Silanga / Buri)</h3>
+                  <span class="terminal-dir-badge">North Coastal Tricycle Stand</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> San Roque Street (North Highway Exit)<br>
+                <strong>Vehicles:</strong> Tricycles &amp; Habal-habal Motorcycles<br>
+                <strong>Destinations:</strong> Buri Island Boardwalk &amp; Airport, Silanga, Guinsorongan coastal spots
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-solid fa-coins" style="color: #7c3aed;"></i> Special fare to Buri: PHP 25.00 – 40.00
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('northbound_tricycle_stand')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('northbound_tricycle_stand')">Route Here &rarr;</button>
+            </div>
+          </article>
+
+          <!-- 8. Southbound Multicab Stand -->
+          <article class="terminal-dir-card">
+            <div>
+              <div class="terminal-dir-header">
+                <div class="terminal-dir-icon"><i class="fa-solid fa-truck-pickup"></i></div>
+                <div>
+                  <h3 class="terminal-dir-title">Southbound Multicab &amp; Jeepney Stand</h3>
+                  <span class="terminal-dir-badge">South Coastal Multicab Stand</span>
+                </div>
+              </div>
+              <div class="terminal-dir-body">
+                <strong>Location:</strong> Taft Avenue corner San Bartolome St.<br>
+                <strong>Vehicles:</strong> Public Multicabs &amp; Regular Jeepneys<br>
+                <strong>Destinations:</strong> Payao Mangrove Reserve, Brgy. Mercedes, Jiabong boundary
+              </div>
+              <div class="terminal-dir-meta">
+                <i class="fa-solid fa-coins" style="color: #7c3aed;"></i> Regular fare: PHP 15.00 – 25.00
+              </div>
+            </div>
+            <div class="terminal-dir-actions">
+              <button type="button" class="btn-term-start" onclick="setOriginFromMap('southbound_multicab_stand')">Start Here</button>
+              <button type="button" class="btn-term-dest" onclick="selectTerminal('southbound_multicab_stand')">Route Here &rarr;</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+</main>
 
   <!-- ========================================================
        FOOTER
@@ -456,8 +672,8 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/main.js?v=61"></script>
-  <script src="js/transit.js?v=61"></script>
+  <script src="js/main.js?v=62"></script>
+  <script src="js/transit.js?v=62"></script>
 
 </body>
 </html>

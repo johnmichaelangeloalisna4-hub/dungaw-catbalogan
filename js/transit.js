@@ -6,11 +6,121 @@
 
 // 1. LOCATIONS DATABASE
 const TRANSIT_LOCATIONS = {
-  // Transport Hubs & Starting Points
+  // ========================================================
+  // VEHICLE TERMINALS & TRANSPORTATION HUBS
+  // ========================================================
+  'bus_terminal': {
+    id: 'bus_terminal',
+    name: 'Catbalogan Integrated Bus Terminal',
+    category: 'Provincial Bus Terminal',
+    lat: 11.7820,
+    lng: 124.8820,
+    icon: 'fa-bus',
+    type: 'terminal',
+    vehicleType: 'Provincial Bus (Philtranco, DLTBCo, Silver Star)',
+    routes: 'Tacloban, Calbayog, Ormoc, Matnog, Metro Manila',
+    address: 'Diversion Road / North Coastal Highway, Brgy. Muñoz'
+  },
+  'grand_tours': {
+    id: 'grand_tours',
+    name: 'Grand Tours Van Terminal',
+    category: 'Regional Van Terminal',
+    lat: 11.7762,
+    lng: 124.8845,
+    icon: 'fa-van-shuttle',
+    type: 'terminal',
+    vehicleType: 'UV Express Passenger Van',
+    routes: 'Tacloban, Calbayog, Borongan, Guiuan, Catarman',
+    address: 'San Francisco Street corner Del Rosario, City Proper'
+  },
+  'duptours': {
+    id: 'duptours',
+    name: 'Duptours Shuttle Terminal',
+    category: 'Regional Van Terminal',
+    lat: 11.7758,
+    lng: 124.8838,
+    icon: 'fa-van-shuttle',
+    type: 'terminal',
+    vehicleType: 'UV Express Passenger Van',
+    routes: 'Tacloban City & Calbayog City Direct Shuttle',
+    address: 'Mabini Avenue corner Allen Avenue, Downtown'
+  },
+  'port': {
+    id: 'port',
+    name: 'Catbalogan Port / Pier 1',
+    category: 'Ferry Seaport Terminal',
+    lat: 11.7736,
+    lng: 124.8799,
+    icon: 'fa-ship',
+    type: 'terminal',
+    vehicleType: 'Passenger Ferry & Cargo Shipping',
+    routes: 'Cebu City (Roble Shipping, Cokaliong) & Cargo Ports',
+    address: 'Curry Avenue Seafront, Port Area'
+  },
+  'pier_boat_wharf': {
+    id: 'pier_boat_wharf',
+    name: 'Catbalogan Motorboat & Pumpboat Wharf',
+    category: 'Island Pumpboat Terminal',
+    lat: 11.7725,
+    lng: 124.8785,
+    icon: 'fa-sailboat',
+    type: 'terminal',
+    vehicleType: 'Motorized Outrigger Banca / Pumpboat',
+    routes: 'Sierra Island, Darahuway Guti, Buri Island, Daram',
+    address: 'Pier Area / Lower Curry Avenue, Seafront'
+  },
+  'central_tricycle_stand': {
+    id: 'central_tricycle_stand',
+    name: 'Central Downtown Tricycle Terminal',
+    category: 'City Tricycle Stand',
+    lat: 11.7748,
+    lng: 124.8835,
+    icon: 'fa-motorcycle',
+    type: 'terminal',
+    vehicleType: 'Downtown Tricycle (TODA Registered)',
+    routes: 'All 57 City Barangays, Imelda Park, Seaport, Market, Hotels',
+    address: 'Rizal Avenue corner San Bartolome St. (City Plaza)'
+  },
+  'northbound_tricycle_stand': {
+    id: 'northbound_tricycle_stand',
+    name: 'Northbound Tricycle Terminal (Silanga / Buri)',
+    category: 'Inter-Barangay Tricycle Stand',
+    lat: 11.7770,
+    lng: 124.8848,
+    icon: 'fa-motorcycle',
+    type: 'terminal',
+    vehicleType: 'Tricycle & Habal-habal Motorcycle',
+    routes: 'Buri Island Boardwalk & Airport, Silanga, Guinsorongan',
+    address: 'San Roque Street (North Highway Exit)'
+  },
+  'southbound_multicab_stand': {
+    id: 'southbound_multicab_stand',
+    name: 'Southbound Multicab & Jeepney Stand (Payao)',
+    category: 'Multicab & Jeepney Stand',
+    lat: 11.7730,
+    lng: 124.8840,
+    icon: 'fa-truck-pickup',
+    type: 'terminal',
+    vehicleType: 'Public Multicab & Jeepney',
+    routes: 'Payao Mangrove Park, Mercedes, Jiabong Boundary',
+    address: 'Taft Avenue corner San Bartolome St.'
+  },
+  'airport': {
+    id: 'airport',
+    name: 'Catbalogan Buri Airport Terminal',
+    category: 'Airport Terminal',
+    lat: 11.8080,
+    lng: 124.8320,
+    icon: 'fa-plane-departure',
+    type: 'terminal',
+    vehicleType: 'Community Airport Terminal',
+    routes: 'Air Charter & Island Airlink',
+    address: 'Buri Island, Catbalogan City'
+  },
   'capitol': {
     id: 'capitol',
     name: 'Samar Provincial Capitol & Plaza',
-    category: 'Downtown Core',
+    category: 'Downtown Core Landmark',
     lat: 11.7750,
     lng: 124.8850,
     icon: 'fa-landmark',
@@ -26,46 +136,6 @@ const TRANSIT_LOCATIONS = {
     icon: 'fa-building-columns',
     type: 'hub',
     address: 'Rizal Avenue, Catbalogan City'
-  },
-  'port': {
-    id: 'port',
-    name: 'Catbalogan Port / Pier 1',
-    category: 'Ferry Seaport Terminal',
-    lat: 11.7736,
-    lng: 124.8799,
-    icon: 'fa-ship',
-    type: 'hub',
-    address: 'Curry Avenue Seafront'
-  },
-  'grand_tours': {
-    id: 'grand_tours',
-    name: 'Grand Tours & Van Terminal',
-    category: 'Regional Van Terminal',
-    lat: 11.7762,
-    lng: 124.8845,
-    icon: 'fa-van-shuttle',
-    type: 'hub',
-    address: 'San Francisco Street corner Del Rosario'
-  },
-  'bus_terminal': {
-    id: 'bus_terminal',
-    name: 'Catbalogan Integrated Bus Terminal',
-    category: 'Provincial Bus Terminal',
-    lat: 11.7820,
-    lng: 124.8820,
-    icon: 'fa-bus',
-    type: 'hub',
-    address: 'Diversion Road / North Coastal'
-  },
-  'airport': {
-    id: 'airport',
-    name: 'Catbalogan Buri Airport',
-    category: 'Airport Terminal',
-    lat: 11.8080,
-    lng: 124.8320,
-    icon: 'fa-plane-departure',
-    type: 'hub',
-    address: 'Buri Island, Catbalogan City'
   },
 
   // Tourist Spots & Destinations
@@ -641,10 +711,11 @@ function plotAllLandmarks(excludeIds = []) {
   Object.values(TRANSIT_LOCATIONS).forEach(loc => {
     if (excludeIds.includes(loc.id)) return;
 
+    const isTerminal = loc.type === 'terminal';
     const isHub = loc.type === 'hub';
     const isDining = loc.type === 'dining';
     const isHotel = loc.type === 'hotel';
-    const pinClass = isHub ? 'pin-hub' : (isDining ? 'pin-dining' : (isHotel ? 'pin-hotel' : 'pin-spot'));
+    const pinClass = isTerminal ? 'pin-terminal' : (isHub ? 'pin-hub' : (isDining ? 'pin-dining' : (isHotel ? 'pin-hotel' : 'pin-spot')));
 
     const customIcon = L.divIcon({
       className: 'custom-leaflet-div',
@@ -683,41 +754,57 @@ function populateDropdowns() {
   destSelect.innerHTML = '';
 
   // Origins grouped
-  const optGroupHubs = document.createElement('optgroup');
-  optGroupHubs.label = '— Arrival & Transport Hubs —';
+  const optGroupTerminals1 = document.createElement('optgroup');
+  optGroupTerminals1.label = '— 🚏 Vehicle & Transport Terminals —';
+  const optGroupHubs1 = document.createElement('optgroup');
+  optGroupHubs1.label = '— 🏛️ City Landmarks & Government Hubs —';
   const optGroupSpots1 = document.createElement('optgroup');
-  optGroupSpots1.label = '— City Landmarks —';
+  optGroupSpots1.label = '— 🏖️ Tourist Spots & Attractions —';
+  const optGroupHotels1 = document.createElement('optgroup');
+  optGroupHotels1.label = '— 🏨 DOT Accredited Hotels —';
+  const optGroupDining1 = document.createElement('optgroup');
+  optGroupDining1.label = '— 🍽️ DOT Accredited Restaurants —';
 
   // Destinations grouped
   const optGroupSpots2 = document.createElement('optgroup');
-  optGroupSpots2.label = '— Tourist Spots & Attractions —';
-  const optGroupHotels = document.createElement('optgroup');
-  optGroupHotels.label = '— DOT Accredited Hotels —';
-  const optGroupDining = document.createElement('optgroup');
-  optGroupDining.label = '— DOT Accredited Restaurants —';
+  optGroupSpots2.label = '— 🏖️ Tourist Spots & Attractions —';
+  const optGroupTerminals2 = document.createElement('optgroup');
+  optGroupTerminals2.label = '— 🚏 Vehicle & Transport Terminals —';
+  const optGroupHotels2 = document.createElement('optgroup');
+  optGroupHotels2.label = '— 🏨 DOT Accredited Hotels —';
+  const optGroupDining2 = document.createElement('optgroup');
+  optGroupDining2.label = '— 🍽️ DOT Accredited Restaurants —';
   const optGroupHubs2 = document.createElement('optgroup');
-  optGroupHubs2.label = '— Hubs & Terminals —';
+  optGroupHubs2.label = '— 🏛️ City Landmarks —';
 
   Object.values(TRANSIT_LOCATIONS).forEach(loc => {
     // For origin
     const opt1 = new Option(loc.name + ' (' + loc.category + ')', loc.id);
-    if (loc.type === 'hub') optGroupHubs.appendChild(opt1);
+    if (loc.type === 'terminal') optGroupTerminals1.appendChild(opt1);
+    else if (loc.type === 'hub') optGroupHubs1.appendChild(opt1);
+    else if (loc.type === 'hotel') optGroupHotels1.appendChild(opt1);
+    else if (loc.type === 'dining') optGroupDining1.appendChild(opt1);
     else optGroupSpots1.appendChild(opt1);
 
     // For destination
     const opt2 = new Option(loc.name + ' (' + loc.category + ')', loc.id);
     if (loc.type === 'spot') optGroupSpots2.appendChild(opt2);
-    else if (loc.type === 'hotel') optGroupHotels.appendChild(opt2);
-    else if (loc.type === 'dining') optGroupDining.appendChild(opt2);
+    else if (loc.type === 'terminal') optGroupTerminals2.appendChild(opt2);
+    else if (loc.type === 'hotel') optGroupHotels2.appendChild(opt2);
+    else if (loc.type === 'dining') optGroupDining2.appendChild(opt2);
     else optGroupHubs2.appendChild(opt2);
   });
 
-  originSelect.appendChild(optGroupHubs);
+  originSelect.appendChild(optGroupTerminals1);
+  originSelect.appendChild(optGroupHubs1);
   originSelect.appendChild(optGroupSpots1);
+  originSelect.appendChild(optGroupHotels1);
+  originSelect.appendChild(optGroupDining1);
 
   destSelect.appendChild(optGroupSpots2);
-  destSelect.appendChild(optGroupHotels);
-  destSelect.appendChild(optGroupDining);
+  destSelect.appendChild(optGroupTerminals2);
+  destSelect.appendChild(optGroupHotels2);
+  destSelect.appendChild(optGroupDining2);
   destSelect.appendChild(optGroupHubs2);
 
   // Defaults
@@ -1122,3 +1209,102 @@ function shareRoute() {
   }
 }
 
+
+
+/* ========================================================
+   NEAREST VEHICLE TERMINAL TRACKING & SELECTION
+   ======================================================== */
+let lastNearestTerminalId = null;
+
+function findNearestTerminal() {
+  const originSelect = document.getElementById('originSelect');
+  let currentLat = 11.7745;
+  let currentLng = 124.8835; // Default downtown City Plaza / Capitol
+
+  // Check if live GPS position exists
+  if (liveGpsMarker) {
+    const latlng = liveGpsMarker.getLatLng();
+    currentLat = latlng.lat;
+    currentLng = latlng.lng;
+  } else if (originSelect && TRANSIT_LOCATIONS[originSelect.value]) {
+    const curLoc = TRANSIT_LOCATIONS[originSelect.value];
+    currentLat = curLoc.lat;
+    currentLng = curLoc.lng;
+  }
+
+  // Calculate distance to all vehicle terminals
+  const terminalList = Object.values(TRANSIT_LOCATIONS).filter(loc => loc.type === 'terminal');
+
+  let closest = null;
+  let minDistance = Infinity;
+
+  terminalList.forEach(t => {
+    const distKm = calculateDistance(currentLat, currentLng, t.lat, t.lng);
+    if (distKm < minDistance) {
+      minDistance = distKm;
+      closest = t;
+    }
+  });
+
+  if (!closest) return;
+
+  lastNearestTerminalId = closest.id;
+
+  // Show nearest terminal card in UI
+  const card = document.getElementById('nearestTerminalCard');
+  const nameEl = document.getElementById('nearestTerminalName');
+  const descEl = document.getElementById('nearestTerminalDesc');
+  const distEl = document.getElementById('nearestTerminalDist');
+  const fareEl = document.getElementById('nearestTerminalFare');
+
+  if (card && nameEl) {
+    nameEl.innerHTML = '<i class="fa-solid ' + closest.icon + '" style="color: #6366f1; margin-right: 6px;"></i> ' + closest.name;
+    if (descEl) descEl.textContent = (closest.routes ? 'Serving: ' + closest.routes : closest.address);
+    
+    const formattedDist = minDistance < 1 ? Math.round(minDistance * 1000) + ' meters away' : minDistance.toFixed(2) + ' km away';
+    if (distEl) distEl.innerHTML = '<i class="fa-solid fa-person-walking"></i> Approx ' + formattedDist;
+    if (fareEl) {
+      const estFare = minDistance <= 1.2 ? 'PHP 12 - 15 (Standard Tricycle)' : (minDistance <= 3.5 ? 'PHP 15 - 25 (Tricycle)' : 'PHP 30 - 50 (Special Tricycle)');
+      fareEl.innerHTML = '<i class="fa-solid fa-coins"></i> ' + estFare;
+    }
+
+    card.style.display = 'block';
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Highlight nearest terminal chip
+  document.querySelectorAll('.chip-terminal').forEach(c => c.classList.remove('active'));
+  const targetChip = document.getElementById('chip-term-' + closest.id);
+  if (targetChip) targetChip.classList.add('active');
+
+  // Set destination & calculate route
+  selectTerminal(closest.id);
+}
+
+function selectTerminal(terminalId) {
+  const destSelect = document.getElementById('destSelect');
+  if (destSelect && TRANSIT_LOCATIONS[terminalId]) {
+    destSelect.value = terminalId;
+    
+    // Highlight terminal chip
+    document.querySelectorAll('.chip-dest').forEach(c => c.classList.remove('active'));
+    const clickedChip = document.getElementById('chip-term-' + terminalId);
+    if (clickedChip) clickedChip.classList.add('active');
+
+    calculateRoute();
+  }
+}
+
+function routeToNearestTerminal() {
+  if (lastNearestTerminalId) {
+    selectTerminal(lastNearestTerminalId);
+  } else {
+    findNearestTerminal();
+  }
+}
+
+function setAsOriginNearest() {
+  if (lastNearestTerminalId) {
+    setOriginFromMap(lastNearestTerminalId);
+  }
+}
