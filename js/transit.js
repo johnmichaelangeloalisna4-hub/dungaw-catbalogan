@@ -289,6 +289,150 @@ const TRANSIT_LOCATIONS = {
     type: 'dining',
     image: './images/resto_toril.jpg',
     address: 'Barangay Socorro (Overlooking)'
+  },
+  // DOT Accredited Hotels & Accommodations
+  'hotel_157th': {
+    id: 'hotel_157th',
+    name: '157th Street Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7748,
+    lng: 124.8835,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_157th.jpg',
+    address: 'San Bartolome St. Poblacion 7'
+  },
+  'hotel_la_sierra': {
+    id: 'hotel_la_sierra',
+    name: 'La Sierra Island Resort',
+    category: 'DOT Accredited Resort',
+    lat: 11.7680,
+    lng: 124.8450,
+    icon: 'fa-umbrella-beach',
+    type: 'hotel',
+    image: './images/hotel_la_sierra.jpg',
+    address: 'Barangay Cinco, Sierra Island'
+  },
+  'hotel_juvies': {
+    id: 'hotel_juvies',
+    name: "Juvie's Resort Hotel and Restaurant",
+    category: 'DOT Accredited Resort',
+    lat: 11.8020,
+    lng: 124.8380,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_juvies.jpg',
+    address: 'Barangay San Roque, Buri Island'
+  },
+  'hotel_rosario_hills': {
+    id: 'hotel_rosario_hills',
+    name: 'Rosario Hills',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7850,
+    lng: 124.8900,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_rosario_hills.jpg',
+    address: 'Barangay New Mahayag'
+  },
+  'hotel_asia_novo': {
+    id: 'hotel_asia_novo',
+    name: 'Asia Novo Boutique Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7758,
+    lng: 124.8845,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_asia_novo.jpg',
+    address: 'San Roque Street, City Center'
+  },
+  'hotel_casa_cristina': {
+    id: 'hotel_casa_cristina',
+    name: 'Casa Cristina Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7750,
+    lng: 124.8848,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_casa_cristina.jpg',
+    address: 'San Roque Street, Catbalogan'
+  },
+  'hotel_san_francisco': {
+    id: 'hotel_san_francisco',
+    name: 'Hotel San Francisco',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7765,
+    lng: 124.8842,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_san_francisco.jpg',
+    address: 'San Francisco Street, City Proper'
+  },
+  'hotel_lcd': {
+    id: 'hotel_lcd',
+    name: 'LCD Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7752,
+    lng: 124.8825,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_lcd.jpg',
+    address: 'Mabini Avenue, Catbalogan City'
+  },
+  'hotel_our_choice': {
+    id: 'hotel_our_choice',
+    name: 'Our Choice Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7756,
+    lng: 124.8828,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_our_choice.jpg',
+    address: 'Mabini Avenue, Catbalogan City'
+  },
+  'hotel_rolet': {
+    id: 'hotel_rolet',
+    name: 'Rolet Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7745,
+    lng: 124.8845,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_rolet.jpg',
+    address: 'San Roque Street, Catbalogan City'
+  },
+  'hotel_sc': {
+    id: 'hotel_sc',
+    name: 'SC Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7750,
+    lng: 124.8822,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_sc.jpg',
+    address: 'Mabini Avenue, Catbalogan City'
+  },
+  'hotel_vismin_gv': {
+    id: 'hotel_vismin_gv',
+    name: 'Vismin GV Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7755,
+    lng: 124.8835,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_vismin_gv.jpg',
+    address: 'Rizal Street, Downtown'
+  },
+  'hotel_your_choice': {
+    id: 'hotel_your_choice',
+    name: 'Your Choice Hotel',
+    category: 'DOT Accredited Hotel',
+    lat: 11.7762,
+    lng: 124.8838,
+    icon: 'fa-hotel',
+    type: 'hotel',
+    image: './images/hotel_your_choice.jpg',
+    address: 'Del Rosario Street, Catbalogan'
   }
 };
 
@@ -499,7 +643,8 @@ function plotAllLandmarks(excludeIds = []) {
 
     const isHub = loc.type === 'hub';
     const isDining = loc.type === 'dining';
-    const pinClass = isHub ? 'pin-hub' : (isDining ? 'pin-dining' : 'pin-spot');
+    const isHotel = loc.type === 'hotel';
+    const pinClass = isHub ? 'pin-hub' : (isDining ? 'pin-dining' : (isHotel ? 'pin-hotel' : 'pin-spot'));
 
     const customIcon = L.divIcon({
       className: 'custom-leaflet-div',
@@ -546,6 +691,8 @@ function populateDropdowns() {
   // Destinations grouped
   const optGroupSpots2 = document.createElement('optgroup');
   optGroupSpots2.label = '— Tourist Spots & Attractions —';
+  const optGroupHotels = document.createElement('optgroup');
+  optGroupHotels.label = '— DOT Accredited Hotels —';
   const optGroupDining = document.createElement('optgroup');
   optGroupDining.label = '— DOT Accredited Restaurants —';
   const optGroupHubs2 = document.createElement('optgroup');
@@ -560,6 +707,7 @@ function populateDropdowns() {
     // For destination
     const opt2 = new Option(loc.name + ' (' + loc.category + ')', loc.id);
     if (loc.type === 'spot') optGroupSpots2.appendChild(opt2);
+    else if (loc.type === 'hotel') optGroupHotels.appendChild(opt2);
     else if (loc.type === 'dining') optGroupDining.appendChild(opt2);
     else optGroupHubs2.appendChild(opt2);
   });
@@ -568,6 +716,7 @@ function populateDropdowns() {
   originSelect.appendChild(optGroupSpots1);
 
   destSelect.appendChild(optGroupSpots2);
+  destSelect.appendChild(optGroupHotels);
   destSelect.appendChild(optGroupDining);
   destSelect.appendChild(optGroupHubs2);
 

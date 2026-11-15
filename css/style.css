@@ -1569,7 +1569,8 @@ body.subpage .site-header .menu-toggle-btn:hover {
 }
 
 .btn-resto-save:hover {
-  background: rgba(15, 139, 132, 0.08);
+  background: #0f8b84;
+  color: #ffffff;
   border-color: #0f8b84;
 }
 
@@ -1579,16 +1580,63 @@ body.subpage .site-header .menu-toggle-btn:hover {
   border-color: #ffffff !important;
   box-shadow: 0 2px 8px rgba(234, 88, 12, 0.45) !important;
 }
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+
+.map-pin-badge.pin-hotel {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45) !important;
 }
 
-.btn-resto-save:hover {
-  background: #0f8b84;
+.hotel-section-wrap {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 85px 0 100px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.hotel-room-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f8b84;
+  margin-bottom: 8px;
+}
+
+.hotel-room-row i {
+  font-size: 13px;
+  color: #0f8b84;
+}
+
+.spots-hotel-jump-wrap {
+  margin: 0 auto 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.spots-hotel-jump-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0c2333;
+  border: 1px solid #cbd5e1;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(12, 35, 51, 0.06);
+  transition: all 0.25s ease;
+}
+
+.spots-hotel-jump-btn:hover {
+  background: #0c2333;
   color: #ffffff;
-  border-color: #0f8b84;
+  border-color: #0c2333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(12, 35, 51, 0.14);
 }
 
 @media (max-width: 992px) {
