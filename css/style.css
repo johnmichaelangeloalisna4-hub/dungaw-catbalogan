@@ -285,19 +285,21 @@ body.admin-bar .site-header {
   background: rgba(255, 255, 255, 0.16);
   border: 1.5px solid rgba(255, 255, 255, 0.45);
   color: #ffffff;
-  padding: 7px 15px;
-  border-radius: 30px;
-  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 24px;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   cursor: pointer;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.22s ease;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .menu-toggle-btn:hover,
@@ -309,18 +311,20 @@ body.admin-bar .site-header {
 }
 
 .menu-toggle-btn i {
-  font-size: 14.5px;
+  font-size: 12.5px;
+  line-height: 1;
   transition: transform 0.2s ease;
 }
 
 .menu-toggle-label {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 11.5px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   display: inline-block;
   line-height: 1;
+  white-space: nowrap;
 }
 
 /* Light header variations */
@@ -2556,6 +2560,112 @@ body.subpage .site-header .menu-toggle-btn:hover {
 
   .spots-search-wrap {
     width: 100%;
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE HEADER & MOBILE NAV SCALING (PREVENTS COLLISION)
+   ========================================================== */
+@media (max-width: 992px) {
+  .site-header {
+    padding: 0 18px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 0 12px;
+    height: 64px;
+    gap: 8px;
+  }
+
+  .brand-logo-wrap {
+    gap: 8px;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .brand-logos-container {
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+  .brand-official-logo,
+  .brand-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-text {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .brand-title {
+    font-size: 15px;
+    letter-spacing: -0.2px;
+  }
+
+  .brand-sub {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .menu-toggle-btn {
+    padding: 5px 9px;
+    gap: 5px;
+    border-radius: 20px;
+    font-size: 10.5px;
+  }
+
+  .menu-toggle-btn i {
+    font-size: 11.5px;
+  }
+
+  .menu-toggle-label {
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header {
+    padding: 0 8px;
+    height: 60px;
+    gap: 6px;
+  }
+
+  .brand-logo-wrap {
+    gap: 6px;
+  }
+
+  .brand-logos-container {
+    gap: 4px;
+  }
+
+  .brand-official-logo,
+  .brand-circle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-title {
+    font-size: 13.5px;
+  }
+
+  .brand-sub {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .menu-toggle-btn {
+    padding: 4px 7px;
+    gap: 4px;
+  }
+
+  .menu-toggle-label {
+    font-size: 8.5px;
   }
 }
 

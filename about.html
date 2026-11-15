@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Global Shared Styles -->
-  <link rel="stylesheet" href="css/style.css?v=47">
+  <link rel="stylesheet" href="css/style.css?v=48">
 
   <style>
     /* ==========================================================
@@ -625,14 +625,40 @@
       .site-nav a { width: 100%; padding: 12px 0; border-bottom: 1px solid rgba(12,35,51,0.06); }
       .site-nav a.active::after { bottom: 4px; width: 40px; right: auto; }
       body.admin-bar .site-header { top: 32px; }
-    @media (max-width: 782px) { body.admin-bar .site-header { top: 46px; } }
-
-    .menu-toggle-btn { display: inline-flex !important; }
+      .menu-toggle-btn { display: inline-flex !important; }
       .page-title { font-size: 38px; }
       .hero-frame img { height: 260px; }
       .facts-strip { grid-template-columns: repeat(2, 1fr); }
       .tab-panel.active { grid-template-columns: 1fr; padding: 26px; }
       .site-footer { padding: 40px 24px 24px; }
+    }
+
+    @media (max-width: 782px) {
+      body.admin-bar .site-header { top: 46px; }
+    }
+
+    @media (max-width: 640px) {
+      .site-header { padding: 0 12px; height: 64px; gap: 8px; }
+      .brand-logo-wrap { gap: 8px; min-width: 0; flex-shrink: 1; }
+      .brand-logos-container { gap: 5px; flex-shrink: 0; }
+      .brand-official-logo, .brand-circle { width: 32px; height: 32px; }
+      .brand-text { min-width: 0; flex-shrink: 1; }
+      .brand-title { font-size: 15px; letter-spacing: -0.2px; }
+      .brand-sub { font-size: 8px; letter-spacing: 1.2px; }
+      .menu-toggle-btn { padding: 5px 9px; gap: 5px; border-radius: 20px; font-size: 10.5px; }
+      .menu-toggle-btn i { font-size: 11.5px; }
+      .menu-toggle-label { font-size: 9.5px; }
+    }
+
+    @media (max-width: 380px) {
+      .site-header { padding: 0 8px; height: 60px; gap: 6px; }
+      .brand-logo-wrap { gap: 6px; }
+      .brand-logos-container { gap: 4px; }
+      .brand-official-logo, .brand-circle { width: 28px; height: 28px; }
+      .brand-title { font-size: 13.5px; }
+      .brand-sub { font-size: 7px; letter-spacing: 1px; }
+      .menu-toggle-btn { padding: 4px 7px; gap: 4px; }
+      .menu-toggle-label { font-size: 8.5px; }
     }
 
     @media (max-width: 520px) {
