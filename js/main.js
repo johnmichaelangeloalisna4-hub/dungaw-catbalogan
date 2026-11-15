@@ -1485,7 +1485,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7750,
         lng: 124.8850,
         heading: 20,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'obelisk',
@@ -1501,7 +1502,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7742,
         lng: 124.8861,
         heading: 60,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'pieta',
@@ -1517,7 +1519,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7753,
         lng: 124.8829,
         heading: 120,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'tamalos',
@@ -1534,7 +1537,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7745,
         lng: 124.8814,
         heading: 110,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'corioso',
@@ -1551,7 +1555,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7758,
         lng: 124.8838,
         heading: 165,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'danggit',
@@ -1568,7 +1573,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7738,
         lng: 124.8806,
         heading: 230,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'crabs',
@@ -1585,7 +1591,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7753,
         lng: 124.8832,
         heading: 250,
-        zoom: 18
+        zoom: 18,
+        hasGsv: true
       },
       {
         key: 'maqueda',
@@ -1601,7 +1608,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7740,
         lng: 124.8795,
         heading: 260,
-        zoom: 17
+        zoom: 17,
+        hasGsv: true
       },
       {
         key: 'buri',
@@ -1617,7 +1625,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.8100,
         lng: 124.8300,
         heading: 310,
-        zoom: 15
+        zoom: 15,
+        hasGsv: false
       },
       {
         key: 'darahuway',
@@ -1633,7 +1642,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.7490,
         lng: 124.8721,
         heading: 210,
-        zoom: 15
+        zoom: 15,
+        hasGsv: false
       },
       {
         key: 'bangon',
@@ -1649,7 +1659,8 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         lat: 11.8760,
         lng: 124.8781,
         heading: 45,
-        zoom: 15
+        zoom: 15,
+        hasGsv: false
       }
     ];
 
@@ -1685,21 +1696,58 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
       }
     }
 
+    window.svTogglePinCard = function(e, forceExpand) {
+      if (e && e.stopPropagation) e.stopPropagation();
+      const card = document.getElementById('svStorePinCard');
+      if (!card) return;
+      if (forceExpand === true) {
+        card.classList.remove('collapsed');
+        card.style.display = 'flex';
+      } else {
+        card.classList.toggle('collapsed');
+      }
+      const isCollapsed = card.classList.contains('collapsed');
+      const toggleText = card.querySelector('.sv-card-toggle-btn span');
+      const toggleIcon = card.querySelector('.sv-card-toggle-btn i');
+      if (toggleText) toggleText.textContent = isCollapsed ? 'Details' : 'Hide';
+      if (toggleIcon) toggleIcon.className = `fa-solid ${isCollapsed ? 'fa-chevron-up' : 'fa-chevron-down'}`;
+    };
+
+    window.svDismissPinCard = function(e) {
+      if (e && e.stopPropagation) e.stopPropagation();
+      const card = document.getElementById('svStorePinCard');
+      if (card) {
+        card.classList.add('collapsed');
+        const toggleText = card.querySelector('.sv-card-toggle-btn span');
+        const toggleIcon = card.querySelector('.sv-card-toggle-btn i');
+        if (toggleText) toggleText.textContent = 'Details';
+        if (toggleIcon) toggleIcon.className = 'fa-solid fa-chevron-up';
+      }
+    };
+
     function svSetMode(mode) {
-      svState.mode = mode;
+      const node = STREET_VIEW_TOUR[svState.index];
+      let effectiveMode = mode;
+      // If node has no Google Street View car footage (e.g. waterfalls, islands), use photo 360 mode
+      if (node && node.hasGsv === false && mode === 'street') {
+        effectiveMode = 'photo';
+      }
+      svState.mode = effectiveMode;
       const stage = document.getElementById('svStage');
       const gsvWrap = document.getElementById('svGsvWrap');
       const viewport = document.getElementById('svViewport');
 
       if (stage) {
-        stage.className = 'sv-stage' + (mode !== 'split' ? ' mode-' + mode : '');
+        stage.className = 'sv-stage' + (effectiveMode !== 'split' ? ' mode-' + effectiveMode : '');
       }
 
       document.querySelectorAll('.sv-mode-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+        btn.classList.toggle('active', btn.getAttribute('data-mode') === effectiveMode);
       });
 
-      if (mode === 'street' || mode === 'split') {
+      const showGsv = (effectiveMode === 'street' || effectiveMode === 'split') && (!node || node.hasGsv !== false);
+
+      if (showGsv) {
         gsvWrap?.classList.add('active');
         viewport?.classList.add('hidden');
       } else {
@@ -1707,8 +1755,7 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
         viewport?.classList.remove('hidden');
       }
 
-      const node = STREET_VIEW_TOUR[svState.index];
-      if (node && (mode === 'street' || mode === 'split')) {
+      if (node && showGsv) {
         const gsvFrame = document.getElementById('svGsvFrame');
         if (gsvFrame) {
           gsvFrame.src = `https://maps.google.com/maps?layer=c&cbll=${node.lat},${node.lng}&cbp=12,${node.heading},0,0,0&output=svembed`;
@@ -1768,7 +1815,19 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
       document.getElementById('svStepLabel').textContent = `${svState.index + 1} / ${STREET_VIEW_TOUR.length}`;
       const pinLbl = document.getElementById('svMapPinLabel');
       if (pinLbl) {
-        pinLbl.innerHTML = `<span style="color:#f97316; font-weight:800;">PINNED STORE / LOCATION:</span> ${node.title}`;
+        pinLbl.innerHTML = `<span style="color:#f97316; font-weight:800;">PIN:</span> ${node.title} <button type="button" class="sv-map-info-toggle" onclick="svTogglePinCard(event, true)"><i class="fa-solid fa-circle-info"></i> Info</button>`;
+      }
+
+      // Update street view button state based on node coverage
+      const gsvBtn = document.querySelector('.sv-mode-btn[data-mode="street"]');
+      if (gsvBtn) {
+        if (node.hasGsv === false) {
+          gsvBtn.innerHTML = '<i class="fa-solid fa-mountain-sun"></i> Off-Road Trail';
+          gsvBtn.title = 'Off-road trail (No Google car coverage — HD 360 Photo available)';
+        } else {
+          gsvBtn.innerHTML = '<i class="fa-solid fa-street-view"></i> Google Street View';
+          gsvBtn.title = 'Google Street View';
+        }
       }
 
       // Inject or update the Pinned Store Card inside .sv-map-pane
@@ -1781,15 +1840,29 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
           pinCard.className = 'sv-store-pin-card';
           mapPane.appendChild(pinCard);
         }
+        // Auto-collapse on small/mobile screens so the map is 100% visible and interactive!
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+          pinCard.classList.add('collapsed');
+        } else {
+          pinCard.classList.remove('collapsed');
+        }
         const isFoodOrShop = Boolean(node.orderKey);
+        const isCollapsed = pinCard.classList.contains('collapsed');
         pinCard.innerHTML = `
-          <div class="sv-store-pin-header">
+          <div class="sv-store-pin-header" onclick="svTogglePinCard(event)">
             <span class="sv-store-pin-badge">
-              <i class="fa-solid fa-location-dot"></i> ${isFoodOrShop ? 'PINNED STORE TO BUY THIS FOOD' : 'PINNED LANDMARK LOCATION'}
+              <i class="fa-solid fa-location-dot"></i> ${isFoodOrShop ? 'PINNED STORE' : 'PINNED LOCATION'}
             </span>
-            <span class="sv-store-pin-coords">GPS: ${node.lat.toFixed(4)}° N, ${node.lng.toFixed(4)}° E</span>
+            <div class="sv-store-pin-name" title="${node.title}">${node.title}</div>
+            <div class="sv-card-controls">
+              <button type="button" class="sv-card-toggle-btn" onclick="svTogglePinCard(event)" title="Show / Hide details">
+                <i class="fa-solid ${isCollapsed ? 'fa-chevron-up' : 'fa-chevron-down'}"></i> <span>${isCollapsed ? 'Details' : 'Hide'}</span>
+              </button>
+              <button type="button" class="sv-card-close-btn" onclick="svDismissPinCard(event)" title="Minimize card">&times;</button>
+            </div>
           </div>
-          <div class="sv-store-pin-name">${node.title}</div>
+          <div class="sv-store-pin-coords">GPS: ${node.lat.toFixed(4)}° N, ${node.lng.toFixed(4)}° E</div>
           <div class="sv-store-pin-addr">
             <i class="fa-solid fa-map-pin" style="color:#f97316; margin-top:3px;"></i>
             <span><strong>Exact Location:</strong> ${node.storeAddress || node.subtitle}<br><span style="color:#94a3b8;">${node.storeHours || ''}</span></span>
@@ -1860,9 +1933,15 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
 
     function openStreetView(key) {
       svBuildStrip();
-      svSetMode('split');
       const idx = STREET_VIEW_TOUR.findIndex(item => item.key === key);
-      svRenderNode(idx >= 0 ? idx : 0);
+      const targetIdx = idx >= 0 ? idx : 0;
+      const targetNode = STREET_VIEW_TOUR[targetIdx];
+      if (targetNode && targetNode.hasGsv === false) {
+        svSetMode('photo');
+      } else {
+        svSetMode('split');
+      }
+      svRenderNode(targetIdx);
       document.getElementById('streetViewModal')?.classList.add('open');
     }
 
@@ -2009,4 +2088,28 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
       if (activeLink) activeLink.classList.add('active');
     });
 
-    document.addEventListener('DOMContentLoaded', updateTripUI);
+    // Auto-remove any injected Netlify badge to prevent blocking UI elements
+    function purgeNetlifyBadges() {
+      try {
+        const selectors = [
+          '#netlify-badge',
+          '.netlify-badge',
+          '[data-netlify-badge]',
+          'iframe[src*="netlify"]',
+          'div[id*="netlify"]',
+          'div[class*="netlify-badge"]'
+        ];
+        document.querySelectorAll(selectors.join(',')).forEach(el => el.remove());
+        document.querySelectorAll('div, a, span').forEach(el => {
+          if (el.children.length <= 2 && el.textContent && el.textContent.trim() === 'Powered by Netlify') {
+            el.remove();
+          }
+        });
+      } catch (err) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateTripUI();
+      purgeNetlifyBadges();
+      setInterval(purgeNetlifyBadges, 800);
+    });
