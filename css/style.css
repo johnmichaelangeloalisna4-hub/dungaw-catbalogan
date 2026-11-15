@@ -2269,6 +2269,24 @@ body.subpage main.page-main { min-height: 70vh; }
 body.subpage .page-main > section:first-child { padding-top: 70px; }
 
 /* ==========================================================
+   HIDE NETLIFY & HOST BADGES / WATERMARKS
+   ========================================================== */
+[data-netlify-badge],
+.netlify-badge,
+iframe[id^="netlify-"],
+div[id^="netlify-"],
+#netlify-badge,
+[class*="netlify-badge"],
+[id*="netlify-identity"],
+[class*="feedback-badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+}
+
+/* ==========================================================
    MOBILE UX & NATIVE-FEEL UI ENHANCEMENTS
    ========================================================== */
 @media (max-width: 768px) {
@@ -2377,7 +2395,7 @@ body.subpage .page-main > section:first-child { padding-top: 70px; }
   .hero-floating-right,
   body.subpage .hero-floating-right {
     right: 14px !important;
-    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px)) !important;
     gap: 8px !important;
     z-index: 950 !important;
   }
