@@ -1595,6 +1595,13 @@ body.subpage .site-header .menu-toggle-btn:hover {
   border-color: #ea580c !important;
 }
 
+.hotel-filter-btn.active,
+.hotel-filter-btn:hover {
+  background: #0f8b84 !important;
+  color: #ffffff !important;
+  border-color: #0f8b84 !important;
+}
+
 .hotel-section-wrap {
   background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   padding: 85px 0 100px;

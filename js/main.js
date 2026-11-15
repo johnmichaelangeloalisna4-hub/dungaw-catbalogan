@@ -1980,6 +1980,57 @@ function resetRestoFilter() {
   filterRestos('all');
 }
 
+/* ========================================================
+   DOT ACCREDITED HOTELS FILTER & SEARCH
+   ======================================================== */
+let currentHotelCategory = 'all';
+
+function filterHotels(category, event) {
+  currentHotelCategory = category;
+  const buttons = document.querySelectorAll('.hotel-filter-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  } else {
+    document.querySelector('.hotel-filter-btn[data-filter="' + category + '"]')?.classList.add('active');
+  }
+  applyHotelFilters();
+}
+
+function searchHotels() {
+  applyHotelFilters();
+}
+
+function resetHotelFilter() {
+  const searchEl = document.getElementById('hotelSearchInput');
+  if (searchEl) searchEl.value = '';
+  filterHotels('all');
+}
+
+function applyHotelFilters() {
+  const query = (document.getElementById('hotelSearchInput')?.value || '').trim().toLowerCase();
+  const cards = document.querySelectorAll('#hotels .resto-card, .hotel-section-wrap .resto-card');
+  let visibleCount = 0;
+
+  cards.forEach(c => {
+    const cat = c.getAttribute('data-category') || '';
+    const text = c.textContent.toLowerCase();
+    const matchesCat = (currentHotelCategory === 'all' || cat.includes(currentHotelCategory));
+    const matchesSearch = (!query || text.includes(query));
+    if (matchesCat && matchesSearch) {
+      c.style.display = 'flex';
+      visibleCount++;
+    } else {
+      c.style.display = 'none';
+    }
+  });
+
+  const emptyMsg = document.getElementById('noHotelMessage');
+  if (emptyMsg) {
+    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
 function applyRestoFilters() {
   const query = (document.getElementById('restoSearchInput')?.value || '').trim().toLowerCase();
   const cards = document.querySelectorAll('.resto-card');
