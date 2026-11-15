@@ -1337,6 +1337,8 @@ body.subpage .site-header .menu-toggle-btn:hover {
   overflow: hidden;
   position: relative;
   border-bottom: 1px solid #f1f5f9;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .resto-img {
@@ -1346,8 +1348,35 @@ body.subpage .site-header .menu-toggle-btn:hover {
   transition: transform 0.35s ease;
 }
 
-.resto-card:hover .resto-img {
-  transform: scale(1.03);
+.resto-card:hover .resto-img,
+.resto-img-wrap:hover .resto-img {
+  transform: scale(1.04);
+}
+
+.resto-badge-fb {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(12, 35, 51, 0.78);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.25s ease;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.resto-card:hover .resto-badge-fb,
+.resto-img-wrap:hover .resto-badge-fb {
+  background: #1877f2;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35);
 }
 
 .resto-body {
@@ -1366,6 +1395,16 @@ body.subpage .site-header .menu-toggle-btn:hover {
   line-height: 1.35;
 }
 
+.resto-name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.resto-name a:hover {
+  color: #e65100;
+}
+
 .resto-meta-row {
   display: flex;
   align-items: flex-start;
@@ -1381,6 +1420,17 @@ body.subpage .site-header .menu-toggle-btn:hover {
   font-size: 13px;
   margin-top: 3px;
   flex-shrink: 0;
+}
+
+.resto-phone-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.resto-phone-link:hover {
+  color: #e65100;
+  text-decoration: underline;
 }
 
 .resto-desc {
