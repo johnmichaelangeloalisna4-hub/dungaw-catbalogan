@@ -157,7 +157,70 @@
             </div>
           </div>
 
-          <button class="btn-calculate-route" onclick="calculateRoute()">
+                    <!-- Vehicle Terminals & Nearest Transportation Tracker -->
+          <div class="terminal-tracker-card" style="margin-top: 16px; margin-bottom: 8px; padding: 14px 16px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+              <span style="font-size: 11.5px; font-weight: 800; color: #4338ca; text-transform: uppercase; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-van-shuttle" style="color: #6366f1;"></i> Vehicle Terminals &amp; Transport Hubs:
+              </span>
+              <button type="button" class="btn-nearest-terminal" onclick="findNearestTerminal()" title="Find the closest vehicle terminal based on your current location or starting point">
+                <i class="fa-solid fa-location-crosshairs"></i> Find Nearest Terminal
+              </button>
+            </div>
+
+            <!-- Terminal Quick Chips -->
+            <div class="quick-chips-wrap terminal-chips-wrap" style="gap: 6px;">
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-bus_terminal" onclick="selectTerminal('bus_terminal')">
+                <i class="fa-solid fa-bus"></i> Bus Terminal (Diversion)
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-grand_tours" onclick="selectTerminal('grand_tours')">
+                <i class="fa-solid fa-van-shuttle"></i> Grand Tours Van
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-duptours" onclick="selectTerminal('duptours')">
+                <i class="fa-solid fa-van-shuttle"></i> Duptours Shuttle
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-port" onclick="selectTerminal('port')">
+                <i class="fa-solid fa-ship"></i> Catbalogan Port (Pier 1)
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-pier_boat_wharf" onclick="selectTerminal('pier_boat_wharf')">
+                <i class="fa-solid fa-sailboat"></i> Motorboat Wharf (Islands)
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-central_tricycle_stand" onclick="selectTerminal('central_tricycle_stand')">
+                <i class="fa-solid fa-motorcycle"></i> Downtown Tricycles
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-northbound_tricycle_stand" onclick="selectTerminal('northbound_tricycle_stand')">
+                <i class="fa-solid fa-motorcycle"></i> Northbound (Silanga/Buri)
+              </button>
+              <button type="button" class="chip-dest chip-terminal" id="chip-term-southbound_multicab_stand" onclick="selectTerminal('southbound_multicab_stand')">
+                <i class="fa-solid fa-truck-pickup"></i> Southbound Multicabs
+              </button>
+            </div>
+
+            <!-- Dynamic Nearest Terminal Banner (populated when clicked) -->
+            <div id="nearestTerminalCard" style="display: none; margin-top: 12px; padding: 12px 14px; background: #eef2ff; border: 1.5px solid #c7d2fe; border-radius: 10px;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;">
+                <div style="flex: 1;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #4f46e5; animation: pulse 2s infinite;"></span>
+                    <strong style="font-size: 12px; color: #3730a3; text-transform: uppercase;">Closest Terminal Detected</strong>
+                  </div>
+                  <h4 id="nearestTermName" style="font-size: 14px; font-weight: 700; color: #1e1b4b; margin: 0 0 2px 0;">Catbalogan Integrated Bus Terminal</h4>
+                  <p id="nearestTermDist" style="font-size: 12px; color: #4338ca; margin: 0 0 4px 0; font-weight: 600;">Approx. 0.8 km from your origin</p>
+                  <p id="nearestTermDesc" style="font-size: 11.5px; color: #475569; margin: 0; line-height: 1.4;">Provincial buses to Tacloban, Calbayog, and Manila</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 10px;">
+                <button type="button" onclick="routeToNearestTerminal()" style="flex: 1; padding: 7px 12px; background: #4f46e5; color: #ffffff; border: none; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.15s ease;">
+                  <i class="fa-solid fa-route"></i> Route Here
+                </button>
+                <button type="button" onclick="setAsOriginNearest()" style="flex: 1; padding: 7px 12px; background: #ffffff; color: #4f46e5; border: 1px solid #c7d2fe; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.15s ease;">
+                  <i class="fa-solid fa-location-dot"></i> Start From Here
+                </button>
+              </div>
+            </div>
+          </div>
+
+<button class="btn-calculate-route" onclick="calculateRoute()">
             <i class="fa-solid fa-route"></i> Calculate Route &amp; Vehicle
           </button>
 
@@ -205,6 +268,10 @@
             <div style="display: flex; align-items: center; gap: 6px;">
               <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #2563eb;"></span>
               <strong>Tourist Spot Pin</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #7c3aed;"></span>
+              <strong>Vehicle Terminal</strong>
             </div>
             <div style="display: flex; align-items: center; gap: 6px;">
               <span style="display: inline-block; width: 16px; height: 2px; background: #0f8b84; border-top: 2px dashed #0f8b84;"></span>
