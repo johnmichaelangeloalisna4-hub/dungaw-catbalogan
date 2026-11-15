@@ -3874,3 +3874,7 @@ body.subpage .page-main>section:first-child {
     background: #f8fafc !important;
   }
 }
+/* Fallback safeguard: Never allow Street View modal or backdrop to render inline */
+.sv-modal-backdrop:not(.open) {
+  display: none !important;
+}

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=59">
+  <link rel="stylesheet" href="css/style.css?v=60">
 </head>
 <body class="subpage">
   <!-- ========================================================
@@ -891,14 +891,20 @@
   <!-- ========================================================
        INTERACTIVE 360° STREET VIEW & MAP EXPLORER MODAL
        ======================================================== -->
-  <div class="sv-modal-backdrop" id="streetViewModal" onclick="if(event.target===this) closeStreetView()">
-    <div class="sv-modal-header">
-      <div class="sv-title-wrap">
-        <span class="sv-category-pill" id="svCategory">CATBALOGAN CITY TOURISM</span>
+  <div class="sv-modal" id="streetViewModal" role="dialog" aria-modal="true" aria-label="Map and Street View Explorer">
+    <!-- Top Control Bar (Cleanly above map, never overlaps WordPress Admin Bar) -->
+    <div class="sv-topbar">
+      <div class="sv-topbar-info">
+        <div class="sv-info-eyebrow">
+          <i class="fa-solid fa-location-dot"></i>
+          <span id="svCategoryLabel">CATBALOGAN MAP &amp; STREET VIEW</span>
+          <span id="svStepLabel" style="color: #94a3b8;">1 / 11</span>
+        </div>
         <div class="sv-info-title" id="svTitle">Catbalogan City</div>
         <div class="sv-info-sub" id="svSubtitle">Interactive Map &amp; Viewpoint Explorer</div>
       </div>
 
+      <!-- View Mode Switcher -->
       <div class="sv-mode-tabs" role="tablist">
         <button type="button" class="sv-mode-btn active" data-mode="split" onclick="svSetMode('split')">
           <i class="fa-solid fa-table-columns"></i> Map + View
@@ -925,7 +931,9 @@
       </div>
     </div>
 
+    <!-- Split Stage: Real Interactive Google Map + Interactive Street View / Photo 360 -->
     <div class="sv-stage" id="svStage">
+      <!-- Left Pane: Real Google Map with Location Pin -->
       <div class="sv-map-pane">
         <div class="sv-map-badge">
           <i class="fa-solid fa-map-pin" style="color: var(--coral-accent);"></i>
@@ -934,11 +942,14 @@
         <iframe id="svMapFrame" class="sv-iframe" title="Catbalogan Interactive Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
 
+      <!-- Right Pane: Google Street View OR Interactive Photo 360 -->
       <div class="sv-view-pane">
+        <!-- Real Google Street View Embed -->
         <div class="sv-gsv-wrap" id="svGsvWrap">
           <iframe id="svGsvFrame" class="sv-iframe" title="Google Street View" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
 
+        <!-- Photo 360 Pinch/Drag/Forward-Back Viewpoint Canvas -->
         <div class="sv-viewport" id="svViewport">
           <img id="svImage" class="sv-canvas-img" src="./images/hero.jpg" alt="Street View Scene">
 
@@ -977,6 +988,7 @@
       </div>
     </div>
 
+    <!-- Bottom Connected Waypoint Strip -->
     <div class="sv-strip" id="svThumbStrip"></div>
   </div>
 
@@ -984,6 +996,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=59"></script>
+  <script src="js/main.js?v=60"></script>
 </body>
 </html>
