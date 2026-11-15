@@ -2267,3 +2267,235 @@
 body.subpage .hero-floating-right { position: fixed; right: 32px; bottom: 32px; z-index: 900; }
 body.subpage main.page-main { min-height: 70vh; }
 body.subpage .page-main > section:first-child { padding-top: 70px; }
+
+/* ==========================================================
+   MOBILE UX & NATIVE-FEEL UI ENHANCEMENTS
+   ========================================================== */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Safe Area & Mobile Header */
+  .site-header {
+    height: 68px;
+    padding: 0 16px;
+  }
+
+  .brand-title {
+    font-size: 17px;
+  }
+
+  .brand-sub {
+    font-size: 8.5px;
+    letter-spacing: 1.5px;
+  }
+
+  .brand-official-logo, .brand-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Smooth Native-feel Mobile Nav */
+  .site-nav {
+    top: 68px !important;
+    padding: 10px 18px 22px !important;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 18px 36px rgba(12, 35, 51, 0.22);
+    border-top: 1px solid rgba(12, 35, 51, 0.08);
+    background: rgba(250, 247, 242, 0.98) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .site-nav.mobile-open {
+    display: flex;
+    animation: mobileNavDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes mobileNavDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .site-nav a {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px 4px;
+    border-bottom: 1px solid rgba(12, 35, 51, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-nav a:last-child {
+    border-bottom: none;
+  }
+
+  /* Mobile Hero Section */
+  .hero-section {
+    padding: 40px 18px 120px !important;
+    min-height: calc(100vh - 68px);
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-title-box {
+    padding: 12px 18px !important;
+    margin-bottom: 16px !important;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 32px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-subtitle {
+    font-size: 14.5px !important;
+    margin-bottom: 24px !important;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-explore, .btn-meet {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 12px;
+    min-height: 48px;
+  }
+
+  /* Compact Floating Buttons on Phones (Doesn't block view) */
+  .hero-floating-right,
+  body.subpage .hero-floating-right {
+    right: 14px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    gap: 8px !important;
+    z-index: 950 !important;
+  }
+
+  .btn-my-trip {
+    padding: 10px 16px !important;
+    font-size: 12.5px !important;
+    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.42) !important;
+  }
+
+  .badge-eastern-visayas {
+    padding: 5px 12px !important;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* Mobile Bottom-Sheet Modals */
+  .modal-backdrop {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .modal-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 86vh !important;
+    border-radius: 22px 22px 0 0 !important;
+    box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.35) !important;
+    animation: modalSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  @keyframes modalSlideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .drawer-header {
+    padding: 16px 20px;
+  }
+
+  .drawer-body {
+    padding: 16px 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .drawer-footer {
+    padding: 14px 20px calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  .modal-item-row {
+    padding: 10px;
+  }
+
+  .modal-item-thumb, .modal-item-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .card-actions-dual {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .card-actions-dual .btn-card-link,
+  .card-actions-dual .btn-card-order {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Street View Modal on Phones */
+  .sv-modal {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .sv-topbar {
+    padding: 8px 12px;
+  }
+
+  .sv-mode-tabs {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
+
+  .sv-mode-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .sv-stage {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 240px 1fr !important;
+  }
+
+  .sv-store-pin-card {
+    padding: 10px 12px;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .sv-store-pin-name {
+    font-size: 13.5px;
+  }
+
+  .sv-store-pin-addr {
+    font-size: 11px;
+  }
+
+  /* Touch Cards Active Feedback */
+  .spot-card, .food-card, .feature-card {
+    transition: transform 0.15s ease;
+  }
+
+  .spot-card:active, .food-card:active, .feature-card:active {
+    transform: scale(0.985);
+  }
+}
