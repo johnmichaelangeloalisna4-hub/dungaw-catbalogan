@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Global Shared Styles -->
-  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="stylesheet" href="css/style.css?v=25">
 
   <style>
     /* ==========================================================
@@ -971,15 +971,15 @@
         <form class="drawer-form" id="tripInquiryForm" onsubmit="submitItineraryInquiry(event)">
           <div class="drawer-field">
             <label for="visitorName">Your Full Name</label>
-            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz" required>
+            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz">
           </div>
           <div class="drawer-field">
             <label for="visitorEmail">Email or Contact Number</label>
-            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917..." required>
+            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917...">
           </div>
           <div class="drawer-field">
             <label for="visitDate">Preferred Travel Date</label>
-            <input type="date" id="visitDate" required>
+            <input type="date" id="visitDate">
           </div>
         </form>
 
@@ -990,9 +990,9 @@
           <i class="fa-solid fa-route"></i> Track Route &amp; Vehicles on Map
         </a>
         <button type="submit" form="tripInquiryForm" class="btn-submit-trip">
-          Send Itinerary Inquiry <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+          Send Inquiry &amp; Flash Itinerary on Screen <i class="fa-solid fa-receipt" style="margin-left: 6px;"></i>
         </button>
-        <button type="button" class="btn-view-itinerary" onclick="openOnScreenItinerary()"><i class="fa-solid fa-receipt" style="color: var(--teal-primary);"></i> View My Itinerary &amp; Orders</button>
+        <button type="button" class="btn-view-itinerary" onclick="openOnScreenItinerary()"><i class="fa-solid fa-eye" style="color: var(--teal-primary);"></i> View Saved Itinerary &amp; Orders</button>
       </div>
     </div>
   </div>
@@ -1029,7 +1029,7 @@
   <div class="toast" id="toastMsg"></div>
 
   <!-- Scripts -->
-  <script src="js/main.js?v=20"></script>
+  <script src="js/main.js?v=25"></script>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>

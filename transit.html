@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- Site Styles -->
-  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="stylesheet" href="css/style.css?v=25">
   <link rel="stylesheet" href="css/transit.css?v=13">
 </head>
 <body class="subpage">
@@ -399,15 +399,15 @@
         <form class="drawer-form" id="tripInquiryForm" onsubmit="submitItineraryInquiry(event)">
           <div class="drawer-field">
             <label for="visitorName">Your Full Name</label>
-            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz" required>
+            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz">
           </div>
           <div class="drawer-field">
             <label for="visitorEmail">Email or Contact Number</label>
-            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917..." required>
+            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917...">
           </div>
           <div class="drawer-field">
             <label for="visitDate">Preferred Travel Date</label>
-            <input type="date" id="visitDate" required>
+            <input type="date" id="visitDate">
           </div>
         </form>
 
@@ -418,9 +418,9 @@
           <i class="fa-solid fa-compass"></i> Browse &amp; Add Tourist Spots
         </a>
         <button type="submit" form="tripInquiryForm" class="btn-submit-trip">
-          Send Itinerary Inquiry <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+          Send Inquiry &amp; Flash Itinerary on Screen <i class="fa-solid fa-receipt" style="margin-left: 6px;"></i>
         </button>
-        <button type="button" class="btn-view-itinerary" onclick="openOnScreenItinerary()"><i class="fa-solid fa-receipt" style="color: var(--teal-primary);"></i> View My Itinerary &amp; Orders</button>
+        <button type="button" class="btn-view-itinerary" onclick="openOnScreenItinerary()"><i class="fa-solid fa-eye" style="color: var(--teal-primary);"></i> View Saved Itinerary &amp; Orders</button>
       </div>
     </div>
   </div>
@@ -458,7 +458,7 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/main.js?v=20"></script>
+  <script src="js/main.js?v=25"></script>
   <script src="js/transit.js?v=4"></script>
 
 </body>
