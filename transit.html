@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- Site Styles -->
-  <link rel="stylesheet" href="css/style.css?v=62">
-  <link rel="stylesheet" href="css/transit.css?v=13">
+  <link rel="stylesheet" href="css/style.css?v=63">
+  <link rel="stylesheet" href="css/transit.css?v=14">
 </head>
 <body class="subpage">
 
@@ -226,7 +226,7 @@
 
           <!-- Dynamic Result Box -->
           <div id="routeResultContainer" class="route-result-box">
-            <!-- Rendered by transit.js -->
+            <!-- Rendered by transit.js?v=63 -->
           </div>
 
         </div>
@@ -239,6 +239,9 @@
               <span>Interactive Catbalogan Transit Map</span>
             </div>
             <div class="map-controls-group">
+              <button class="map-control-btn btn-focus-terminals" onclick="fitAllTerminals()" title="Fit and view all 9 vehicle terminals on map">
+                <i class="fa-solid fa-van-shuttle" style="color: #a855f7;"></i> View All Terminals
+              </button>
               <button class="map-control-btn" onclick="trackMyLocation()">
                 <i class="fa-solid fa-location-crosshairs"></i> Locate Me
               </button>
@@ -246,6 +249,25 @@
                 <i class="fa-solid fa-expand"></i> Reset View
               </button>
             </div>
+          </div>
+
+          <!-- Interactive Map Category Filter Bar -->
+          <div class="map-filter-bar">
+            <button type="button" class="map-filter-pill active" data-filter="all" onclick="setMapFilter('all')">
+              <i class="fa-solid fa-layer-group"></i> All Landmarks
+            </button>
+            <button type="button" class="map-filter-pill pill-terminal-highlight" data-filter="terminal" onclick="setMapFilter('terminal')">
+              <i class="fa-solid fa-van-shuttle" style="color: #7c3aed;"></i> Vehicle Terminals (9)
+            </button>
+            <button type="button" class="map-filter-pill" data-filter="spot" onclick="setMapFilter('spot')">
+              <i class="fa-solid fa-umbrella-beach" style="color: #2563eb;"></i> Attractions
+            </button>
+            <button type="button" class="map-filter-pill" data-filter="hotel" onclick="setMapFilter('hotel')">
+              <i class="fa-solid fa-hotel" style="color: #0284c7;"></i> Hotels
+            </button>
+            <button type="button" class="map-filter-pill" data-filter="dining" onclick="setMapFilter('dining')">
+              <i class="fa-solid fa-utensils" style="color: #ea580c;"></i> Restaurants
+            </button>
           </div>
 
           <!-- Leaflet Map Container -->
@@ -739,8 +761,8 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/main.js?v=62"></script>
-  <script src="js/transit.js?v=62"></script>
+  <script src="js/main.js?v=63"></script>
+  <script src="js/transit.js?v=63"></script>
 
 </body>
 </html>

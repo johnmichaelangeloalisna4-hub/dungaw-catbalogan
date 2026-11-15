@@ -10,7 +10,8 @@ const TRANSIT_LOCATIONS = {
   // VEHICLE TERMINALS & TRANSPORTATION HUBS
   // ========================================================
   'bus_terminal': {
-    id: 'bus_terminal',
+    id: 'bus_terminal',    shortLabel: '🚌 Bus Terminal (Diversion)',
+
     name: 'Catbalogan Integrated Bus Terminal',
     category: 'Provincial Bus Terminal',
     lat: 11.7820,
@@ -22,7 +23,8 @@ const TRANSIT_LOCATIONS = {
     address: 'Diversion Road / North Coastal Highway, Brgy. Muñoz'
   },
   'grand_tours': {
-    id: 'grand_tours',
+    id: 'grand_tours',    shortLabel: '🚐 Grand Tours Van',
+
     name: 'Grand Tours Van Terminal',
     category: 'Regional Van Terminal',
     lat: 11.7762,
@@ -34,7 +36,8 @@ const TRANSIT_LOCATIONS = {
     address: 'San Francisco Street corner Del Rosario, City Proper'
   },
   'duptours': {
-    id: 'duptours',
+    id: 'duptours',    shortLabel: '🚐 Duptours Shuttle',
+
     name: 'Duptours Shuttle Terminal',
     category: 'Regional Van Terminal',
     lat: 11.7758,
@@ -46,7 +49,8 @@ const TRANSIT_LOCATIONS = {
     address: 'Mabini Avenue corner Allen Avenue, Downtown'
   },
   'port': {
-    id: 'port',
+    id: 'port',    shortLabel: '🚢 Catbalogan Port (Pier 1)',
+
     name: 'Catbalogan Port / Pier 1',
     category: 'Ferry Seaport Terminal',
     lat: 11.7736,
@@ -58,7 +62,8 @@ const TRANSIT_LOCATIONS = {
     address: 'Curry Avenue Seafront, Port Area'
   },
   'pier_boat_wharf': {
-    id: 'pier_boat_wharf',
+    id: 'pier_boat_wharf',    shortLabel: '⛵ Island Motorboat Wharf',
+
     name: 'Catbalogan Motorboat & Pumpboat Wharf',
     category: 'Island Pumpboat Terminal',
     lat: 11.7725,
@@ -70,7 +75,8 @@ const TRANSIT_LOCATIONS = {
     address: 'Pier Area / Lower Curry Avenue, Seafront'
   },
   'central_tricycle_stand': {
-    id: 'central_tricycle_stand',
+    id: 'central_tricycle_stand',    shortLabel: '🛺 Downtown Tricycle Stand',
+
     name: 'Central Downtown Tricycle Terminal',
     category: 'City Tricycle Stand',
     lat: 11.7748,
@@ -82,7 +88,8 @@ const TRANSIT_LOCATIONS = {
     address: 'Rizal Avenue corner San Bartolome St. (City Plaza)'
   },
   'northbound_tricycle_stand': {
-    id: 'northbound_tricycle_stand',
+    id: 'northbound_tricycle_stand',    shortLabel: '🛺 Northbound Tricycle Stand',
+
     name: 'Northbound Tricycle Terminal (Silanga / Buri)',
     category: 'Inter-Barangay Tricycle Stand',
     lat: 11.7770,
@@ -94,7 +101,8 @@ const TRANSIT_LOCATIONS = {
     address: 'San Roque Street (North Highway Exit)'
   },
   'southbound_multicab_stand': {
-    id: 'southbound_multicab_stand',
+    id: 'southbound_multicab_stand',    shortLabel: '🛻 Southbound Multicab Stand',
+
     name: 'Southbound Multicab & Jeepney Stand (Payao)',
     category: 'Multicab & Jeepney Stand',
     lat: 11.7730,
@@ -106,7 +114,8 @@ const TRANSIT_LOCATIONS = {
     address: 'Taft Avenue corner San Bartolome St.'
   },
   'airport': {
-    id: 'airport',
+    id: 'airport',    shortLabel: '✈️ Buri Airport',
+
     name: 'Catbalogan Buri Airport Terminal',
     category: 'Airport Terminal',
     lat: 11.8080,
@@ -702,6 +711,31 @@ function initMap() {
   }
 }
 
+let currentMapFilter = 'all';
+
+function setMapFilter(filterType) {
+  currentMapFilter = filterType;
+  document.querySelectorAll('.map-filter-pill').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-filter') === filterType);
+  });
+  
+  const originId = document.getElementById('originSelect')?.value;
+  const destId = document.getElementById('destSelect')?.value;
+  plotAllLandmarks([originId, destId]);
+
+  if (filterType === 'terminal') {
+    fitAllTerminals();
+  }
+}
+
+function fitAllTerminals() {
+  if (!transitMap || !L) return;
+  const terminalLocs = Object.values(TRANSIT_LOCATIONS).filter(l => l.type === 'terminal');
+  if (terminalLocs.length === 0) return;
+  const bounds = L.latLngBounds(terminalLocs.map(l => [l.lat, l.lng]));
+  transitMap.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+}
+
 function plotAllLandmarks(excludeIds = []) {
   if (!transitMap || !L) return;
 
@@ -715,26 +749,60 @@ function plotAllLandmarks(excludeIds = []) {
     const isHub = loc.type === 'hub';
     const isDining = loc.type === 'dining';
     const isHotel = loc.type === 'hotel';
-    const pinClass = isTerminal ? 'pin-terminal' : (isHub ? 'pin-hub' : (isDining ? 'pin-dining' : (isHotel ? 'pin-hotel' : 'pin-spot')));
+    const isSpot = loc.type === 'spot';
+
+    if (currentMapFilter !== 'all') {
+      if (currentMapFilter === 'terminal' && !isTerminal) return;
+      if (currentMapFilter === 'spot' && (!isSpot && !isHub)) return;
+      if (currentMapFilter === 'hotel' && !isHotel) return;
+      if (currentMapFilter === 'dining' && !isDining) return;
+    }
+
+    const pinClass = isTerminal ? 'pin-terminal terminal-pulsing-badge' : (isHub ? 'pin-hub' : (isDining ? 'pin-dining' : (isHotel ? 'pin-hotel' : 'pin-spot')));
+    const zIndex = isTerminal ? 800 : (isHub ? 400 : 100);
+    const pinSize = isTerminal ? 36 : 28;
+    const anchor = isTerminal ? 18 : 14;
 
     const customIcon = L.divIcon({
       className: 'custom-leaflet-div',
-      html: `<div class="map-pin-badge ${pinClass}" style="width:28px;height:28px;font-size:12px;border-width:2px;opacity:0.88;" title="${loc.name}"><i class="fa-solid ${loc.icon}"></i></div>`,
-      iconSize: [28, 28],
-      iconAnchor: [14, 14],
-      popupAnchor: [0, -16]
+      html: `<div class="map-pin-badge ${pinClass}" style="width:${pinSize}px;height:${pinSize}px;font-size:${isTerminal ? '15px' : '12px'};border-width:${isTerminal ? '3px' : '2px'};" title="${loc.name}"><i class="fa-solid ${loc.icon}"></i></div>`,
+      iconSize: [pinSize, pinSize],
+      iconAnchor: [anchor, anchor],
+      popupAnchor: [0, -anchor - 4]
     });
 
-    const marker = L.marker([loc.lat, loc.lng], { icon: customIcon, zIndexOffset: 100 });
-    
+    const marker = L.marker([loc.lat, loc.lng], { icon: customIcon, zIndexOffset: zIndex });
+
+    // Permanent Floating Tooltip for all transportation terminals so they are ALWAYS visible
+    if (isTerminal) {
+      marker.bindTooltip(`
+        <div class="terminal-floating-tooltip">
+          <i class="fa-solid ${loc.icon}" style="color: #c084fc;"></i>
+          <span>${loc.shortLabel || loc.name}</span>
+        </div>
+      `, {
+        permanent: true,
+        direction: 'top',
+        className: 'custom-terminal-tooltip',
+        offset: [0, -20]
+      });
+    }
+
     const popupHtml = `
-      <div style="min-width: 200px; font-family: var(--font-body); padding: 4px;">
-        <strong style="color: #0c2333; font-size: 14px; display: block; margin-bottom: 4px;">${loc.name}</strong>
-        <span style="display: inline-block; font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 20px; font-weight: 700; margin-bottom: 8px;">${loc.category}</span>
+      <div class="map-terminal-popup" style="min-width: 220px; font-family: var(--font-body); padding: 4px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:${isTerminal ? '#7c3aed' : '#0f8b84'};color:#fff;font-size:11px;">
+            <i class="fa-solid ${loc.icon}"></i>
+          </span>
+          <strong style="color: #0c2333; font-size: 14px; line-height: 1.2;">${loc.name}</strong>
+        </div>
+        <span style="display: inline-block; font-size: 11px; background: ${isTerminal ? '#ede9fe' : '#e0f2fe'}; color: ${isTerminal ? '#6d28d9' : '#0369a1'}; padding: 2px 8px; border-radius: 20px; font-weight: 700; margin-bottom: 8px;">${loc.category}</span>
+        ${loc.vehicleType ? `<div style="font-size: 11.5px; color: #475569; margin-bottom: 4px;"><strong>Vehicles:</strong> ${loc.vehicleType}</div>` : ''}
+        ${loc.routes ? `<div style="font-size: 11.5px; color: #475569; margin-bottom: 6px;"><strong>Routes:</strong> ${loc.routes}</div>` : ''}
         <p style="font-size: 12px; color: #64748b; margin-bottom: 10px;">${loc.address}</p>
         <div style="display: flex; gap: 6px;">
-          <button onclick="setOriginFromMap('${loc.id}')" style="flex: 1; background: #0f8b84; color: #fff; border: none; padding: 5px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">Set as Start</button>
-          <button onclick="setDestFromMap('${loc.id}')" style="flex: 1; background: #f97316; color: #fff; border: none; padding: 5px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">Set as Dest</button>
+          <button onclick="setOriginFromMap('${loc.id}')" style="flex: 1; background: #0f8b84; color: #fff; border: none; padding: 6px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">Start Here</button>
+          <button onclick="setDestFromMap('${loc.id}')" style="flex: 1; background: ${isTerminal ? '#7c3aed' : '#f97316'}; color: #fff; border: none; padding: 6px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">Route Here &rarr;</button>
         </div>
       </div>
     `;
@@ -744,6 +812,7 @@ function plotAllLandmarks(excludeIds = []) {
     allSpotMarkers.push(marker);
   });
 }
+
 
 function populateDropdowns() {
   const originSelect = document.getElementById('originSelect');
