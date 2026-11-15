@@ -1953,6 +1953,57 @@ function resetFoodFilter() {
   filterFood('all');
 }
 
+/* ========================================================
+   DOT ACCREDITED RESTAURANTS FILTER & SEARCH
+   ======================================================== */
+let currentRestoCategory = 'all';
+
+function filterRestos(category, event) {
+  currentRestoCategory = category;
+  const buttons = document.querySelectorAll('.resto-filter-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  } else {
+    document.querySelector('.resto-filter-btn[data-filter="' + category + '"]')?.classList.add('active');
+  }
+  applyRestoFilters();
+}
+
+function searchRestos() {
+  applyRestoFilters();
+}
+
+function resetRestoFilter() {
+  const searchEl = document.getElementById('restoSearchInput');
+  if (searchEl) searchEl.value = '';
+  filterRestos('all');
+}
+
+function applyRestoFilters() {
+  const query = (document.getElementById('restoSearchInput')?.value || '').trim().toLowerCase();
+  const cards = document.querySelectorAll('.resto-card');
+  let visibleCount = 0;
+
+  cards.forEach(c => {
+    const cat = c.getAttribute('data-category') || '';
+    const text = c.textContent.toLowerCase();
+    const matchesCat = (currentRestoCategory === 'all' || cat.includes(currentRestoCategory));
+    const matchesSearch = (!query || text.includes(query));
+    if (matchesCat && matchesSearch) {
+      c.style.display = 'flex';
+      visibleCount++;
+    } else {
+      c.style.display = 'none';
+    }
+  });
+
+  const emptyMsg = document.getElementById('noRestoMessage');
+  if (emptyMsg) {
+    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
 function toggleMobileNav() {
   const nav = document.getElementById('siteNav');
   const icon = document.getElementById('menuToggleIcon');

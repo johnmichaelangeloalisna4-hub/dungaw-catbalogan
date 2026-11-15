@@ -1588,6 +1588,13 @@ body.subpage .site-header .menu-toggle-btn:hover {
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45) !important;
 }
 
+.resto-filter-btn.active,
+.resto-filter-btn:hover {
+  background: #ea580c !important;
+  color: #ffffff !important;
+  border-color: #ea580c !important;
+}
+
 .hotel-section-wrap {
   background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   padding: 85px 0 100px;
