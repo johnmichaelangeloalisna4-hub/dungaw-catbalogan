@@ -225,12 +225,168 @@ const DETAILS_DATA = {
     img: './images/tamalos.jpg',
     tripName: 'Food Trail: Samar Tamalos',
     orderKey: 'tamalos-pack',
-    body: 'Inspired by Hispanic-era tamales and perfected by Samar kitchens, Catbalogan Tamalos pairs tender pork belly with rich roasted peanut sauce steamed inside fragrant banana leaves.',
+    body: 'Catbalogans tamalos is a variation of the tamale, a dish of Mexican origin, which found its way to the Philippines via the Manila-Acapulco Gallen trade. Rice dough is filled with pork and flavored by a sauce called \'pipi-an\', which is made of ground rice or peanuts with chilies and pasotes to produce that piquant flavor and zing that Mexicans love which Catbaloganons love too.',
     meta: [
-      '<strong><i class="fa-solid fa-tag" style="color:#ea580c"></i> Online Order Price:</strong> &#8369;280 / Heritage Box of 6',
-      '<strong><i class="fa-solid fa-store" style="color:var(--teal-primary)"></i> Where to Try:</strong> Catbalogan Public Market &amp; Heritage Kitchens',
-      '<strong><i class="fa-solid fa-bowl-food" style="color:var(--teal-primary)"></i> Key Ingredients:</strong> Pork Belly, Roasted Peanuts, Rice Flour, Annatto',
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Traditional Delicacy',
+      '<strong><i class="fa-solid fa-store" style="color:var(--teal-primary)"></i> Where to Try:</strong> Catbalogan Public Market &amp; Local Kitchens',
+      '<strong><i class="fa-solid fa-bowl-food" style="color:var(--teal-primary)"></i> Key Ingredients:</strong> Pork Belly, Pipi-an Sauce, Ground Rice/Peanuts, Chilies',
       '<strong><i class="fa-solid fa-star" style="color:var(--teal-primary)"></i> Tip:</strong> Best enjoyed warm for breakfast or merienda'
+    ]
+  },
+  'bola_catalana': {
+    tag: 'HERITAGE MAIN DISH',
+    title: 'Bola Catalana',
+    img: './images/bola_catalana.jpg',
+    tripName: 'Food Trail: Bola Catalana',
+    body: 'Bola Catalana is the Catbalogan version of embutido. The Catbalogan version is wrapped in leaf lard locally known as "sensal" and the ground pork is seasoned with salt, chopped onions a little sugar, sweet peas, diced cheese, carrots, pimientos and raisins. Sliced cooked eggs and cheese sticks are placed in the center of the roll and then wrapped, steamed and baked. The Tagalog version is not wrapped at all but rolled and steamed.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Festive Main Dish',
+      '<strong><i class="fa-solid fa-fire" style="color:var(--teal-primary)"></i> Method:</strong> Wrapped in Sensal, Steamed &amp; Baked',
+      '<strong><i class="fa-solid fa-bowl-food" style="color:var(--teal-primary)"></i> Filling:</strong> Ground Pork, Sweet Peas, Cheese Sticks, Eggs, Raisins'
+    ]
+  },
+  'kurukod': {
+    tag: 'NATIVE SNACK',
+    title: 'Kurukod',
+    img: './images/kurukod.jpg',
+    tripName: 'Food Trail: Kurukod',
+    body: 'Kurukod can be wrapped in different kind of leaves and can be perfectly paired with hot chocolate or ripe mangoes or a combination of both for that savory and sweet cravings..',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Native Snack / Merienda',
+      '<strong><i class="fa-solid fa-mug-hot" style="color:var(--teal-primary)"></i> Best Pairing:</strong> Native Hot Chocolate (Sikwate) or Ripe Mangoes',
+      '<strong><i class="fa-solid fa-leaf" style="color:var(--teal-primary)"></i> Wrapper:</strong> Fragrant Wild Native Leaves'
+    ]
+  },
+  'latik': {
+    tag: 'TRADITIONAL DESSERT',
+    title: 'Latik',
+    img: './images/latik.jpg',
+    tripName: 'Food Trail: Latik',
+    body: 'In Catbalogan and other parts of Visayas, "latik" is rice with lye that is steamed. It is topped with "hati", which is the viscous syrup from the reduction of coconut milk and calamay. It is commonly used to drizzle rice cakes to sweetness.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Traditional Dessert',
+      '<strong><i class="fa-solid fa-bowl-rice" style="color:var(--teal-primary)"></i> Base:</strong> Steamed Rice with Lye',
+      '<strong><i class="fa-solid fa-spoon" style="color:var(--teal-primary)"></i> Topping:</strong> Rich Hati (Coconut Milk &amp; Calamay Syrup)'
+    ]
+  },
+  'bulad_barol': {
+    tag: 'INTANGIBLE CULINARY HERITAGE',
+    title: 'Bulad &amp; Barol',
+    img: './images/bulad_barol.jpg',
+    tripName: 'Food Trail: Bulad & Barol',
+    body: 'Bulad and the process of making it is considered as an intangible heritage, which includes the knowledge and skills to produce this culinary heritage that is common in every household. Fish that are salted and dried whole is called bulad while those that are sliced open as in a butterfly is called barol.',
+    meta: [
+      '<strong><i class="fa-solid fa-fish" style="color:var(--teal-primary)"></i> Category:</strong> Artisanal Seafood Heritage',
+      '<strong><i class="fa-solid fa-sun" style="color:var(--teal-primary)"></i> Distinction:</strong> Bulad (Whole Dried Fish) vs. Barol (Butterfly Cut)',
+      '<strong><i class="fa-solid fa-store" style="color:var(--teal-primary)"></i> Where to Buy:</strong> Catbalogan Fish Port &amp; Dried Fish Row'
+    ]
+  },
+  'puto_ligong': {
+    tag: 'PRE-COLONIAL RICE CAKE',
+    title: 'Puto Ligong',
+    img: './images/puto_ligong.jpg',
+    tripName: 'Food Trail: Puto Ligong',
+    body: 'The ingenuous Filipino has been making its own dough for bread and cakes way before the colonizers came and brought their own. And long before the Americans introduced baking powder and yeast, there was the tuba and hatok. Tuba or coconut wine and the fresh coconut milk mixed into the rice dough made it distinctly more flavorful. This dough was set in tiny china cups, which was commonly called ligong, as molds hence the name puto ligong.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Heritage Rice Cake',
+      '<strong><i class="fa-solid fa-wine-bottle" style="color:var(--teal-primary)"></i> Fermentation:</strong> Traditional Tuba (Coconut Wine) &amp; Fresh Hatok',
+      '<strong><i class="fa-solid fa-circle" style="color:var(--teal-primary)"></i> Mold:</strong> Tiny Heirloom China Cups (Ligong)'
+    ]
+  },
+  'pakdol': {
+    tag: 'HEARTY SAMAR BROTH',
+    title: 'Pakdol',
+    img: './images/pakdol.jpg',
+    tripName: 'Food Trail: Pakdol',
+    body: 'A hearty broth from a carabao\'s or cow\'s shank or upper leg or portion of the upper leg down to the knee joints (hocks) is our pakdol. It is best eaten with rice and a side sauce made up kidya or calamansi with toyo or soy sauce and harang or chilis. Slow-cooked for hours, pakdol is known for its savory broth and melt-in-your-mouth tenderness.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Signature Main Dish / Stew',
+      '<strong><i class="fa-solid fa-fire" style="color:var(--teal-primary)"></i> Cooking Style:</strong> Slow-cooked for Hours until Fall-Apart Tender',
+      '<strong><i class="fa-solid fa-lemon" style="color:var(--teal-primary)"></i> Sawsawan:</strong> Kidya / Calamansi with Toyo &amp; Fresh Harang (Chili)'
+    ]
+  },
+  'humba': {
+    tag: 'VISAYAN BRAISED PORK',
+    title: 'Humba',
+    img: './images/humba.jpg',
+    tripName: 'Food Trail: Humba',
+    body: 'Humba (homba), which literally translates to tender (hum) pork (ba), is a Visayan braised pork dish similar to the classic adobo. It\'s said to have originated from the Chinese hong-bah/hong-mah, a red braised pork belly dish brought to the Visayas islands by Hokkien traders. What is different for Catbalogan\'s version is the inclusion of peanuts for that crunchy appeal.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Visayan Main Dish',
+      '<strong><i class="fa-solid fa-bowl-food" style="color:var(--teal-primary)"></i> Special Twist:</strong> Slow-cooked pork belly with roasted peanuts',
+      '<strong><i class="fa-solid fa-globe" style="color:var(--teal-primary)"></i> Origin:</strong> Hokkien-Visayan Culinary Fusion'
+    ]
+  },
+  'baduya_pasayan': {
+    tag: 'CRISPY SEAFOOD APPETIZER',
+    title: 'Baduya nga Pasayan',
+    img: './images/baduya_pasayan.jpg',
+    tripName: 'Food Trail: Baduya nga Pasayan',
+    body: 'Baduya nga Pasayan or deep fried shrimp fritter is usually served during the afternoon as snacks but can also be eaten as a viand during lunch. This savory dish is usually dipped in vinegar with lots of onions and a little salt.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Appetizer / Street Food',
+      '<strong><i class="fa-solid fa-shrimp" style="color:var(--teal-primary)"></i> Key Ingredient:</strong> Fresh Samar Shrimps in Crispy Batter',
+      '<strong><i class="fa-solid fa-bottle-droplet" style="color:var(--teal-primary)"></i> Dipping Sauce:</strong> Native Spiced Vinegar with Fresh Onions'
+    ]
+  },
+  'hopia_pili': {
+    tag: 'LEGACY BAKED PASTRY',
+    title: 'Hopia de Pili',
+    img: './images/hopia_pili.jpg',
+    tripName: 'Food Trail: Hopia de Pili',
+    body: 'Hopia de Pili is a round cookie filled with pili nuts – its sweetness is a pleasant surprise with every bite of this baked biscuit goodness. Made with flour, sugar, eggs, milk, lard, margarine, baking powder, water, vanilla, and pili nuts – this cookie has made its mark among the Samarnons, as it is considered a heritage, as the recipe has passed from generation to generation.',
+    meta: [
+      '<strong><i class="fa-solid fa-cookie" style="color:var(--teal-primary)"></i> Category:</strong> Heritage Pastry &amp; Pasalubong',
+      '<strong><i class="fa-solid fa-seedling" style="color:var(--teal-primary)"></i> Signature Ingredient:</strong> Native Pili Nut Filling',
+      '<strong><i class="fa-solid fa-heart" style="color:var(--teal-primary)"></i> Legacy:</strong> Handed Down Through Generations of Bakers'
+    ]
+  },
+  'hinatukan_banisil': {
+    tag: 'COASTAL SHELLFISH SPECIALTY',
+    title: 'Hinatukan nga Banisil',
+    img: './images/hinatukan_banisil.jpg',
+    tripName: 'Food Trail: Hinatukan nga Banisil',
+    body: 'As seafoods abound in Maqueda Bay and Samar Sea, various seashells can be cooked in many ways. One common shell is banisil (Common Tower Shellfish / Turitella) best cooked in coconut cream or hinatukan with herbs and greens.',
+    meta: [
+      '<strong><i class="fa-solid fa-water" style="color:var(--teal-primary)"></i> Category:</strong> Coastal Seafood Delicacy',
+      '<strong><i class="fa-solid fa-circle-dot" style="color:var(--teal-primary)"></i> Shellfish:</strong> Banisil (Common Tower Shell / Turritella)',
+      '<strong><i class="fa-solid fa-pepper-hot" style="color:var(--teal-primary)"></i> Preparation:</strong> Simmered in Rich Coconut Cream &amp; Fresh Greens'
+    ]
+  },
+  'baduya_ube': {
+    tag: 'SWEET STREET DELICACY',
+    title: 'Baduya nga Ube',
+    img: './images/baduya_ube.jpg',
+    tripName: 'Food Trail: Baduya nga Ube',
+    body: 'Baduya nga ube or ube fritters combine the rich and sweet flavor of ube with a lightly crisp texture. Popular as an afternoon snack, this culinary offering has been a staple street food for Catbaloganon and a must-buy for tourists and guests.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Sweet Snack / Street Food',
+      '<strong><i class="fa-solid fa-certificate" style="color:var(--teal-primary)"></i> Profile:</strong> Pure Purple Yam (Ube) with Crisp Golden Edges',
+      '<strong><i class="fa-solid fa-clock" style="color:var(--teal-primary)"></i> Best Time:</strong> Freshly Fried Afternoon Merienda'
+    ]
+  },
+  'adobo_sarad': {
+    tag: 'RARE MAQUEDA SEAFOOD',
+    title: 'Adobo nga Sarad',
+    img: './images/adobo_sarad.jpg',
+    tripName: 'Food Trail: Adobo nga Sarad',
+    body: 'Adobo nga Sarad can be eaten as appetizer or best paired with rice. Sarad or pen shell scallop is said to be ten times bigger than the common tahong or mussel. Cooked similar to any adobo, it uses bay leaf, bay leaf, salt, sugar, and vinegar giving it that familiar taste but a totally different flavor.',
+    meta: [
+      '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Category:</strong> Rare Seafood Main Dish',
+      '<strong><i class="fa-solid fa-shield-halved" style="color:var(--teal-primary)"></i> Shellfish:</strong> Sarad (Giant Pen Shell Scallop)',
+      '<strong><i class="fa-solid fa-bowl-rice" style="color:var(--teal-primary)"></i> Best Enjoyed:</strong> Steaming White Rice or Sizzling Appetizer'
+    ]
+  },
+  'kinilaw': {
+    tag: 'FRESH VISAYAN CEVICHE',
+    title: 'Kinilaw',
+    img: './images/kinilaw.jpg',
+    tripName: 'Food Trail: Kinilaw',
+    body: 'Kinilaw (from kinilas nga hilaw or raw filleted fish) is simply raw deboned fish cured in vinegar. Whatsashimi is to the Japanese, so is kinilaw to the Samareños (and Bisayans). The fishes of the Maqueda Bay and Samar Sea supply the basic ingredient of this simple recipe and make for the variations that can cater to different tastes, preferences, and pockets.',
+    meta: [
+      '<strong><i class="fa-solid fa-fish" style="color:var(--teal-primary)"></i> Category:</strong> Fresh Seafood Appetizer',
+      '<strong><i class="fa-solid fa-droplet" style="color:var(--teal-primary)"></i> Preparation:</strong> Vinegar-Cured Deboned Fresh Fish with Ginger &amp; Onions',
+      '<strong><i class="fa-solid fa-anchor" style="color:var(--teal-primary)"></i> Source:</strong> Maqueda Bay &amp; Samar Sea Daily Catch'
     ]
   },
   'crabs': {
@@ -1440,6 +1596,19 @@ function getTripMeta(name) {
     'Manaragat Festival (August)': ['Culture & Festivals', 'Catbalogan City Proper & Bayfront', 'Walking or Downtown Tricycle', 'FREE (Grand Street Dance)', 'August 1 - 24 (Annual Fiesta)'],
     'Kapaskohan ha Katbalogan (December)': ['Holiday Festival', 'City Plaza & Imelda Park', 'Walking or Downtown Tricycle', 'FREE (Lights & Cultural Panarit)', 'Whole Month of December'],
     'Food Trail: Samar Tamalos': ['Food & Delicacies', 'Public Market & Local Kitchens', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Best served warm for breakfast'],
+    'Food Trail: Bola Catalana': ['Heritage Main Dish', 'Catbalogan Heritage Kitchens & Catering', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Catbalogan special embutido in sensal'],
+    'Food Trail: Kurukod': ['Native Delicacy & Snack', 'Local Food Stalls & Morning Markets', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Pair with hot chocolate or ripe mangoes'],
+    'Food Trail: Latik': ['Traditional Dessert', 'Downtown Market & Kakanin Stalls', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Steamed rice with lye & sweet hati syrup'],
+    'Food Trail: Bulad & Barol': ['Artisanal Seafood', 'Catbalogan Dried Fish Stalls & Fish Port', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Salted dried fish & butterfly-cut barol'],
+    'Food Trail: Puto Ligong': ['Heritage Rice Cake', 'Local Bakers & Market Stalls', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Traditional rice cake with tuba & hatok'],
+    'Food Trail: Pakdol': ['Signature Samar Broth', 'Catbalogan Carinderias & Native Eateries', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Slow-cooked shank with calamansi-toyo & chili'],
+    'Food Trail: Humba': ['Visayan Braised Dish', 'Downtown Restaurants & Local Carenderias', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Braised pork belly with crunchy peanuts'],
+    'Food Trail: Baduya nga Pasayan': ['Coastal Snack & Viand', 'Street Food Hubs & Pier Stalls', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Crispy shrimp fritters with spiced vinegar'],
+    'Food Trail: Hopia de Pili': ['Heritage Baked Pastry', 'Heritage Bakeshops & Pasalubong Centers', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Baked cookie filled with native pili nuts'],
+    'Food Trail: Hinatukan nga Banisil': ['Seafood Delicacy', 'Bayfront Grills & Local Seafood Stalls', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Tower shellfish stewed in coconut cream'],
+    'Food Trail: Baduya nga Ube': ['Sweet Street Food', 'Afternoon Snack Vendors & Plaza Stalls', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Crispy-sweet purple yam (ube) fritters'],
+    'Food Trail: Adobo nga Sarad': ['Specialty Shellfish', 'Bayfront Grills & Public Market Eateries', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Giant pen shell scallop adobo with bay leaves'],
+    'Food Trail: Kinilaw': ['Fresh Seafood Appetizer', 'Bayfront Fishermen Grills & Ports', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Fresh vinegar-cured fish with ginger & onions'],
     'Food Trail: Maqueda Bay Seafood': ['Food & Delicacies', 'Bayfront Grills & Fish Port', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Fresh morning & sunset catch'],
     'Pasalubong: Samar Danggit & Tapa': ['Food & Pasalubong', 'Catbalogan Dried Fish Stalls', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Ask for travel-sealed packs'],
     'Pasalubong: Corioso & Pastries': ['Food & Pasalubong', 'Downtown Heritage Bakeshops', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Pair with native sikwate'],
@@ -1721,6 +1890,54 @@ function resetSpotsFilter() {
   const searchEl = document.getElementById('spotsSearchInput');
   if (searchEl) searchEl.value = '';
   filterSpots('all');
+}
+
+let currentFoodCategory = 'all';
+
+function applyFoodFilters() {
+  const query = (document.getElementById('foodSearchInput')?.value || '').trim().toLowerCase();
+  const cards = document.querySelectorAll('.food-card');
+  let visibleCount = 0;
+
+  cards.forEach(c => {
+    const cat = c.getAttribute('data-category');
+    const text = c.textContent.toLowerCase();
+    const matchesCat = (currentFoodCategory === 'all' || cat === currentFoodCategory);
+    const matchesSearch = (!query || text.includes(query));
+    if (matchesCat && matchesSearch) {
+      c.style.display = 'flex';
+      visibleCount++;
+    } else {
+      c.style.display = 'none';
+    }
+  });
+
+  const emptyMsg = document.getElementById('noFoodMessage');
+  if (emptyMsg) {
+    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
+function filterFood(category, event) {
+  currentFoodCategory = category;
+  const buttons = document.querySelectorAll('.food-filter-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  } else {
+    document.querySelector(`.food-filter-btn[data-filter="${category}"]`)?.classList.add('active');
+  }
+  applyFoodFilters();
+}
+
+function searchFood() {
+  applyFoodFilters();
+}
+
+function resetFoodFilter() {
+  const searchEl = document.getElementById('foodSearchInput');
+  if (searchEl) searchEl.value = '';
+  filterFood('all');
 }
 
 function toggleMobileNav() {

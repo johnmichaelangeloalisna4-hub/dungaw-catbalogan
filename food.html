@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=48">
+  <link rel="stylesheet" href="css/style.css?v=49">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -74,103 +74,327 @@
       <span class="section-badge">CULINARY HERITAGE</span>
       <h2 class="section-title">Authentic Samar Flavors</h2>
       <p class="section-subtitle">
-        Taste the rich culinary traditions passed down through generations in Catbalogan kitchens.
+        Taste the rich culinary traditions passed down through generations in Catbalogan kitchens &mdash; from heirloom Spanish-era recipes to fresh Maqueda Bay seafood.
       </p>
 
-      <div class="food-grid">
-        <div class="food-card">
-          <div class="food-img-wrap" onclick="openStreetView('tamalos')">
-            <img src="./images/tamalos.jpg" alt="Tamalos" class="food-img">
-            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('tamalos')">
-              <i class="fa-solid fa-street-view"></i> 360&deg; View
-            </button>
-          </div>
-          <div class="food-info">
-            <div>
-              <h3 class="food-name">Tamalos</h3>
-              <p class="food-desc">Samar's signature delicacy: tender pork stewed in rich, spicy peanut sauce inside fragrant banana leaves.</p>
-            </div>
-            <div class="food-actions">
-              <button class="btn-card-link" onclick="openDetailModal('tamalos')">
-                Where to Taste <i class="fa-solid fa-arrow-right"></i>
-              </button>
-              <button class="btn-card-link" style="color: var(--coral-accent);" onclick="openStreetView('tamalos')">
-                <i class="fa-solid fa-street-view"></i> Street View
-              </button>
-            </div>
-          </div>
+      <!-- Culinary Filters & Search Toolbar -->
+      <div class="spots-toolbar">
+        <div class="spots-filter-bar">
+          <button class="filter-btn food-filter-btn active" data-filter="all" onclick="filterFood('all', event)">All Flavors (14)</button>
+          <button class="filter-btn food-filter-btn" data-filter="main" onclick="filterFood('main', event)">Main Dishes</button>
+          <button class="filter-btn food-filter-btn" data-filter="seafood" onclick="filterFood('seafood', event)">Seafood Specialties</button>
+          <button class="filter-btn food-filter-btn" data-filter="delicacy" onclick="filterFood('delicacy', event)">Delicacies &amp; Snacks</button>
+          <button class="filter-btn food-filter-btn" data-filter="dessert" onclick="filterFood('dessert', event)">Desserts &amp; Pastries</button>
         </div>
-
-        <div class="food-card">
-          <div class="food-img-wrap" onclick="openStreetView('crabs')">
-            <img src="./images/crabs.jpg" alt="Maqueda Blue Crabs" class="food-img">
-            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('crabs')">
-              <i class="fa-solid fa-street-view"></i> 360&deg; View
-            </button>
-          </div>
-          <div class="food-info">
-            <div>
-              <h3 class="food-name">Maqueda Blue Crabs</h3>
-              <p class="food-desc">Freshly harvested sweet crabs, prawns, and reef fish straight from the coastal fishing bancas.</p>
-            </div>
-            <div class="food-actions">
-              <button class="btn-card-link" onclick="openDetailModal('crabs')">
-                Where to Taste <i class="fa-solid fa-arrow-right"></i>
-              </button>
-              <button class="btn-card-link" style="color: var(--coral-accent);" onclick="openStreetView('crabs')">
-                <i class="fa-solid fa-street-view"></i> Street View
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-img-wrap" onclick="openStreetView('danggit')">
-            <img src="./images/danggit.jpg" alt="Samar Danggit &amp; Tapa" class="food-img">
-            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('danggit')">
-              <i class="fa-solid fa-street-view"></i> 360&deg; View
-            </button>
-          </div>
-          <div class="food-info">
-            <div>
-              <h3 class="food-name">Samar Danggit &amp; Tapa</h3>
-              <p class="food-desc">Artisanal sun-dried fish and cured specialties renowned throughout Eastern Visayas.</p>
-            </div>
-            <div class="food-actions">
-              <button class="btn-card-link" onclick="openDetailModal('danggit')">
-                Where to Buy <i class="fa-solid fa-arrow-right"></i>
-              </button>
-              <button class="btn-card-link" style="color: var(--coral-accent);" onclick="openStreetView('danggit')">
-                <i class="fa-solid fa-street-view"></i> Street View
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="food-card">
-          <div class="food-img-wrap" onclick="openStreetView('corioso')">
-            <img src="./images/corioso.jpg" alt="Corioso &amp; Pastries" class="food-img">
-            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('corioso')">
-              <i class="fa-solid fa-street-view"></i> 360&deg; View
-            </button>
-          </div>
-          <div class="food-info">
-            <div>
-              <h3 class="food-name">Corioso &amp; Pastries</h3>
-              <p class="food-desc">Heritage butter cookies and sweet roscas crafted by legacy Catbalogan family bakeshops.</p>
-            </div>
-            <div class="food-actions">
-              <button class="btn-card-link" onclick="openDetailModal('corioso')">
-                Where to Buy <i class="fa-solid fa-arrow-right"></i>
-              </button>
-              <button class="btn-card-link" style="color: var(--coral-accent);" onclick="openStreetView('corioso')">
-                <i class="fa-solid fa-street-view"></i> Street View
-              </button>
-            </div>
-          </div>
+        <div class="spots-search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="foodSearchInput" class="spots-search-input" placeholder="Search delicacies, recipes, dishes..." oninput="searchFood()">
         </div>
       </div>
+
+      <!-- Food Trail Transit CTA Pill -->
+      <div style="background: linear-gradient(90deg, #0c2333 0%, #0f8b84 100%); border-radius: 14px; padding: 14px 22px; color: #fff; margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 6px 18px rgba(12,35,51,0.08);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 16px;">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <div>
+            <strong style="display: block; font-size: 14px; font-family: var(--font-heading);">Planning a Catbalogan Food Crawl?</strong>
+            <span style="font-size: 12px; color: #e2e8f0;">Save your favorite dishes to My Trip and track where to taste them on the commuter route map!</span>
+          </div>
+        </div>
+        <a href="transit.html" style="background: #ffffff; color: #0c2333; padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s;">
+          <i class="fa-solid fa-route" style="color: #0f8b84;"></i> View Food Route on Map &rarr;
+        </a>
+      </div>
+
+      <div class="food-grid" id="foodGrid">
+        <!-- 1. Tamalos -->
+        <article class="food-card" data-category="delicacy">
+          <div class="food-img-wrap" onclick="openDetailModal('tamalos')">
+            <img src="./images/tamalos.jpg" alt="Tamalos Catbalogan" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-bowl-food"></i> Delicacy</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('tamalos')">Tamalos</h3>
+              <p class="food-desc">Catbalogans tamalos is a variation of the tamale, a dish of Mexican origin, which found its way to the Philippines via the Manila-Acapulco Gallen trade. Rice dough is filled with pork and flavored by a sauce called 'pipi-an', which is made of ground rice or peanuts with chilies and pasotes to produce that piquant flavor and zing that Mexicans love which Catbaloganons love too.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Delicacy</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Samar Tamalos')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Bola Catalana -->
+        <article class="food-card" data-category="main">
+          <div class="food-img-wrap" onclick="openDetailModal('bola_catalana')">
+            <img src="./images/bola_catalana.jpg" alt="Bola Catalana" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-drumstick-bite"></i> Main Dish</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('bola_catalana')">Bola Catalana</h3>
+              <p class="food-desc">Bola Catalana is the Catbalogan version of embutido. The Catbalogan version is wrapped in leaf lard locally known as "sensal" and the ground pork is seasoned with salt, chopped onions a little sugar, sweet peas, diced cheese, carrots, pimientos and raisins. Sliced cooked eggs and cheese sticks are placed in the center of the roll and then wrapped, steamed and baked. The Tagalog version is not wrapped at all but rolled and steamed.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Main Dish</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Bola Catalana')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Kurukod -->
+        <article class="food-card" data-category="delicacy">
+          <div class="food-img-wrap" onclick="openDetailModal('kurukod')">
+            <img src="./images/kurukod.jpg" alt="Kurukod Native Snack" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-leaf"></i> Snack</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('kurukod')">Kurukod</h3>
+              <p class="food-desc">Kurukod can be wrapped in different kind of leaves and can be perfectly paired with hot chocolate or ripe mangoes or a a combination of both for that savory and sweet cravings..</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Snack</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Kurukod')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Latik -->
+        <article class="food-card" data-category="dessert">
+          <div class="food-img-wrap" onclick="openDetailModal('latik')">
+            <img src="./images/latik.jpg" alt="Latik Traditional Dessert" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-spoon"></i> Dessert</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('latik')">Latik</h3>
+              <p class="food-desc">In Catbalogan and other parts of Visayas, "latik" is rice with lye that is steamed. It is topped with "hati", which is the viscous syrup from the reduction of coconut milk and calamay. It is commonly used to drizzle rice cakes to sweetness.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Dessert</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Latik')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Bulad & Barol -->
+        <article class="food-card" data-category="seafood">
+          <div class="food-img-wrap" onclick="openDetailModal('bulad_barol')">
+            <img src="./images/bulad_barol.jpg" alt="Bulad and Barol Dried Fish" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-fish"></i> Seafood</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('bulad_barol')">Bulad &amp; Barol</h3>
+              <p class="food-desc">Bulad and the process of making it is considered as an intangible heritage, which includes the knowledge and skills to produce this culinary heritage that is common in every household. Fish that are salted and dried whole is called bulad while those that are sliced open as in a butterfly is called barol.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Seafood</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Bulad & Barol')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Puto Ligong -->
+        <article class="food-card" data-category="delicacy">
+          <div class="food-img-wrap" onclick="openDetailModal('puto_ligong')">
+            <img src="./images/puto_ligong.jpg" alt="Puto Ligong Heritage Rice Cake" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-bowl-rice"></i> Rice Cake</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('puto_ligong')">Puto Ligong</h3>
+              <p class="food-desc">The ingenuous Filipino has been making its own dough for bread and cakes way before the colonizers came and brought their own. And long before the Americans introduced baking powder and yeast, there was the tuba and hatok. Tuba or coconut wine and the fresh coconut milk mixed into the rice dough made it distinctly more flavorful. This dough was set in tiny china cups, which was commonly called ligong, as molds hence the name puto ligong.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Rice Cake</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Puto Ligong')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Pakdol -->
+        <article class="food-card" data-category="main">
+          <div class="food-img-wrap" onclick="openDetailModal('pakdol')">
+            <img src="./images/pakdol.jpg" alt="Pakdol Samar Beef Broth" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-fire-burner"></i> Main Dish</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('pakdol')">Pakdol</h3>
+              <p class="food-desc">A hearty broth from a carabao's or cow's shank or upper leg or portion of the upper leg down to the knee joints (hocks) is our pakdol. It is best eaten with rice and a side sauce made up kidya or calamansi with toyo or soy sauce and harang or chilis. Slow-cooked for hours, pakdol is known for its savory broth and melt-in-your -mouth tenderness.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Main Dish</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Pakdol')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Humba -->
+        <article class="food-card" data-category="main">
+          <div class="food-img-wrap" onclick="openDetailModal('humba')">
+            <img src="./images/humba.jpg" alt="Catbalogan Humba with Peanuts" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-drumstick-bite"></i> Main Dish</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('humba')">Humba</h3>
+              <p class="food-desc">Humba (homba), which literally translates to tender (hum) pork (ba), is a Visayan braised pork dish similar to the classic adobo. It's said to have originated from the Chinese hong-bah/hong-mah, a red braised pork belly dish brought to the Visayas islands by Hokkien traders. What is different for Catbalogan's version is the inclusion of peanuts for that crunchy appeal.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Main Dish</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Humba')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Baduya nga Pasayan -->
+        <article class="food-card" data-category="seafood">
+          <div class="food-img-wrap" onclick="openDetailModal('baduya_pasayan')">
+            <img src="./images/baduya_pasayan.jpg" alt="Baduya nga Pasayan Shrimp Fritter" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-shrimp"></i> Appetizer</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('baduya_pasayan')">Baduya nga Pasayan</h3>
+              <p class="food-desc">Baduya nga Pasayan or deep fried shrimp fritter is usually served during the afternoon as snacks but can also be eaten as a viand during lunch. This savory dish is usually dipped in vinegar with lots of onions and a little salt.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Appetizer</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Baduya nga Pasayan')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Hopia de Pili -->
+        <article class="food-card" data-category="dessert">
+          <div class="food-img-wrap" onclick="openDetailModal('hopia_pili')">
+            <img src="./images/hopia_pili.jpg" alt="Hopia de Pili" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-cookie"></i> Pastry</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('hopia_pili')">Hopia de Pili</h3>
+              <p class="food-desc">Hopia de Pili is a round cookie filled with pili nuts &ndash; its sweetness is a pleasant surprise with every bite of this baked biscuit goodness. Made with flour, sugar, eggs, milk, lard, margarine, baking powder, water, vanilla, and pili nuts &ndash; this cookie has made its mark among the Samarnons, as it is considered a heritage, as the recipe has passed from generation to generation.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Pastry</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Hopia de Pili')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. Hinatukan nga Banisil -->
+        <article class="food-card" data-category="seafood">
+          <div class="food-img-wrap" onclick="openDetailModal('hinatukan_banisil')">
+            <img src="./images/hinatukan_banisil.jpg" alt="Hinatukan nga Banisil Shellfish" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-water"></i> Seafood</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('hinatukan_banisil')">Hinatukan nga Banisil</h3>
+              <p class="food-desc">As seafoods abound in Maqueda Bay and Samar Sea, various seashells can be cooked in many ways. One common shell is banisil (Common Tower Shellfish / Turitella) best cooked in coconut cream or hinatukan with herbs and greens.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Seafood</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Hinatukan nga Banisil')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12. Baduya nga Ube -->
+        <article class="food-card" data-category="dessert">
+          <div class="food-img-wrap" onclick="openDetailModal('baduya_ube')">
+            <img src="./images/baduya_ube.jpg" alt="Baduya nga Ube Fritter" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-ice-cream"></i> Dessert</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('baduya_ube')">Baduya nga Ube</h3>
+              <p class="food-desc">Baduya nga ube or ube fritters combine the rich and sweet flavor of ube with a lightly crisp texture. Popular as an afternoon snack, this culinary offering has been a staple street food for Catbaloganon and a must-buy for tourists and guests.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Dessert</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Baduya nga Ube')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13. Adobo nga Sarad -->
+        <article class="food-card" data-category="main">
+          <div class="food-img-wrap" onclick="openDetailModal('adobo_sarad')">
+            <img src="./images/adobo_sarad.jpg" alt="Adobo nga Sarad Pen Shell Scallop" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-utensils"></i> Main Dish</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('adobo_sarad')">Adobo nga Sarad</h3>
+              <p class="food-desc">Adobo nga Sarad can be eaten as appetizer or best paired with rice. Sarad or pen shell scallop is said to be ten times bigger than the common tahong or mussel. Cooked similar to any adobo, it uses bay leaf, bay leaf, salt, sugar, and vinegar giving it that familiar taste but a totally different flavor.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Main Dish</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Adobo nga Sarad')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14. Kinilaw -->
+        <article class="food-card" data-category="seafood">
+          <div class="food-img-wrap" onclick="openDetailModal('kinilaw')">
+            <img src="./images/kinilaw.jpg" alt="Kinilaw Samar Style" class="food-img" loading="lazy">
+            <span class="food-media-badge"><i class="fa-solid fa-fish-fins"></i> Appetizer</span>
+          </div>
+          <div class="food-info">
+            <div>
+              <h3 class="food-name" onclick="openDetailModal('kinilaw')">Kinilaw</h3>
+              <p class="food-desc">Kinilaw (from kinilas nga hilaw or raw filleted fish) is simply raw deboned fish cured in vinegar. Whatsashimi is to the Japanese, so is kinilaw to the Samareños (and Bisayans). The fishes of the Maqueda Bay and Samar Sea supply the basic ingredient of this simple recipe and make for the variations that can cater to different tastes, preferences, and pockets.</p>
+            </div>
+            <div class="food-footer">
+              <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Appetizer</span>
+              <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Kinilaw')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p id="noFoodMessage" style="display: none; text-align: center; color: var(--text-muted); padding: 36px 0; font-size: 15px;">
+        No delicacies match your search. <button class="btn-card-link" style="display:inline;" onclick="resetFoodFilter()">Show all delicacies</button>
+      </p>
     </section>
+  </div>
   </main>
 
   <div class="hero-floating-right">
@@ -416,6 +640,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=48"></script>
+  <script src="js/main.js?v=49"></script>
 </body>
 </html>
