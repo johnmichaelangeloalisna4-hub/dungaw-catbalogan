@@ -959,24 +959,24 @@ function submitOnlineOrder(e) {
   const total = prod.price * qty + fee;
   const orderRef = 'ORD-CAT-' + Math.floor(100000 + Math.random() * 900000);
 
-      // Save order to persistent storage
-      try {
-        const existingOrders = JSON.parse(localStorage.getItem('dungaw_catbalogan_orders') || '[]');
-        existingOrders.unshift({
-          ref: orderRef,
-          product: prod.name,
-          seller: prod.seller,
-          qty: qty,
-          unitPrice: prod.price,
-          fee: fee,
-          total: total,
-          delivery: deliveryText,
-          address: address,
-          payment: paymentText,
-          date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-        });
-        localStorage.setItem('dungaw_catbalogan_orders', JSON.stringify(existingOrders));
-      } catch (err) {}
+  // Save order to persistent storage
+  try {
+    const existingOrders = JSON.parse(localStorage.getItem('dungaw_catbalogan_orders') || '[]');
+    existingOrders.unshift({
+      ref: orderRef,
+      product: prod.name,
+      seller: prod.seller,
+      qty: qty,
+      unitPrice: prod.price,
+      fee: fee,
+      total: total,
+      delivery: deliveryText,
+      address: address,
+      payment: paymentText,
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    });
+    localStorage.setItem('dungaw_catbalogan_orders', JSON.stringify(existingOrders));
+  } catch (err) { }
 
   if (prod.tripItem && !savedTrips.includes(prod.tripItem)) {
     savedTrips.push(prod.tripItem);
@@ -1068,6 +1068,37 @@ function discoverCulture() {
       openOnScreenItinerary(true);
     }
 
+    function getGoogleMapsRouteUrl(trips) {
+      if (!trips || trips.length === 0) {
+        return 'https://www.google.com/maps/search/Catbalogan+City+tourist+spots/';
+      }
+      const cleanStops = trips.map(t => {
+        const [, loc] = getTripMeta(t);
+        const cleanLoc = (loc && loc.toLowerCase().includes('catbalogan')) ? loc : `${loc || ''}, Catbalogan City`;
+        return `${t}, ${cleanLoc}, Samar, Philippines`;
+      });
+
+      if (cleanStops.length === 1) {
+        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cleanStops[0])}`;
+      }
+
+      const origin = encodeURIComponent('Catbalogan City Hall, Samar, Philippines');
+      const destination = encodeURIComponent(cleanStops[cleanStops.length - 1]);
+      const waypoints = cleanStops.slice(0, cleanStops.length - 1).map(s => encodeURIComponent(s)).join('|');
+
+      return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${waypoints}&travelmode=driving`;
+    }
+
+    function getSingleGMapUrl(item) {
+      const [, loc] = getTripMeta(item);
+      const cleanLoc = (loc && loc.toLowerCase().includes('catbalogan')) ? loc : `${loc || ''}, Catbalogan City`;
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item + ', ' + cleanLoc + ', Samar, Philippines')}`;
+    }
+
+    function printCleanItinerary() {
+      window.print();
+    }
+
     function openOnScreenItinerary(isJustSubmitted) {
       // Close side drawer so on-screen view is unobstructed
       const drawer = document.getElementById('tripDrawer');
@@ -1081,41 +1112,49 @@ function discoverCulture() {
         updateTripUI();
       }
 
-      const formName = document.getElementById('visitorName')?.value.trim();
-      const formEmail = document.getElementById('visitorEmail')?.value.trim();
-      const formDate = document.getElementById('visitDate')?.value;
+  const formName = document.getElementById('visitorName')?.value.trim();
+  const formEmail = document.getElementById('visitorEmail')?.value.trim();
+  const formDate = document.getElementById('visitDate')?.value;
 
-      const visitorName = formName || lastInquiry?.name || 'Guest Tourist / Traveler';
-      const visitorContact = formEmail || lastInquiry?.email || 'Tourism Desk Assistance';
-      const travelDate = formDate || lastInquiry?.date || new Date().toISOString().split('T')[0];
-      const refCode = lastInquiry?.refCode || ('DC-' + Math.floor(100000 + Math.random() * 900000));
-      if (!lastInquiry && (formName || formEmail || formDate)) {
-        lastInquiry = { name: visitorName, email: visitorContact, date: travelDate, refCode: refCode };
-        try { localStorage.setItem(INQUIRY_KEY, JSON.stringify(lastInquiry)); } catch (e) {}
-      }
+  const visitorName = formName || lastInquiry?.name || 'Guest Tourist / Traveler';
+  const visitorContact = formEmail || lastInquiry?.email || 'Tourism Desk Assistance';
+  const travelDate = formDate || lastInquiry?.date || new Date().toISOString().split('T')[0];
+  const refCode = lastInquiry?.refCode || ('DC-' + Math.floor(100000 + Math.random() * 900000));
+  if (!lastInquiry && (formName || formEmail || formDate)) {
+    lastInquiry = { name: visitorName, email: visitorContact, date: travelDate, refCode: refCode };
+    try { localStorage.setItem(INQUIRY_KEY, JSON.stringify(lastInquiry)); } catch (e) { }
+  }
 
-      let orders = [];
-      try {
-        orders = JSON.parse(localStorage.getItem('dungaw_catbalogan_orders') || '[]');
-      } catch (e) {}
+  let orders = [];
+  try {
+    orders = JSON.parse(localStorage.getItem('dungaw_catbalogan_orders') || '[]');
+  } catch (e) { }
 
-      let modalEl = document.getElementById('onScreenItineraryModal');
-      if (!modalEl) {
-        modalEl = document.createElement('div');
-        modalEl.className = 'modal-backdrop';
-        modalEl.id = 'onScreenItineraryModal';
-        modalEl.onclick = function(ev) { if (ev.target === this) closeOnScreenItinerary(); };
-        document.body.appendChild(modalEl);
-      }
+  let modalEl = document.getElementById('onScreenItineraryModal');
+  if (!modalEl) {
+    modalEl = document.createElement('div');
+    modalEl.className = 'modal-backdrop';
+    modalEl.id = 'onScreenItineraryModal';
+    modalEl.onclick = function (ev) { if (ev.target === this) closeOnScreenItinerary(); };
+    document.body.appendChild(modalEl);
+  }
+
+      const gmapRouteUrl = getGoogleMapsRouteUrl(savedTrips);
 
       const tripsRowsHtml = savedTrips.map((item, idx) => {
         const [cat, loc, vehicle, fare, tip] = getTripMeta(item);
+        const singleGmap = getSingleGMapUrl(item);
         return `
           <tr>
             <td style="font-weight: 800; color: #0f8b84; text-align: center;">${idx + 1}</td>
             <td>
               <strong style="color: #0c2333; font-size: 13.5px; display: block;">${escapeXml(item)}</strong>
-              <span style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 700;">${escapeXml(cat)}</span>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 3px; flex-wrap: wrap;">
+                <span style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 700;">${escapeXml(cat)}</span>
+                <a href="${singleGmap}" target="_blank" rel="noopener" class="gmap-row-btn" title="View pin on Google Maps">
+                  <i class="fa-solid fa-location-dot" style="color: #ea4335;"></i> GMap
+                </a>
+              </div>
             </td>
             <td>${escapeXml(loc)}</td>
             <td><span class="itinerary-vehicle-pill"><i class="fa-solid fa-van-shuttle" style="margin-right:4px;"></i>${escapeXml(vehicle)}</span></td>
@@ -1154,7 +1193,7 @@ function discoverCulture() {
         `;
       } else {
         ordersHtml = `
-          <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 12px 16px; margin: 16px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div class="itinerary-order-promo" style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 12px 16px; margin: 16px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
             <div style="font-size: 13px; color: #475569;">
               <strong style="color: #0c2333;"><i class="fa-solid fa-gift" style="color: #ea580c; margin-right: 6px;"></i>Order Pasalubong Online:</strong>
               Want local delicacies delivered to your hotel or airport-ready?
@@ -1225,6 +1264,25 @@ function discoverCulture() {
               </div>
             </div>
 
+            <!-- Google Maps Multi-Stop Route Tracking Card -->
+            <div class="itinerary-map-card">
+              <div class="itinerary-map-card-text">
+                <h4>
+                  <i class="fa-solid fa-map-location-dot" style="color: #1a73e8;"></i>
+                  <span>Track Route on Google Maps (Live GPS)</span>
+                </h4>
+                <p>Open turn-by-turn navigation for all your ${savedTrips.length} saved destinations on Google Maps, or view the local commuter jeepney/tricycle transit map.</p>
+              </div>
+              <div class="itinerary-map-buttons">
+                <a href="${gmapRouteUrl}" target="_blank" rel="noopener" class="btn-gmap-track">
+                  <i class="fa-brands fa-google"></i> Track Route on Google Maps (GMap)
+                </a>
+                <a href="transit.html" class="btn-route-itinerary">
+                  <i class="fa-solid fa-van-shuttle"></i> Commuter Transit Map
+                </a>
+              </div>
+            </div>
+
             <div class="itinerary-section-title">
               <i class="fa-solid fa-route" style="color: #0f8b84;"></i>
               <span>Saved Catbalogan Destinations &amp; Commuter Guide (${savedTrips.length})</span>
@@ -1262,11 +1320,14 @@ function discoverCulture() {
           </div>
 
           <div class="itinerary-actions-bar">
-            <button type="button" class="btn-print-itinerary" onclick="window.print()">
-              <i class="fa-solid fa-print"></i> Print / Save as PDF
+            <a href="${gmapRouteUrl}" target="_blank" rel="noopener" class="btn-gmap-track">
+              <i class="fa-brands fa-google"></i> Track on Google Maps
+            </a>
+            <button type="button" class="btn-print-itinerary" onclick="printCleanItinerary()">
+              <i class="fa-solid fa-print"></i> Print Entire Itinerary
             </button>
             <a href="transit.html" class="btn-route-itinerary">
-              <i class="fa-solid fa-map-location-dot"></i> Open Live Transit Map
+              <i class="fa-solid fa-map-location-dot"></i> Commuter Transit Map
             </a>
             <button type="button" class="btn-view-itinerary" style="width: auto; margin-top: 0; padding: 10px 16px;" onclick="closeOnScreenItinerary()">
               Close Itinerary
@@ -1275,12 +1336,12 @@ function discoverCulture() {
         </div>
       `;
 
-      modalEl.classList.add('open');
-    }
+  modalEl.classList.add('open');
+}
 
-    function closeOnScreenItinerary() {
-      document.getElementById('onScreenItineraryModal')?.classList.remove('open');
-    }
+function closeOnScreenItinerary() {
+  document.getElementById('onScreenItineraryModal')?.classList.remove('open');
+}
 
 function escapeXml(str) {
   return String(str)
