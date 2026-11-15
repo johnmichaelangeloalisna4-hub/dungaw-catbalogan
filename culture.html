@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=45">
+  <link rel="stylesheet" href="css/style.css?v=46">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -69,29 +69,170 @@
   <!-- ========================================================
        5. CULTURE & FESTIVALS SECTION
        ======================================================== -->
-  <section id="culture" class="content-section">
-    <div class="festival-banner">
-      <div>
-        <span class="fest-tag">Annual Celebration &bull; August</span>
-        <h2 class="fest-title">Manaragat Festival</h2>
-        <p class="fest-desc">
-          Celebrated every August in devotion to St. Bartholomew, the Manaragat Festival pays homage to the fishermen of Samar through grand oceanic street dancing, luminous marine life costumes, and exuberant musical pageantry.
-        </p>
-        <div class="hero-actions">
-          <button class="btn-explore" onclick="toggleScheduleModal()">
-            View Festival Schedule <i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <button class="btn-meet" data-spot="Manaragat Festival (August)" onclick="addToTrip('Manaragat Festival (August)')">
-            <i class="fa-solid fa-bookmark"></i> Save to My Trip
-          </button>
+  <div class="section-band">
+    <section id="culture" class="content-section">
+      <span class="section-badge">CULTURE &amp; FESTIVALS</span>
+      <h2 class="section-title">Festivals &amp; Cultural Celebrations</h2>
+      <p class="section-subtitle">
+        Discover the vibrant rhythm of Catbalogan City &mdash; from colorful coastal pageantry and sacred Holy Week traditions to festive alumni homecomings and island-wide arts celebrations.
+      </p>
+
+      <!-- Featured Grand Banner: Manaragat Festival Spotlight -->
+      <div class="festival-banner" style="margin-bottom: 42px;">
+        <div>
+          <span class="fest-tag">Signature Celebration &bull; August</span>
+          <h2 class="fest-title">Manaragat Festival</h2>
+          <p class="fest-desc">
+            Celebrated every August in devotion to St. Bartholomew, the Manaragat Festival pays homage to the fishermen of Samar through grand oceanic street dancing, luminous marine life costumes, and exuberant musical pageantry.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-explore" onclick="toggleScheduleModal()">
+              View Festival Schedule <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn-meet" data-spot="Manaragat Festival (August)" onclick="addToTrip('Manaragat Festival (August)')">
+              <i class="fa-solid fa-bookmark"></i> Save to My Trip
+            </button>
+          </div>
+        </div>
+
+        <div class="festival-img-frame">
+          <img src="./images/manaragat_stage.jpg" alt="Manaragat Festival Grand Stage Performance">
         </div>
       </div>
 
-      <div class="festival-img-frame">
-        <img src="./images/manaragat.jpg" alt="Manaragat Festival">
+      <!-- Year-Round Festivals & Celebrations Grid (6 Official Celebrations) -->
+      <div class="festivals-intro">
+        <h3 style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #0c2333; margin-bottom: 8px;">
+          <i class="fa-solid fa-calendar-days" style="color: var(--teal-primary); margin-right: 10px;"></i>Annual Calendar of Festivities
+        </h3>
+        <p style="font-size: 14.5px; color: #64748b; margin: 0;">
+          Explore the official calendar of major cultural gatherings, religious traditions, and community festivals celebrated across Catbalogan City throughout the year.
+        </p>
       </div>
-    </div>
-  </section>
+
+      <div class="festivals-grid">
+        <!-- 1. Arts Month -->
+        <article class="fest-card">
+          <div class="fest-card-media">
+            <img src="./images/arts_month.jpg" alt="Arts Month Catbalogan City" loading="lazy">
+            <span class="fest-media-badge"><i class="fa-regular fa-calendar"></i> February</span>
+          </div>
+          <div class="fest-card-body">
+            <h3 class="fest-card-title">Arts Month</h3>
+            <p class="fest-card-text">
+              February of every year was declared as National Arts Month (NAM) to celebrate artistic excellence and pay tribute to the uniqueness and diversity of the Filipino heritage. And every year, Catbalogan celebrates it with much creativity, passion and excitement in partnership with a diverse group of artists and art organizations and with much support from various agencies and stakeholders. Witness the cultural presentations at the plaza and other art exhibits at several venues throughout the month.
+            </p>
+            <div class="fest-card-footer">
+              <span class="fest-card-date"><i class="fa-regular fa-calendar" style="color: #ea580c;"></i> February</span>
+              <button type="button" class="btn-fest-save" onclick="addToTrip('Arts Month (February)')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Semana Santa -->
+        <article class="fest-card">
+          <div class="fest-card-media">
+            <img src="./images/semana_santa.jpg" alt="Semana Santa Senakulo Street Play" loading="lazy">
+            <span class="fest-media-badge"><i class="fa-regular fa-calendar"></i> Holy Week</span>
+          </div>
+          <div class="fest-card-body">
+            <h3 class="fest-card-title">Semana Santa</h3>
+            <p class="fest-card-text">
+              Holy Week schedule either March or April or between months Apart from the church practices, there are various activities that people can witness and participate in such as the Senakulo Street Play, Theater Plays at the City Plaza, Good Friday Procession that displays centuries-old religious images adorned in beautiful carros, the Black Saturday Estacion Publico, Sugat during the Easter Sunday, and many other cultural practices that truly showcases the rich traditions of Catbaloganon.
+            </p>
+            <div class="fest-card-footer">
+              <span class="fest-card-date"><i class="fa-regular fa-calendar" style="color: #ea580c;"></i> Holy Week</span>
+              <button type="button" class="btn-fest-save" onclick="addToTrip('Semana Santa (Holy Week)')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Alumni Festival -->
+        <article class="fest-card">
+          <div class="fest-card-media">
+            <img src="./images/alumni_festival.jpg" alt="Catbalogan Grand Alumni Festival" loading="lazy">
+            <span class="fest-media-badge"><i class="fa-regular fa-calendar"></i> August</span>
+          </div>
+          <div class="fest-card-body">
+            <h3 class="fest-card-title">Alumni Festival</h3>
+            <p class="fest-card-text">
+              Originally held between April and May but sometimes during August or December Its always good to reminisce about fond high school memories and what better way to relive those carefree days than to be with former classmates on weeks of fun, festivity and nostalgia. With the city's five (5) major schools holding their alumni celebrations consecutively between July and August, the resulting gathering of thousands of guests, tourists and balikbayans, make this event the grandest alumni homecoming of all.
+            </p>
+            <div class="fest-card-footer">
+              <span class="fest-card-date"><i class="fa-regular fa-calendar" style="color: #ea580c;"></i> August</span>
+              <button type="button" class="btn-fest-save" onclick="addToTrip('Alumni Festival (August)')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Charter Anniversary -->
+        <article class="fest-card">
+          <div class="fest-card-media">
+            <img src="./images/charter_anniversary.jpg" alt="Catbalogan City Charter Anniversary Queen & Street Pageantry" loading="lazy">
+            <span class="fest-media-badge"><i class="fa-regular fa-calendar"></i> June 16</span>
+          </div>
+          <div class="fest-card-body">
+            <h3 class="fest-card-title">Charter Anniversary</h3>
+            <p class="fest-card-text">
+              Every June 16 of every year but activities are conducted within the whole month of June June 16 was the date Catbalogan City ratified and attained its status as a component city since 2007. Every year, different activities such as competitions, concerts, caravans and many others are being conducted to not just celebrate the milestone but most importantly to continue with the efforts of providing services to Catbaloganon towards the 2040 vision of the city government. All these in partnership with different agencies, organizations, and stakeholders.
+            </p>
+            <div class="fest-card-footer">
+              <span class="fest-card-date"><i class="fa-regular fa-calendar" style="color: #ea580c;"></i> June 16</span>
+              <button type="button" class="btn-fest-save" onclick="addToTrip('Charter Anniversary (June 16)')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Manaragat Festival -->
+        <article class="fest-card">
+          <div class="fest-card-media">
+            <img src="./images/manaragat.jpg" alt="Manaragat Festival Dancers and Costumes" loading="lazy">
+            <span class="fest-media-badge"><i class="fa-regular fa-calendar"></i> August</span>
+          </div>
+          <div class="fest-card-body">
+            <h3 class="fest-card-title">Manaragat Festival</h3>
+            <p class="fest-card-text">
+              Whole month of August Catbalogan Citys Manaragat Festival has grown from humble beginnings as a religious socio-civic event to a celebration of convergence of different stakeholders and communities. Deeply rooted on its origins as a coastal community, the Manaragat Festival has already become a brand of cultural promotion and environmental protection in the island of Samar - Catbalogan City being the island's main commercial, trading, educational, political and financial center. Primarily as a religious event, Manaragat Festival pays homage to Patron Saint, Señor San Bartolome whose feast day falls every 24th of August. The festival highlights the call to celebrate the the bounties of the sea and of Maqueda Bay as interceded by Patron Saint, Señor San Bartolome while pushing for its cultural preservation and environmental protection as the twin advocacies of Manaragat Festival. This is to further strengthen and anchor the identity of Catbalogan as 'Manaragat' or people of the sea that is continuously shaped by the waves of changes.
+            </p>
+            <div class="fest-card-footer">
+              <span class="fest-card-date"><i class="fa-regular fa-calendar" style="color: #ea580c;"></i> August</span>
+              <button type="button" class="btn-fest-save" onclick="addToTrip('Manaragat Festival (August)')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Kapaskohan ha Katbalogan -->
+        <article class="fest-card">
+          <div class="fest-card-media">
+            <img src="./images/kapaskohan.jpg" alt="Kapaskohan ha Katbalogan Christmas Lights and Park" loading="lazy">
+            <span class="fest-media-badge"><i class="fa-regular fa-calendar"></i> December</span>
+          </div>
+          <div class="fest-card-body">
+            <h3 class="fest-card-title">Kapaskohan ha Katbalogan</h3>
+            <p class="fest-card-text">
+              Whole month of December Christmas has always been the merriest season of the year, with families and friends gathering to celebrate the birth of the Savior and to share the spirit of giving. &ldquo;Kapaskohan ha Katbalogan&rdquo; is anchored on the rich cultural tradition of families, from flavorful feasts of various recipes handed down from generations to generations, to musical and fun-filled performances of Christmas carols and music that fills the cool air of December, and the gatherings of cheerful people that always find reasons to celebrate. Catch the colorful lights at the City Plaza or at the Imelda Park that sparks the spirit of the season. Witness the various cultural competitions of &ldquo;panarit&rdquo; or caroling, singing competitions featuring local Binisaya Christmas songs, and other creative and cheerful events that uplifts the spirits. Join families and friends during &ldquo;Simbang Gabi&rdquo; or &ldquo;Misa de Gallo&rdquo; or dawn mass and share with them during &ldquo;Media Noche&rdquo; or &ldquo;Noche Buena&rdquo; to experience the different tastes, scents, and nostalgia that has a special part in every one&rsquo;s soul. This is the second biggest festival in Catbalogan City where thousands come home to experience that unique festivity with families and friends.
+            </p>
+            <div class="fest-card-footer">
+              <span class="fest-card-date"><i class="fa-regular fa-calendar" style="color: #ea580c;"></i> December</span>
+              <button type="button" class="btn-fest-save" onclick="addToTrip('Kapaskohan ha Katbalogan (December)')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
   </main>
 
   <div class="hero-floating-right">
@@ -337,6 +478,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=45"></script>
+  <script src="js/main.js?v=46"></script>
 </body>
 </html>

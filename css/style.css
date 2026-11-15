@@ -906,6 +906,158 @@ body.subpage .site-header .menu-toggle-btn:hover {
   display: block;
 }
 
+/* ==========================================================
+   CATBALOGAN FESTIVALS & CELEBRATIONS CALENDAR GRID
+   ========================================================== */
+.festivals-intro {
+  margin-bottom: 24px;
+}
+
+.festivals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.fest-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(12, 35, 51, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.fest-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(12, 35, 51, 0.1);
+  border-color: #cbd5e1;
+}
+
+.fest-card-media {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #0c2333;
+}
+
+.fest-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.fest-card:hover .fest-card-media img {
+  transform: scale(1.05);
+}
+
+.fest-media-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  letter-spacing: 0.2px;
+}
+
+.fest-card-body {
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.fest-card-title {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 800;
+  color: #0c2333;
+  margin: 0 0 12px;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+.fest-card-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.fest-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: auto;
+}
+
+.fest-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ea580c;
+}
+
+.btn-fest-save {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f8b84;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-fest-save:hover {
+  background: #0f8b84;
+  color: #ffffff;
+  border-color: #0f8b84;
+}
+
+@media (max-width: 1024px) {
+  .festivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 680px) {
+  .festivals-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .fest-card-media {
+    height: 200px;
+  }
+}
+
 .food-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2824,7 +2976,7 @@ body.subpage .page-main>section:first-child {
   }
 
   /* 1. Hide every single element in body except the itinerary modal */
-  body > *:not(#onScreenItineraryModal) {
+  body>*:not(#onScreenItineraryModal) {
     display: none !important;
   }
 
@@ -2998,12 +3150,30 @@ body.subpage .page-main>section:first-child {
     print-color-adjust: exact !important;
   }
 
-  .itinerary-table th:nth-child(1) { width: 5% !important; text-align: center; }
-  .itinerary-table th:nth-child(2) { width: 28% !important; }
-  .itinerary-table th:nth-child(3) { width: 21% !important; }
-  .itinerary-table th:nth-child(4) { width: 17% !important; }
-  .itinerary-table th:nth-child(5) { width: 14% !important; }
-  .itinerary-table th:nth-child(6) { width: 15% !important; }
+  .itinerary-table th:nth-child(1) {
+    width: 5% !important;
+    text-align: center;
+  }
+
+  .itinerary-table th:nth-child(2) {
+    width: 28% !important;
+  }
+
+  .itinerary-table th:nth-child(3) {
+    width: 21% !important;
+  }
+
+  .itinerary-table th:nth-child(4) {
+    width: 17% !important;
+  }
+
+  .itinerary-table th:nth-child(5) {
+    width: 14% !important;
+  }
+
+  .itinerary-table th:nth-child(6) {
+    width: 15% !important;
+  }
 
   .itinerary-vehicle-pill,
   .itinerary-fare-pill {
