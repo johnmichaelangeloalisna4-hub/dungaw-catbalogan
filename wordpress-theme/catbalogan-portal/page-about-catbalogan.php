@@ -1,0 +1,964 @@
+<?php
+/**
+ * Template Name: About Catbalogan
+ * Minimalist standalone template for the About Catbalogan page.
+ *
+ * @package Catbalogan_Portal
+ */
+$theme_uri = esc_url( get_template_directory_uri() );
+$home_url  = esc_url( home_url( '/' ) );
+$about_url = esc_url( get_permalink() );
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Catbalogan - Dungaw Catbalogan</title>
+
+  <!-- Google Fonts: Playfair Display, Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================
+       CSS VARIABLES & MINIMALIST RESET
+       ========================================================== */
+    :root {
+      --navy-dark: #0c2333;
+      --teal-primary: #0f8b84;
+      --teal-hover: #0a726c;
+      --coral-accent: #e57c67;
+      --coral-hover: #d46954;
+      --bg-cream: #faf7f2;
+      --bg-cream-alt: #f3ede3;
+      --bg-white: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-soft: rgba(12, 35, 51, 0.1);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background-color: var(--bg-cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    /* ==========================================================
+       1. MINIMALIST HEADER
+       ========================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-cream);
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 54px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-logos-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-official-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--teal-primary);
+      background: #ffffff;
+    }
+
+    .brand-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #f7f6f2;
+      border: 2px solid var(--teal-primary);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      font-family: var(--font-heading);
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--teal-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .site-nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      padding: 24px 0;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .site-nav a:hover {
+      color: var(--coral-accent);
+    }
+
+    .site-nav a.active {
+      color: var(--navy-dark);
+      font-weight: 700;
+    }
+
+    .site-nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: var(--coral-accent);
+      border-radius: 2px;
+    }
+
+    body.admin-bar .site-header { top: 32px; }
+    @media (max-width: 782px) { body.admin-bar .site-header { top: 46px; } }
+
+    .menu-toggle-btn {
+      display: none;
+      background: transparent;
+      font-size: 22px;
+      color: var(--navy-dark);
+      padding: 6px 10px;
+    }
+
+    /* ==========================================================
+       2. MINIMALIST INTRO & HERO IMAGE
+       ========================================================== */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .about-hero {
+      padding: 72px 0 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--coral-accent);
+      margin-bottom: 14px;
+    }
+
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 22px;
+      max-width: 720px;
+    }
+
+    .page-lead {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 660px;
+      border-left: 2.5px solid var(--coral-accent);
+      padding-left: 18px;
+      margin-bottom: 44px;
+    }
+
+    .hero-frame {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-white);
+      box-shadow: 0 12px 32px rgba(12, 35, 51, 0.06);
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-caption {
+      padding: 14px 22px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: var(--bg-white);
+    }
+
+    /* ==========================================================
+       3. QUICK FACTS STRIP
+       ========================================================== */
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 48px 0 64px;
+    }
+
+    .fact-item {
+      background: var(--bg-white);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 24px 22px;
+    }
+
+    .fact-number {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--teal-primary);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .fact-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ==========================================================
+       4. INTERACTIVE STORY TABS (HISTORY / GEOGRAPHY / CULTURE)
+       ========================================================== */
+    .story-section {
+      padding: 24px 0 72px;
+    }
+
+    .tab-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 16px;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+    }
+
+    .tab-btn:hover {
+      color: var(--navy-dark);
+      background: rgba(12, 35, 51, 0.04);
+    }
+
+    .tab-btn.active {
+      background: var(--navy-dark);
+      color: #ffffff;
+    }
+
+    .tab-panel {
+      display: none;
+      background: var(--bg-white);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 40px;
+      animation: fadeUp 0.25s ease;
+    }
+
+    .tab-panel.active {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 14px;
+    }
+
+    .panel-text {
+      font-size: 15px;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+
+    .timeline-list {
+      list-style: none;
+      border-left: 2px solid var(--bg-cream-alt);
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-list li {
+      position: relative;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .timeline-list li::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--coral-accent);
+      border: 2px solid var(--bg-white);
+    }
+
+    .timeline-list strong {
+      color: var(--navy-dark);
+      display: block;
+      font-size: 13px;
+    }
+
+    .panel-photo {
+      border-radius: 14px;
+      overflow: hidden;
+      height: 290px;
+      background: var(--bg-cream-alt);
+    }
+
+    .panel-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ==========================================================
+       5. USER-FRIENDLY VISITOR GUIDE ACCORDION
+       ========================================================== */
+    .guide-band {
+      background: var(--bg-cream-alt);
+      padding: 72px 0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--bg-white);
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      background: transparent;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+
+    .faq-trigger i {
+      color: var(--teal-primary);
+      font-size: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-trigger i {
+      transform: rotate(180deg);
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .faq-item.open .faq-body {
+      display: block;
+    }
+
+    /* ==========================================================
+       6. MINIMALIST CTA & FOOTER
+       ========================================================== */
+    .cta-box {
+      padding: 72px 0;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal-primary);
+      color: #ffffff;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: var(--bg-white);
+      color: var(--navy-dark);
+      border: 1px solid var(--border-soft);
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--coral-accent);
+      color: var(--coral-accent);
+    }
+
+    .site-footer {
+      background: var(--navy-dark);
+      color: #ffffff;
+      padding: 48px 54px 28px;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+      color: #cbd5e1;
+    }
+
+    .footer-links a:hover {
+      color: var(--coral-accent);
+    }
+
+    .footer-copy {
+      max-width: 1080px;
+      margin: 20px auto 0;
+      font-size: 12.5px;
+      color: #94a3b8;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ==========================================================
+       RESPONSIVE
+       ========================================================== */
+    @media (max-width: 1120px) {
+      .site-header { padding: 0 28px; }
+      .site-nav { gap: 18px; }
+      .site-nav a { font-size: 13.5px; }
+    }
+
+    @media (max-width: 992px) {
+      .site-header { padding: 0 24px; }
+      .site-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--bg-cream);
+        padding: 12px 24px 20px;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        border-top: 1px solid var(--border-soft);
+      }
+      .site-nav.mobile-open { display: flex; }
+      .site-nav a { width: 100%; padding: 12px 0; border-bottom: 1px solid rgba(12,35,51,0.06); }
+      .site-nav a.active::after { bottom: 4px; width: 40px; right: auto; }
+      body.admin-bar .site-header { top: 32px; }
+    @media (max-width: 782px) { body.admin-bar .site-header { top: 46px; } }
+
+    .menu-toggle-btn { display: block; }
+      .page-title { font-size: 38px; }
+      .hero-frame img { height: 260px; }
+      .facts-strip { grid-template-columns: repeat(2, 1fr); }
+      .tab-panel.active { grid-template-columns: 1fr; padding: 26px; }
+      .site-footer { padding: 40px 24px 24px; }
+    }
+
+    @media (max-width: 520px) {
+      .facts-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+
+  <!-- ========================================================
+       1. HEADER
+       ======================================================== -->
+  <header class="site-header">
+    <a href="<?php echo $home_url; ?>" class="brand-logo-wrap">
+      <div class="brand-logos-container">
+        <img src="<?php echo $theme_uri; ?>/images/official_logo.jpg" alt="Catbalogan Official Logo" class="brand-official-logo">
+        <div class="brand-circle">
+          <img src="<?php echo $theme_uri; ?>/images/dungaw_logo.png" alt="Dungaw Catbalogan Logo">
+        </div>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">Dungaw Catbalogan</span>
+        <span class="brand-sub">CITY TOURISM</span>
+      </div>
+    </a>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="<?php echo $home_url; ?>">Home</a>
+      <a href="<?php echo $about_url; ?>" class="active">About Catbalogan</a>
+      <a href="<?php echo $home_url; ?>#spots">Tourist Spots</a>
+      <a href="<?php echo $home_url; ?>#culture">Culture &amp; Festivals</a>
+      <a href="<?php echo $home_url; ?>#food">Food &amp; Delicacies</a>
+      <a href="<?php echo $home_url; ?>#products">Local Products</a>
+    </nav>
+
+    <button class="menu-toggle-btn" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+      <i class="fa-solid fa-bars" id="menuToggleIcon"></i>
+    </button>
+  </header>
+
+  <!-- ========================================================
+       2. MINIMALIST ABOUT HERO
+       ======================================================== -->
+  <main>
+    <section class="about-hero">
+      <div class="container">
+        <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> Gateway to Samar</span>
+        <h1 class="page-title">The Historic Heart &amp; Coastal Soul of Samar</h1>
+        <p class="page-lead">
+          Nestled between lush green hills and the calm waters of Maqueda Bay, Catbalogan City blends four centuries of Waray heritage, vibrant festivals, and warm island hospitality.
+        </p>
+
+        <div class="hero-frame">
+          <img src="<?php echo $theme_uri; ?>/images/hero.jpg" alt="Samar Provincial Capitol Building in Catbalogan City">
+          <div class="hero-caption">
+            <span><i class="fa-solid fa-landmark" style="color: var(--teal-primary); margin-right: 6px;"></i>Samar Provincial Capitol Building (MCMXXX), Catbalogan City</span>
+            <span>Eastern Visayas &bull; Region VIII</span>
+          </div>
+        </div>
+
+        <!-- Quick Facts Strip -->
+        <div class="facts-strip">
+          <div class="fact-item">
+            <div class="fact-number">1596</div>
+            <div class="fact-label">Founded by Jesuit missionaries along Maqueda Bay</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-number">2007</div>
+            <div class="fact-label">Chartered as a component city on June 16</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-number">57</div>
+            <div class="fact-label">Mainland &amp; island barangays across the coast</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-number">August</div>
+            <div class="fact-label">Annual Manaragat Festival celebrating fisherfolk</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         3. INTERACTIVE TABS: HISTORY, GEOGRAPHY, CULTURE
+         ======================================================== -->
+    <section class="story-section">
+      <div class="container">
+        <div class="tab-header" role="tablist">
+          <button class="tab-btn active" onclick="switchStoryTab('history', this)">Our History</button>
+          <button class="tab-btn" onclick="switchStoryTab('geography', this)">Geography &amp; Islands</button>
+          <button class="tab-btn" onclick="switchStoryTab('culture', this)">People &amp; Culture</button>
+        </div>
+
+        <!-- Tab 1: History -->
+        <div class="tab-panel active" id="panel-history">
+          <div>
+            <h2 class="panel-title">Four Centuries of Resilience</h2>
+            <p class="panel-text">
+              From a quiet 16th-century coastal settlement to the provincial seat of Samar, Catbalogan's story is etched into its historic plazas, church grounds, and monuments.
+            </p>
+            <ul class="timeline-list">
+              <li>
+                <strong>1596 &ndash; Jesuit Founding</strong>
+                Established as a mission center under Spanish administration, growing into Samar's primary port and trading town.
+              </li>
+              <li>
+                <strong>1930 &ndash; The Provincial Capitol</strong>
+                The neoclassical Samar Capitol Building rose as a symbol of governance and civic pride in the heart of town.
+              </li>
+              <li>
+                <strong>2007 &ndash; Cityhood Charter</strong>
+                Officially became the City of Catbalogan, stepping into a modern era as Samar's educational and commercial hub.
+              </li>
+            </ul>
+          </div>
+          <div class="panel-photo">
+            <img src="<?php echo $theme_uri; ?>/images/obelisk.jpg" alt="The Obelisk in Catbalogan City">
+          </div>
+        </div>
+
+        <!-- Tab 2: Geography -->
+        <div class="tab-panel" id="panel-geography">
+          <div>
+            <h2 class="panel-title">Where Hills Meet Maqueda Bay</h2>
+            <p class="panel-text">
+              Flanked by steep emerald ridges to the east and the sheltered waters of Maqueda Bay to the west, Catbalogan serves as the natural crossroads of Samar Island.
+            </p>
+            <ul class="timeline-list">
+              <li>
+                <strong>Coastal &amp; Island Barangays</strong>
+                Includes scenic island communities such as Buri, Darahuway Dako, and Darahuway Guti just minutes by boat.
+              </li>
+              <li>
+                <strong>Pan-Philippine Highway Link</strong>
+                Positioned directly along the Maharlika Highway connecting Northern, Western, and Eastern Samar.
+              </li>
+              <li>
+                <strong>Vibrant Bayfront Life</strong>
+                Daily fishing bancas, bustling morning markets, and golden sunsets define everyday life along the shore.
+              </li>
+            </ul>
+          </div>
+          <div class="panel-photo">
+            <img src="<?php echo $theme_uri; ?>/images/buri.jpg" alt="Buri Island Boardwalk and Coastline">
+          </div>
+        </div>
+
+        <!-- Tab 3: Culture -->
+        <div class="tab-panel" id="panel-culture">
+          <div>
+            <h2 class="panel-title">The City of Captivating Colors</h2>
+            <p class="panel-text">
+              Catbaloganons speak Waray-Waray and are known for warmth, music, craftsmanship, and deep devotion to the sea that sustains the community.
+            </p>
+            <ul class="timeline-list">
+              <li>
+                <strong>Manaragat Festival</strong>
+                Held every August in honor of St. Bartholomew, celebrating local fisherfolk with vibrant marine street dancing.
+              </li>
+              <li>
+                <strong>Culinary Heritage</strong>
+                Home to treasured recipes like savory pork <em>Tamalos</em>, fresh Maqueda blue crabs, and legacy <em>Corioso</em> pastries.
+              </li>
+              <li>
+                <strong>Artisanal Craft</strong>
+                Celebrated for colorful handwoven tikog grass mats, shellcraft, and community-made souvenirs.
+              </li>
+            </ul>
+          </div>
+          <div class="panel-photo">
+            <img src="<?php echo $theme_uri; ?>/images/manaragat.jpg" alt="Manaragat Festival Street Dance">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. USER-FRIENDLY VISITOR GUIDE (ACCORDION)
+         ======================================================== -->
+    <section class="guide-band">
+      <div class="container">
+        <h2 class="section-heading">Practical Visitor Guide</h2>
+        <p class="section-sub">Quick answers to help you plan a smooth, enjoyable stay in Catbalogan City.</p>
+
+        <div class="faq-list">
+          <div class="faq-item open">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span>How do I get to Catbalogan City?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-body">
+              Fly into <strong>Calbayog Airport</strong> (~1.5 hours away by van) or <strong>Daniel Z. Romualdez Airport in Tacloban</strong> (~2.5 hours via San Juanico Bridge). Regular air-conditioned vans and buses run daily along the Maharlika Highway straight to downtown Catbalogan.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span>What is the best time of year to visit?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-body">
+              <strong>March to September</strong> offers sunny skies ideal for island hopping to Buri and Darahuway Guti. Visit in <strong>August</strong> to experience the full color and street parades of the <strong>Manaragat Festival</strong>.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span>How do travelers get around downtown?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-body">
+              Motorized tricycles and pedicabs are the signature, convenient way to navigate Catbalogan's compact downtown streets, markets, Capitol grounds, and bayfront boulevard.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span>What languages are spoken locally?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-body">
+              <strong>Waray-Waray</strong> is the native language, while <strong>Filipino (Tagalog)</strong> and <strong>English</strong> are widely spoken and understood across hotels, shops, and tourism sites.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. CALL TO ACTION
+         ======================================================== -->
+    <section class="cta-box">
+      <div class="container">
+        <h2>Ready to Experience Catbalogan?</h2>
+        <p>Browse islands, waterfalls, heritage sites, and local delicacies to start building your personalized Samar itinerary.</p>
+        <div class="cta-actions">
+          <a href="<?php echo $home_url; ?>#spots" class="btn-primary">
+            Explore Tourist Spots <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="<?php echo $home_url; ?>" class="btn-outline">
+            <i class="fa-solid fa-house"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================
+       6. MINIMALIST FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="brand-logo-wrap">
+        <div class="brand-logos-container">
+          <img src="<?php echo $theme_uri; ?>/images/official_logo.jpg" alt="Catbalogan Official Logo" class="brand-official-logo">
+          <div class="brand-circle">
+            <img src="<?php echo $theme_uri; ?>/images/dungaw_logo.png" alt="Dungaw Catbalogan Logo">
+          </div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title" style="color: #ffffff;">Dungaw Catbalogan</span>
+          <span class="brand-sub" style="color: #22d3ee;">CITY TOURISM</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="<?php echo $home_url; ?>">Home</a>
+        <a href="<?php echo $about_url; ?>">About</a>
+        <a href="<?php echo $home_url; ?>#spots">Tourist Spots</a>
+        <a href="<?php echo $home_url; ?>#culture">Festivals</a>
+        <a href="<?php echo $home_url; ?>#food">Food</a>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      <span>&copy; <?php echo date('Y'); ?> Dungaw Catbalogan Tourism Office. Province of Samar, Philippines.</span>
+      <span>Gateway to Samar &bull; City of Captivating Colors</span>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchStoryTab(tabKey, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      document.getElementById('panel-' + tabKey)?.classList.add('active');
+    }
+
+    function toggleFaq(trigger) {
+      const item = trigger.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function toggleMobileNav() {
+      const nav = document.getElementById('siteNav');
+      const icon = document.getElementById('menuToggleIcon');
+      if (!nav) return;
+      const isOpen = nav.classList.toggle('mobile-open');
+      if (icon) icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992) {
+        document.getElementById('siteNav')?.classList.remove('mobile-open');
+        const icon = document.getElementById('menuToggleIcon');
+        if (icon) icon.className = 'fa-solid fa-bars';
+      }
+    });
+  </script>
+  <?php wp_footer(); ?>
+</body>
+</html>
+

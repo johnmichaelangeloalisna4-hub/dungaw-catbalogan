@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transit &amp; Route Map - Dungaw Catbalogan</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Site Styles -->
+  <link rel="stylesheet" href="css/style.css?v=12">
+  <link rel="stylesheet" href="css/transit.css?v=3">
+</head>
+<body class="subpage">
+
+  <!-- ========================================================
+       0. OFFICIAL LGU TOP BRAND BAR (CAPTIVATING CATBALOGAN)
+       ======================================================== -->
+  <div class="gov-top-bar">
+    <div class="gov-top-left">
+      <span class="gov-badge-ph"><i class="fa-solid fa-flag"></i> GOVPH</span>
+      <span>Republic of the Philippines</span>
+      <span style="opacity: 0.7;">&bull;</span>
+      <span>City Government of Catbalogan</span>
+    </div>
+    <div class="gov-top-right">
+      <span class="gov-captivating-tag">
+        <i class="fa-solid fa-sun" style="color: #fde047;"></i> Captivating Catbalogan
+      </span>
+      <span style="font-size: 11px; opacity: 0.95;">
+        <i class="fa-regular fa-clock" style="margin-right: 4px;"></i> City of Captivating Colors
+      </span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       1. HEADER WITH DUAL LOGOS & NAVBAR
+       ======================================================== -->
+  <header class="site-header">
+    <a href="index.html" class="brand-logo-wrap">
+      <div class="brand-logos-container">
+        <img src="./images/official_logo.jpg" alt="Catbalogan Official Logo" class="brand-official-logo">
+        <div class="brand-circle">
+          <img src="./images/dungaw_logo.png" alt="Dungaw Catbalogan Logo">
+        </div>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">Dungaw Catbalogan</span>
+        <span class="brand-sub">CITY TOURISM</span>
+      </div>
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="site-nav" id="siteNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Catbalogan</a>
+      <a href="spots.html">Tourist Spots</a>
+      <a href="culture.html">Culture &amp; Festivals</a>
+      <a href="food.html">Food &amp; Delicacies</a>
+      <a href="products.html">Local Products</a>
+      <a href="transit.html" class="active">Transit &amp; Map</a>
+    </nav>
+
+    <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+      <i class="fa-solid fa-bars" id="menuToggleIcon"></i>
+    </button>
+  </header>
+
+  <main class="page-main">
+    <div class="transit-container" style="padding-top: 36px;">
+
+      <!-- Header Card -->
+      <div class="transit-header-card">
+        <div class="eyebrow">
+          <i class="fa-solid fa-compass"></i>
+          <span>COMMUTER &amp; TRANSIT GUIDE</span>
+        </div>
+        <h1>Getting Around Catbalogan City</h1>
+        <p>
+          Navigate with confidence: select where you are and where you want to go. Our interactive route tracker plots the optimal path on the map and tells you exactly what vehicle to ride (Tricycle, Habal-habal, Banca, or Multicab) with standard fares, travel times, and local riding tips.
+        </p>
+        <div class="quick-stats-row">
+          <div class="stat-pill"><i class="fa-solid fa-motorcycle"></i> Downtown Tricycle: ₱12 – ₱15 standard</div>
+          <div class="stat-pill"><i class="fa-solid fa-water"></i> Island Banca: ₱50 – ₱100 to Darahuway Guti</div>
+          <div class="stat-pill"><i class="fa-solid fa-mountain"></i> Habal-habal: ₱150 – ₱200 roundtrip to Bangon Falls</div>
+          <div class="stat-pill"><i class="fa-solid fa-person-walking"></i> Historic Downtown is 100% Walkable</div>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Transit Layout -->
+      <div class="transit-grid">
+
+        <!-- Left: Planner Control Panel -->
+        <div class="planner-panel">
+          <div class="planner-panel-title">
+            <span><i class="fa-solid fa-sliders" style="color: #0f8b84;"></i> Route Planner</span>
+            <button class="gps-btn-pill" id="gpsBtn" onclick="trackMyLocation()" title="Pinpoint your current location via GPS">
+              <i class="fa-solid fa-location-crosshairs"></i> Use My GPS
+            </button>
+          </div>
+
+          <!-- Starting Point Input -->
+          <div class="form-group-route">
+            <label for="originSelect">
+              <i class="fa-solid fa-circle-dot" style="color: #0f8b84;"></i> Starting Point (Where are you?)
+            </label>
+            <div class="route-input-wrap">
+              <i class="fa-solid fa-location-dot route-input-icon origin-icon"></i>
+              <select id="originSelect" class="route-select">
+                <!-- Dynamically populated by JS -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Swap Button -->
+          <div class="route-swap-row">
+            <button class="btn-swap-points" onclick="swapRoutePoints()" title="Swap start and destination">
+              <i class="fa-solid fa-arrow-down-up-across-line"></i>
+            </button>
+          </div>
+
+          <!-- Destination Point Input -->
+          <div class="form-group-route">
+            <label for="destSelect">
+              <i class="fa-solid fa-flag-checkered" style="color: #e57c67;"></i> Destination (Where to go?)
+            </label>
+            <div class="route-input-wrap">
+              <i class="fa-solid fa-map-pin route-input-icon dest-icon"></i>
+              <select id="destSelect" class="route-select">
+                <!-- Dynamically populated by JS -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Quick Destination Chips -->
+          <div>
+            <span style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Popular Spots:</span>
+            <div class="quick-chips-wrap">
+              <button class="chip-dest active" id="chip-buri" onclick="selectQuickDest('buri')">🏖️ Buri Island</button>
+              <button class="chip-dest" id="chip-bangon" onclick="selectQuickDest('bangon')">🌿 Bangon Falls</button>
+              <button class="chip-dest" id="chip-obelisk" onclick="selectQuickDest('obelisk')">🏛️ The Obelisk</button>
+              <button class="chip-dest" id="chip-darahuway" onclick="selectQuickDest('darahuway')">⛵ Darahuway Guti</button>
+              <button class="chip-dest" id="chip-tamalos" onclick="selectQuickDest('tamalos')">🍛 Market (Tamalos)</button>
+              <button class="chip-dest" id="chip-maqueda" onclick="selectQuickDest('maqueda')">🌅 Sunset Boulevard</button>
+            </div>
+          </div>
+
+          <button class="btn-calculate-route" onclick="calculateRoute()">
+            <i class="fa-solid fa-route"></i> Calculate Route &amp; Vehicle
+          </button>
+
+          <!-- Dynamic Result Box -->
+          <div id="routeResultContainer" class="route-result-box">
+            <!-- Rendered by transit.js -->
+          </div>
+
+        </div>
+
+        <!-- Right: Map Panel -->
+        <div class="map-panel">
+          <div class="map-top-bar">
+            <div class="map-title">
+              <i class="fa-solid fa-map-location-dot" style="color: #0f8b84;"></i>
+              <span>Interactive Catbalogan Transit Map</span>
+            </div>
+            <div class="map-controls-group">
+              <button class="map-control-btn" onclick="trackMyLocation()">
+                <i class="fa-solid fa-location-crosshairs"></i> Locate Me
+              </button>
+              <button class="map-control-btn" onclick="zoomToFullRoute()">
+                <i class="fa-solid fa-expand"></i> Reset View
+              </button>
+            </div>
+          </div>
+
+          <!-- Leaflet Map Container -->
+          <div id="mapContainer"></div>
+
+          <!-- Map Legend -->
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; padding: 10px 14px; background: #fafbfd; border-radius: 10px; border: 1px solid #edf2f7; font-size: 12px; color: #475569;">
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #0f8b84;"></span>
+              <strong>Start / Origin</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #e57c67;"></span>
+              <strong>Destination</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #0c2333;"></span>
+              <strong>Transport Hub / Pier</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #2563eb;"></span>
+              <strong>Tourist Spot Pin</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="display: inline-block; width: 16px; height: 2px; background: #0f8b84; border-top: 2px dashed #0f8b84;"></span>
+              <strong>Transit Route</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================================
+           Vehicle Matrix Guide: What to Ride in Catbalogan
+           ======================================================== -->
+      <section class="transit-matrix-section">
+        <div class="section-subhead">
+          <span class="badge">Vehicle Guide</span>
+          <h2>Modes of Transport in Catbalogan</h2>
+          <p>
+            Understanding local transit options makes getting around effortless and budget-friendly. Here is how each vehicle functions in the city.
+          </p>
+        </div>
+
+        <div class="vehicle-matrix-grid">
+
+          <!-- 1. Tricycle -->
+          <div class="vehicle-matrix-card">
+            <div class="v-card-icon icon-tricycle">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <h3 class="v-card-title">Motorized Tricycle</h3>
+            <span class="v-card-fare">₱12 – ₱15 / special ₱50–₱100</span>
+            <p class="v-card-desc">
+              The king of downtown streets! These customized passenger sidecars carry up to 4–5 passengers and run 24/7 across every street in the city center.
+            </p>
+            <div class="v-card-routes">
+              <strong>Best For:</strong>
+              Downtown hotels, City Hall, Provincial Capitol, Pier 1, and the Public Market.
+            </div>
+          </div>
+
+          <!-- 2. Habal-habal -->
+          <div class="vehicle-matrix-card">
+            <div class="v-card-icon icon-habal">
+              <i class="fa-solid fa-person-biking"></i>
+            </div>
+            <h3 class="v-card-title">Habal-habal (Motorcycle)</h3>
+            <span class="v-card-fare">₱150 – ₱200 / roundtrip</span>
+            <p class="v-card-desc">
+              Single motorbikes driven by experienced local riders capable of taking steep mountain trails and countryside roads where four-wheel vehicles cannot go.
+            </p>
+            <div class="v-card-routes">
+              <strong>Best For:</strong>
+              Bangon Falls, Mount Naga, upland farming communities, and off-grid eco-adventures.
+            </div>
+          </div>
+
+          <!-- 3. Motorized Banca -->
+          <div class="vehicle-matrix-card">
+            <div class="v-card-icon icon-banca">
+              <i class="fa-solid fa-ship"></i>
+            </div>
+            <h3 class="v-card-title">Motorized Outrigger Banca</h3>
+            <span class="v-card-fare">₱50 – ₱80 / charter ₱500–₱800</span>
+            <p class="v-card-desc">
+              Traditional twin-outrigger wooden motorized boats docked at Pier 1 and Barangay Guinsorongan coastlines, serving island barangays across Maqueda Bay.
+            </p>
+            <div class="v-card-routes">
+              <strong>Best For:</strong>
+              Darahuway Guti Island marine sanctuary and coastal island-hopping day tours.
+            </div>
+          </div>
+
+          <!-- 4. Multicab / Jeepney -->
+          <div class="vehicle-matrix-card">
+            <div class="v-card-icon icon-multicab">
+              <i class="fa-solid fa-van-shuttle"></i>
+            </div>
+            <h3 class="v-card-title">Multicab &amp; Jeepney</h3>
+            <span class="v-card-fare">₱15 – ₱30 per passenger</span>
+            <p class="v-card-desc">
+              High-capacity shared public utility vehicles that run scheduled routes north and south along the Pan-Philippine (Maharlika) Highway corridor.
+            </p>
+            <div class="v-card-routes">
+              <strong>Best For:</strong>
+              Buri Island causeway, Silanga, Jiabong (Tahong Capital), and northern outskirts.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Commuter Waray-Waray Phrases -->
+        <div class="phrases-banner">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <i class="fa-solid fa-comments" style="font-size: 24px; color: #0f8b84;"></i>
+            <h3>Helpful Commuter Phrases (Waray-Waray &bull; English)</h3>
+          </div>
+          <p style="color: #64748b; font-size: 14px;">
+            Catbalogan drivers are warm and friendly! Use these easy phrases when riding around the city:
+          </p>
+
+          <div class="phrases-grid">
+            <div class="phrase-item">
+              <div class="phrase-waray">"Pira it plete ngadto ha...?"</div>
+              <div class="phrase-meaning"><strong>Meaning:</strong> "How much is the fare to...?"</div>
+              <div class="phrase-phonetic">Example: "Pira it plete ngadto ha Buri Island?"</div>
+            </div>
+
+            <div class="phrase-item">
+              <div class="phrase-waray">"Lugar la po! / Para!"</div>
+              <div class="phrase-meaning"><strong>Meaning:</strong> "Please pull over! / I am getting off here!"</div>
+              <div class="phrase-phonetic">Say when you reach your destination to stop the vehicle.</div>
+            </div>
+
+            <div class="phrase-item">
+              <div class="phrase-waray">"Special trip po ini?"</div>
+              <div class="phrase-meaning"><strong>Meaning:</strong> "Can we hire this as a private charter trip?"</div>
+              <div class="phrase-phonetic">Useful for direct non-stop rides with luggage.</div>
+            </div>
+
+            <div class="phrase-item">
+              <div class="phrase-waray">"Damo nga salamat!"</div>
+              <div class="phrase-meaning"><strong>Meaning:</strong> "Thank you very much!"</div>
+              <div class="phrase-phonetic">Polite greeting upon alighting.</div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logos-container">
+          <img src="./images/official_logo.jpg" alt="Catbalogan Official Logo" class="brand-official-logo">
+          <div class="brand-circle">
+            <img src="./images/dungaw_logo.png" alt="Dungaw Catbalogan Logo">
+          </div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Dungaw Catbalogan</span>
+          <span class="brand-sub" style="color: #22d3ee;">CITY TOURISM</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Catbalogan</a>
+        <a href="spots.html">Tourist Spots</a>
+        <a href="culture.html">Festivals</a>
+        <a href="food.html">Delicacies</a>
+        <a href="products.html">Local Products</a>
+        <a href="transit.html">Transit &amp; Map</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dungaw Catbalogan Tourism Office. Province of Samar, Philippines.</p>
+      <p>Gateway to Samar &bull; City of Captivating Colors</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       FLOATING "MY TRIP" BUTTON & DRAWER
+       ======================================================== -->
+  <div class="hero-floating-right">
+    <button class="badge-eastern-visayas" onclick="openRegionModal()" title="View location &amp; travel guide">
+      <i class="fa-solid fa-compass" style="color: var(--teal-light);"></i> EASTERN VISAYAS
+    </button>
+    <button class="btn-my-trip" onclick="toggleTripDrawer()">
+      <i class="fa-regular fa-bookmark"></i>
+      <span>My Trip</span>
+      <span class="badge-trip-count" id="tripCountBadge">0</span>
+    </button>
+  </div>
+
+  <div class="trip-drawer-backdrop" id="tripDrawerBackdrop" onclick="closeTripDrawerOnOutside(event)">
+    <div class="trip-drawer" id="tripDrawer">
+      <div class="drawer-header">
+        <h3><i class="fa-solid fa-bookmark" style="color: var(--teal-primary); margin-right: 8px;"></i>My Trip Planner</h3>
+        <button class="drawer-close-btn" aria-label="Close drawer" onclick="toggleTripDrawer()">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-list-header">
+          <p style="font-size: 13.5px; color: #64748b;">Saved items for your Catbalogan trip:</p>
+          <button type="button" class="btn-clear-all" id="clearTripsBtn" onclick="clearAllTrips()">Clear All</button>
+        </div>
+        <div id="savedTripList"></div>
+
+        <form class="drawer-form" id="tripInquiryForm" onsubmit="submitItineraryInquiry(event)">
+          <div class="drawer-field">
+            <label for="visitorName">Your Full Name</label>
+            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz" required>
+          </div>
+          <div class="drawer-field">
+            <label for="visitorEmail">Email or Contact Number</label>
+            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917..." required>
+          </div>
+          <div class="drawer-field">
+            <label for="visitDate">Preferred Travel Date</label>
+            <input type="date" id="visitDate" required>
+          </div>
+        </form>
+
+        <div class="inquiry-success-box" id="inquirySuccessBox"></div>
+      </div>
+      <div class="drawer-footer">
+        <a href="spots.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 11px; border-radius: 10px; background: #0f8b84; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 8px;">
+          <i class="fa-solid fa-compass"></i> Browse &amp; Add Tourist Spots
+        </a>
+        <button type="submit" form="tripInquiryForm" class="btn-submit-trip">
+          Send Itinerary Inquiry <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+        </button>
+        <button type="button" class="btn-download-trip" onclick="downloadItinerary()">
+          <i class="fa-solid fa-file-excel" style="color: #16a34a;"></i> Download Itinerary (Excel .xlsx)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       UNIVERSAL DETAIL MODAL (FOR EASTERN VISAYAS & SPOTS)
+       ======================================================== -->
+  <div class="modal-backdrop" id="detailModal" onclick="if(event.target===this) closeDetailModal()">
+    <div class="modal-card">
+      <div class="drawer-header">
+        <h3 id="detailModalTitle">Details</h3>
+        <button class="drawer-close-btn" aria-label="Close modal" onclick="closeDetailModal()">&times;</button>
+      </div>
+      <img id="detailModalImg" class="modal-hero-img" src="" alt="" style="display: none;">
+      <div class="drawer-body">
+        <span id="detailModalTag" class="section-badge" style="margin-bottom: 6px;"></span>
+        <p id="detailModalBody" style="font-size: 14.5px; color: #334155; line-height: 1.7;"></p>
+        <div id="detailModalItems" class="modal-items-section" style="display: none;"></div>
+        <div class="modal-meta-list" id="detailModalMeta"></div>
+      </div>
+      <div class="drawer-footer" id="detailModalFooter">
+        <button type="button" class="btn-submit-trip" id="detailModalActionBtn"></button>
+        <button type="button" class="btn-download-trip" id="detailModalTransitBtn" style="display: none; background: #0c2333; color: #fff;">
+          <i class="fa-solid fa-route" style="color: #20c4b7;"></i> How to Ride &amp; Route Map
+        </button>
+        <button type="button" class="btn-download-trip" id="detailModalStreetViewBtn" style="display: none;">
+          <i class="fa-solid fa-street-view" style="color: var(--teal-primary);"></i> Open 360&deg; Street View
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast" id="toastMsg"></div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/main.js?v=12"></script>
+  <script src="js/transit.js?v=4"></script>
+
+</body>
+</html>
+

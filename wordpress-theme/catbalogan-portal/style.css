@@ -1,0 +1,21 @@
+/*
+Theme Name: Catbalogan Tourism & Admin Portal
+Theme URI: https://catbalogan.gov.ph
+Author: Catbalogan City Tourism Office
+Author URI: https://catbalogan.gov.ph
+Description: All-in-One Official Catbalogan Tourism Website and Interactive Admin Portal designed from Figma. Includes public destination showcase, interactive trip planner, and comprehensive administration dashboard.
+Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: catbalogan-portal
+Tags: tourism, city-portal, custom-dashboard, responsive-layout, all-in-one
+*/
+
+/* 
+  Styles are embedded directly in index.php for high-speed, 
+  self-contained all-in-one execution as requested.
+*/
+

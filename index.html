@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungaw Catbalogan - Gateway to Samar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body class="home">
+    <!-- ========================================================
+       0. OFFICIAL LGU TOP BRAND BAR (CAPTIVATING CATBALOGAN)
+       ======================================================== -->
+  <div class="gov-top-bar">
+    <div class="gov-top-left">
+      <span class="gov-badge-ph"><i class="fa-solid fa-flag"></i> GOVPH</span>
+      <span>Republic of the Philippines</span>
+      <span style="opacity: 0.7;">&bull;</span>
+      <span>City Government of Catbalogan</span>
+    </div>
+    <div class="gov-top-right">
+      <span class="gov-captivating-tag">
+        <i class="fa-solid fa-sun" style="color: #fde047;"></i> Captivating Catbalogan
+      </span>
+      <span style="font-size: 11px; opacity: 0.95;">
+        <i class="fa-regular fa-clock" style="margin-right: 4px;"></i> City of Captivating Colors
+      </span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       1. HEADER WITH DUAL LOGOS
+       ======================================================== -->
+  <header class="site-header">
+    <a href="#home" class="brand-logo-wrap">
+      <div class="brand-logos-container">
+        <img src="./images/official_logo.jpg" alt="Catbalogan Official Logo" class="brand-official-logo">
+        <div class="brand-circle">
+          <img src="./images/dungaw_logo.png" alt="Dungaw Catbalogan Logo">
+        </div>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">Dungaw Catbalogan</span>
+        <span class="brand-sub">CITY TOURISM</span>
+      </div>
+    </a>
+
+    <!-- Navigation Menu -->
+    <nav class="site-nav" id="siteNav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Catbalogan</a>
+      <a href="spots.html">Tourist Spots</a>
+      <a href="culture.html">Culture &amp; Festivals</a>
+      <a href="food.html">Food &amp; Delicacies</a>
+      <a href="products.html">Local Products</a>
+      <a href="transit.html">Transit &amp; Map</a>
+    </nav>
+
+    <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+      <i class="fa-solid fa-bars" id="menuToggleIcon"></i>
+    </button>
+  </header>
+
+  <!-- ========================================================
+       2. HERO SECTION
+       ======================================================== -->
+  <section id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-pill-badge">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>GATEWAY TO SAMAR</span>
+      </div>
+
+      <div class="hero-title-box">
+        <h1 class="hero-title">
+          DISCOVER THE<br>
+          SOUL OF<br>
+          CATBALOGAN
+        </h1>
+      </div>
+
+      <p class="hero-subtitle">
+        Where island beauty, rich traditions, and unforgettable flavors meet.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-explore" onclick="exploreCatbalogan()">
+          EXPLORE DESTINATIONS <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="btn-meet" onclick="discoverCulture()">
+          DISCOVER OUR CULTURE <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="hero-floating-right">
+    <button class="badge-eastern-visayas" onclick="openRegionModal()" title="View location &amp; travel guide">
+      <i class="fa-solid fa-compass" style="color: var(--teal-light);"></i> EASTERN VISAYAS
+    </button>
+    <button class="btn-my-trip" onclick="toggleTripDrawer()">
+      <i class="fa-regular fa-bookmark"></i>
+      <span>My Trip</span>
+      <span class="badge-trip-count" id="tripCountBadge">0</span>
+    </button>
+  </div>
+
+  <!-- ========================================================
+       9. FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logos-container">
+          <img src="./images/official_logo.jpg" alt="Catbalogan Official Logo" class="brand-official-logo">
+          <div class="brand-circle">
+            <img src="./images/dungaw_logo.png" alt="Dungaw Catbalogan Logo">
+          </div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Dungaw Catbalogan</span>
+          <span class="brand-sub" style="color: #22d3ee;">CITY TOURISM</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Catbalogan</a>
+        <a href="spots.html">Tourist Spots</a>
+        <a href="culture.html">Festivals</a>
+        <a href="food.html">Delicacies</a>
+        <a href="products.html">Local Products</a>
+        <a href="transit.html">Transit &amp; Map</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dungaw Catbalogan Tourism Office. Province of Samar, Philippines.</p>
+      <p>Gateway to Samar &bull; City of Captivating Colors</p>
+    </div>
+  </footer>
+
+    <!-- ========================================================
+       10. INTERACTIVE "MY TRIP" DRAWER
+       ======================================================== -->
+  <div class="trip-drawer-backdrop" id="tripDrawerBackdrop" onclick="closeTripDrawerOnOutside(event)">
+    <div class="trip-drawer" id="tripDrawer">
+      <div class="drawer-header">
+        <h3><i class="fa-solid fa-bookmark" style="color: var(--teal-primary); margin-right: 8px;"></i>My Trip Planner</h3>
+        <button class="drawer-close-btn" aria-label="Close drawer" onclick="toggleTripDrawer()">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-list-header">
+          <p style="font-size: 13.5px; color: #64748b;">Saved items for your Catbalogan trip:</p>
+          <button type="button" class="btn-clear-all" id="clearTripsBtn" onclick="clearAllTrips()">Clear All</button>
+        </div>
+        <div id="savedTripList"></div>
+
+        <form class="drawer-form" id="tripInquiryForm" onsubmit="submitItineraryInquiry(event)">
+          <div class="drawer-field">
+            <label for="visitorName">Your Full Name</label>
+            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz" required>
+          </div>
+          <div class="drawer-field">
+            <label for="visitorEmail">Email or Contact Number</label>
+            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917..." required>
+          </div>
+          <div class="drawer-field">
+            <label for="visitDate">Preferred Travel Date</label>
+            <input type="date" id="visitDate" required>
+          </div>
+        </form>
+
+        <div class="inquiry-success-box" id="inquirySuccessBox"></div>
+      </div>
+      <div class="drawer-footer">
+        <a href="transit.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 11px; border-radius: 10px; background: #0f8b84; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 8px;">
+          <i class="fa-solid fa-route"></i> Track Route &amp; Vehicles on Map
+        </a>
+        <button type="submit" form="tripInquiryForm" class="btn-submit-trip">
+          Send Itinerary Inquiry <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+        </button>
+        <button type="button" class="btn-download-trip" onclick="downloadItinerary()">
+          <i class="fa-solid fa-file-excel" style="color: #16a34a;"></i> Download Itinerary (Excel .xlsx)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       11. FESTIVAL SCHEDULE MODAL
+       ======================================================== -->
+  <div class="modal-backdrop" id="scheduleModal" onclick="if(event.target===this) toggleScheduleModal()">
+    <div class="modal-card">
+      <div class="drawer-header">
+        <h3><i class="fa-solid fa-calendar-days" style="color: var(--teal-primary); margin-right: 8px;"></i>Manaragat Festival Highlights</h3>
+        <button class="drawer-close-btn" aria-label="Close modal" onclick="toggleScheduleModal()">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <div class="schedule-item"><strong>Aug 1 &ndash; Aug 10</strong><span>Opening Parade &amp; Trade Fair</span></div>
+        <div class="schedule-item"><strong>Aug 15 &ndash; Aug 20</strong><span>Fluvial Procession &amp; Samar Bay Regatta</span></div>
+        <div class="schedule-item"><strong>Aug 23</strong><span>Manaragat Grand Street Dance &amp; Showdown</span></div>
+        <div class="schedule-item"><strong>Aug 24</strong><span>Feast of St. Bartholomew &amp; Fireworks</span></div>
+      </div>
+      <div class="drawer-footer">
+        <button type="button" class="btn-submit-trip" onclick="addToTrip('Manaragat Festival (August)'); toggleScheduleModal();">
+          <i class="fa-solid fa-bookmark" style="margin-right: 6px;"></i> Add Festival to My Trip
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       12. UNIVERSAL DETAIL MODAL (SPOTS, ABOUT, FOOD, PRODUCTS, REGION)
+       ======================================================== -->
+  <div class="modal-backdrop" id="detailModal" onclick="if(event.target===this) closeDetailModal()">
+    <div class="modal-card">
+      <div class="drawer-header">
+        <h3 id="detailModalTitle">Details</h3>
+        <button class="drawer-close-btn" aria-label="Close modal" onclick="closeDetailModal()">&times;</button>
+      </div>
+      <img id="detailModalImg" class="modal-hero-img" src="" alt="" style="display: none;">
+      <div class="drawer-body">
+        <span id="detailModalTag" class="section-badge" style="margin-bottom: 6px;"></span>
+        <p id="detailModalBody" style="font-size: 14.5px; color: #334155; line-height: 1.7;"></p>
+        <div id="detailModalItems" class="modal-items-section" style="display: none;"></div>
+        <div class="modal-meta-list" id="detailModalMeta"></div>
+      </div>
+      <div class="drawer-footer" id="detailModalFooter">
+        <button type="button" class="btn-submit-trip" id="detailModalActionBtn"></button>
+        <button type="button" class="btn-download-trip" id="detailModalTransitBtn" style="display: none; background: #0c2333; color: #fff;">
+          <i class="fa-solid fa-route" style="color: #20c4b7;"></i> How to Ride &amp; Route Map
+        </button>
+        <button type="button" class="btn-download-trip" id="detailModalStreetViewBtn" style="display: none;">
+          <i class="fa-solid fa-street-view" style="color: var(--teal-primary);"></i> Open 360&deg; Street View
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       13. INTERACTIVE MAP + STREET VIEW / 360 EXPLORER
+       ======================================================== -->
+  <div class="sv-modal" id="streetViewModal" role="dialog" aria-modal="true" aria-label="Map and Street View Explorer">
+    <!-- Top Control Bar (Cleanly above map, never overlaps WordPress Admin Bar) -->
+    <div class="sv-topbar">
+      <div class="sv-topbar-info">
+        <div class="sv-info-eyebrow">
+          <i class="fa-solid fa-location-dot"></i>
+          <span id="svCategoryLabel">CATBALOGAN MAP &amp; STREET VIEW</span>
+          <span id="svStepLabel" style="color: #94a3b8;">1 / 11</span>
+        </div>
+        <div class="sv-info-title" id="svTitle">Catbalogan City</div>
+        <div class="sv-info-sub" id="svSubtitle">Interactive Map &amp; Viewpoint Explorer</div>
+      </div>
+
+      <!-- View Mode Switcher -->
+      <div class="sv-mode-tabs" role="tablist">
+        <button type="button" class="sv-mode-btn active" data-mode="split" onclick="svSetMode('split')">
+          <i class="fa-solid fa-table-columns"></i> Map + View
+        </button>
+        <button type="button" class="sv-mode-btn" data-mode="map" onclick="svSetMode('map')">
+          <i class="fa-solid fa-map"></i> Map Only
+        </button>
+        <button type="button" class="sv-mode-btn" data-mode="street" onclick="svSetMode('street')">
+          <i class="fa-solid fa-street-view"></i> Google Street View
+        </button>
+        <button type="button" class="sv-mode-btn" data-mode="photo" onclick="svSetMode('photo')">
+          <i class="fa-solid fa-camera-rotate"></i> Photo 360&deg;
+        </button>
+      </div>
+
+      <div class="sv-top-actions">
+        <button type="button" class="sv-hud-btn" id="svMapLayerBtn" onclick="svToggleMapLayer()" title="Switch Road / Satellite">
+          <i class="fa-solid fa-layer-group"></i> <span id="svMapLayerLabel">Satellite</span>
+        </button>
+        <a id="svGoogleMapsLink" href="https://www.google.com/maps/search/?api=1&query=Catbalogan+City+Samar" target="_blank" rel="noopener" class="sv-hud-btn">
+          <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--teal-light);"></i> Open Maps
+        </a>
+        <button type="button" class="sv-close-btn" aria-label="Close Street View" onclick="closeStreetView()">&times;</button>
+      </div>
+    </div>
+
+    <!-- Split Stage: Real Interactive Google Map + Interactive Street View / Photo 360 -->
+    <div class="sv-stage" id="svStage">
+      <!-- Left Pane: Real Google Map with Location Pin -->
+      <div class="sv-map-pane">
+        <div class="sv-map-badge">
+          <i class="fa-solid fa-map-pin" style="color: var(--coral-accent);"></i>
+          <span id="svMapPinLabel">Catbalogan Map Pin</span>
+        </div>
+        <iframe id="svMapFrame" class="sv-iframe" title="Catbalogan Interactive Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+
+      <!-- Right Pane: Google Street View OR Interactive Photo 360 -->
+      <div class="sv-view-pane">
+        <!-- Real Google Street View Embed -->
+        <div class="sv-gsv-wrap" id="svGsvWrap">
+          <iframe id="svGsvFrame" class="sv-iframe" title="Google Street View" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+
+        <!-- Photo 360 Pinch/Drag/Forward-Back Viewpoint Canvas -->
+        <div class="sv-viewport" id="svViewport">
+          <img id="svImage" class="sv-canvas-img" src="./images/hero.jpg" alt="Street View Scene">
+
+          <div class="sv-hint-pill">
+            <i class="fa-solid fa-hand-pointer"></i> Drag to look &bull; Pinch / scroll to zoom &bull; Forward / Go Back
+          </div>
+
+          <div class="sv-ground-nav">
+            <div class="sv-road-row">
+              <button type="button" class="sv-turn-btn" onclick="svPanBy(140, 0)" title="Turn Left">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+              <button type="button" class="sv-chevron-btn" id="svForwardBtn" onclick="svMoveStep(1)">
+                <i class="fa-solid fa-arrow-up"></i> Move Forward
+              </button>
+              <button type="button" class="sv-turn-btn" onclick="svPanBy(-140, 0)" title="Turn Right">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+            </div>
+            <button type="button" class="sv-chevron-btn" id="svBackBtn" onclick="svMoveStep(-1)" style="padding: 7px 16px; font-size: 12px;">
+              <i class="fa-solid fa-arrow-down"></i> Go Back (Ha Luyo)
+            </button>
+          </div>
+
+          <div class="sv-hud-right">
+            <div class="sv-compass" onclick="svResetView()" title="Reset heading">
+              <div class="sv-compass-needle" id="svCompassNeedle"></div>
+            </div>
+            <div class="sv-zoom-stack">
+              <button type="button" class="sv-zoom-btn" onclick="svZoom(0.35)" title="Zoom In">+</button>
+              <button type="button" class="sv-zoom-btn" onclick="svZoom(-0.35)" title="Zoom Out">&minus;</button>
+            </div>
+            <span class="sv-zoom-readout" id="svZoomReadout">1.0x</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Connected Waypoint Strip -->
+    <div class="sv-strip" id="svThumbStrip"></div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script src="js/main.js?v=12"></script>
+</body>
+</html>
