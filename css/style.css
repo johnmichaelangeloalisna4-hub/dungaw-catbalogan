@@ -804,6 +804,17 @@ body.subpage .site-header .menu-toggle-btn:hover {
   color: var(--teal-primary);
 }
 
+.spot-loc-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ea580c;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+  letter-spacing: 0.1px;
+}
+
 .spot-desc {
   font-size: 13.5px;
   color: var(--text-muted);

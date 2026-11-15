@@ -87,6 +87,102 @@ const DETAILS_DATA = {
       '<strong><i class="fa-solid fa-utensils" style="color:var(--teal-primary)"></i> Nearby:</strong> Evening street food &amp; bayfront eateries'
     ]
   },
+  'city_plaza': {
+    tag: 'HISTORIC &amp; CIVIC HEART',
+    title: 'City Plaza',
+    img: './images/city_plaza.jpg',
+    tripName: 'City Plaza',
+    body: 'Considered to be the heart of the city, its proximity to the City Hall, as well as being the site of various historical and cultural properties, make this the perfect place of convergence of everything that truly represents the City of Catbalogan.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Poblacion 5, City Proper, Catbalogan City',
+      '<strong><i class="fa-solid fa-clock" style="color:var(--teal-primary)"></i> Best Time:</strong> Afternoon to Evening (Illuminations &amp; Stage)',
+      '<strong><i class="fa-solid fa-landmark" style="color:var(--teal-primary)"></i> Highlights:</strong> City Hall, Heritage Monuments, Gathering Center'
+    ]
+  },
+  'rizal_statue': {
+    tag: 'HISTORICAL MONUMENT',
+    title: 'Rizal Statue',
+    img: './images/rizal_statue.jpg',
+    tripName: 'Rizal Statue',
+    body: 'By far one of the most unique depictions of our national hero, this masterpiece shows a bust of Dr. Jose Rizal placed on top of the Noli Me Tangere and El Filibusterismo while being hoisted by three naked men. Being created by local artist Miguel Alcazar serves as the connection that makes it a most beloved legacy for Catbaloganons.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Rizal Avenue, City Proper, Catbalogan City',
+      '<strong><i class="fa-solid fa-palette" style="color:var(--teal-primary)"></i> Sculptor:</strong> Miguel Alcazar (Local Catbaloganon Artist)',
+      '<strong><i class="fa-solid fa-book-open" style="color:var(--teal-primary)"></i> Symbolism:</strong> Noli Me Tangere, El Filibusterismo &amp; Unity'
+    ]
+  },
+  'sky_city': {
+    tag: 'FUTURE TOWNSHIP &amp; VIEWPOINT',
+    title: 'Catbalogan Sky City',
+    img: './images/sky_city.jpg',
+    tripName: 'Catbalogan Sky City',
+    body: 'The Catbalogan Sky City Mega Project is a township bundled project through multi-nuclei model of expansion with an area of 440 hectares and 120 meters above sea level positioned to be a resilient, inclusive and sustainable city through localization of the national and global agenda.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Barangay San Andres, Catbalogan City',
+      '<strong><i class="fa-solid fa-mountain" style="color:var(--teal-primary)"></i> Elevation:</strong> 120 meters above sea level (440 Hectares)',
+      '<strong><i class="fa-solid fa-city" style="color:var(--teal-primary)"></i> Vision:</strong> Resilient, Sustainable Eco-Township &amp; Scenic Overlook'
+    ]
+  },
+  'imelda_park': {
+    tag: 'PARK &amp; RECREATION',
+    title: 'Imelda Park',
+    img: './images/imelda_park.jpg',
+    tripName: 'Imelda Park',
+    body: 'Named after the former First Lady Imelda Marcos, the park offers various amenities such as a small stage, a gazebo, a food park and a play area for children. A renovation last 2020 brought forth several changes that make the park even more appealing to both children and adult visitors.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Poblacion 6, City Proper, Catbalogan City',
+      '<strong><i class="fa-solid fa-tree" style="color:var(--teal-primary)"></i> Features:</strong> Gazebo, Children Play Area, Food Park &amp; Small Stage',
+      '<strong><i class="fa-solid fa-clock" style="color:var(--teal-primary)"></i> Access:</strong> Open Daily (Free Entry)'
+    ]
+  },
+  'capitol': {
+    tag: 'GOVERNMENT &amp; NEOCLASSICAL HERITAGE',
+    title: 'Samar Provincial Capitol',
+    img: './images/capitol.jpg',
+    tripName: 'Samar Provincial Capitol',
+    body: 'Built during the 1930s in the neoclassical style of architecture, this white two-storey building is just as enduring as the ancient Roman and Greek temples that it took inspiration from.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Poblacion 6, City Proper, Catbalogan City',
+      '<strong><i class="fa-solid fa-monument" style="color:var(--teal-primary)"></i> Architecture:</strong> 1930s Neoclassical Heritage with Iconic Columns',
+      '<strong><i class="fa-solid fa-shield" style="color:var(--teal-primary)"></i> Seat of Power:</strong> Provincial Government of Samar'
+    ]
+  },
+  'church': {
+    tag: 'SACRED HISTORICAL HERITAGE',
+    title: 'Saint Bartholomew Church',
+    img: './images/church.jpg',
+    tripName: 'Saint Bartholomew Church',
+    body: 'Established in 1616 by Jesuit missionaries to serve as its mission center, this served as the earliest roots of the city\'s placement as the cabecera of the entire island of Samar. Most importantly, this church serves as a symbol of the people\'s unwavering faith and reverence.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Mabini Avenue, City Proper, Catbalogan City',
+      '<strong><i class="fa-solid fa-church" style="color:var(--teal-primary)"></i> Established:</strong> 1616 by Jesuit Missionaries',
+      '<strong><i class="fa-solid fa-bell" style="color:var(--teal-primary)"></i> Significance:</strong> Cabecera of Samar &amp; Diocesan Patron'
+    ]
+  },
+  'buri_baras': {
+    tag: 'ISLANDS &amp; BEACHES',
+    title: 'Buri Baras Beach',
+    img: './images/buri_baras.jpg',
+    tripName: 'Buri Baras Beach',
+    body: 'With its pristine waters and the breathtaking natural cove around it, the Buri Baras Beach is the ultimate go-to for those seeking some sun, sand and sea, whether it is for a much-needed me time or for some fun with family and friends.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Barangay Estaka, Buri Island, Catbalogan City',
+      '<strong><i class="fa-solid fa-umbrella-beach" style="color:var(--teal-primary)"></i> Setting:</strong> Pristine Natural Cove, Golden Sands &amp; Calm Waters',
+      '<strong><i class="fa-solid fa-person-swimming" style="color:var(--teal-primary)"></i> Activities:</strong> Swimming, Beach Picnics, Sunset Watching'
+    ]
+  },
+  'cabugawan': {
+    tag: 'ECO-TOURISM &amp; MANGROVE SANCTUARY',
+    title: 'Cabugawan Eco Park',
+    img: './images/cabugawan.jpg',
+    tripName: 'Cabugawan Eco Park',
+    body: 'Starting out with a 3-hectare mangrove area and three gazebos, the Cabugawan Eco Park continues to thrive both as a scenic spot as well as an ecological/educational park. Under the management of a community-based tourism organization, the park has since expanded its coverage so that more mangrove areas can be protected and to be able to cater to more tourists.',
+    meta: [
+      '<strong><i class="fa-solid fa-location-dot" style="color:var(--teal-primary)"></i> Location:</strong> Brgy. Cabugawan, Catbalogan City, Samar',
+      '<strong><i class="fa-solid fa-seedling" style="color:var(--teal-primary)"></i> Ecosystem:</strong> Protected Mangrove Sanctuary &amp; Boardwalk Trail',
+      '<strong><i class="fa-solid fa-users" style="color:var(--teal-primary)"></i> Management:</strong> Community-Based Eco-Tourism Organization'
+    ]
+  },
   'historic-capital': {
     tag: 'CITY PROFILE',
     title: 'Historic Capital of Samar',
@@ -1329,6 +1425,14 @@ function getTripMeta(name) {
     'Darahuway Guti Island': ['Island Sanctuary', '20-30 mins boat from Pier 1', 'Tricycle to Pier 1 + Motorized Banca', 'PHP 65 - 100 / pax (PHP 500-800 charter)', 'March - September (Snorkeling)'],
     'Maqueda Bay Sunset': ['Scenic Bayfront', 'Catbalogan Bayfront Boulevard', 'Walking or Downtown Tricycle', 'FREE (Walk) / PHP 12 - 15 (Tricycle)', '5:00 PM - 6:15 PM'],
     'Maqueda Bay Sunset Boulevard': ['Scenic Bayfront', 'Catbalogan Bayfront Boulevard', 'Walking or Downtown Tricycle', 'FREE (Walk) / PHP 12 - 15 (Tricycle)', '5:00 PM - 6:15 PM'],
+    'City Plaza': ['Historical & Heritage', 'Poblacion 5, City Proper', 'Walking or Downtown Tricycle', 'FREE (Walk) / PHP 12 - 15 (Tricycle)', 'Heart of Catbalogan, next to City Hall'],
+    'Rizal Statue': ['Heritage Monument', 'Rizal Avenue, City Proper', 'Walking or Downtown Tricycle', 'FREE (Walk) / PHP 12 - 15 (Tricycle)', 'Unique Miguel Alcazar sculpture'],
+    'Catbalogan Sky City': ['Eco-Tourism & Viewpoint', 'Barangay San Andres (120m ASL)', 'Habal-habal or Private Vehicle', 'PHP 40 - 60 (Habal-habal)', 'Panoramic mountain & township view'],
+    'Imelda Park': ['Park & Recreation', 'Poblacion 6, City Proper', 'Walking or Downtown Tricycle', 'FREE (Walk) / PHP 12 - 15 (Tricycle)', 'Food park, gazebo, play area'],
+    'Samar Provincial Capitol': ['Neoclassical Heritage', 'Poblacion 6, City Proper', 'Walking or Downtown Tricycle', 'FREE (Walk) / PHP 12 - 15 (Tricycle)', 'Historic 1930s government seat'],
+    'Saint Bartholomew Church': ['Historical & Faith', 'Mabini Avenue, City Proper', 'Walking or Downtown Tricycle', 'FREE (Solemn Visit)', 'Established 1616 by Jesuit missionaries'],
+    'Buri Baras Beach': ['Islands & Beaches', 'Barangay Estaka, Buri Island', 'Tricycle (Special) or Multicab', 'PHP 25 (Multicab) / PHP 100-150 (Special)', 'Pristine cove, sand and sea'],
+    'Cabugawan Eco Park': ['Eco-Tourism & Mangrove', 'Brgy. Cabugawan', 'Tricycle or Multicab', 'PHP 20 - 30 (Multicab)', 'Mangrove boardwalk & educational park'],
     'Arts Month (February)': ['Culture & Arts', 'City Plaza & Public Venues', 'Walking or Downtown Tricycle', 'FREE (Public Art Exhibits)', 'Whole Month of February'],
     'Semana Santa (Holy Week)': ['Faith & Heritage', 'St. Bartholomew Cathedral & Plaza', 'Walking or Downtown Tricycle', 'FREE (Senakulo & Processions)', 'March / April (Holy Week)'],
     'Charter Anniversary (June 16)': ['Civic Celebration', 'Citywide & Plaza Venues', 'Walking or Downtown Tricycle', 'FREE (Concerts & Milestone Events)', 'June 16 (Month-long Activities)'],

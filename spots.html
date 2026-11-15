@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=46">
+  <link rel="stylesheet" href="css/style.css?v=47">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -107,10 +107,220 @@
       </div>
 
       <div class="spots-grid" id="spotsGrid">
-        <!-- Spot 1: Buri Island -->
+        <!-- Spot 1: City Plaza -->
+        <div class="spot-card" data-category="heritage">
+          <div class="spot-img-wrap" onclick="openDetailModal('city_plaza')">
+            <img src="./images/city_plaza.jpg" alt="City Plaza Catbalogan" loading="lazy">
+            <span class="spot-tag">Civic &amp; Heritage</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Poblacion 5, City Proper</div>
+              <h3 class="spot-title" onclick="openDetailModal('city_plaza')">City Plaza</h3>
+              <p class="spot-desc">Considered to be the heart of the city, its proximity to the City Hall, as well as being the site of various historical and cultural properties,make this the perfect place of convergence of everything that truly represents the City of Catbalogan.</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="City Plaza" onclick="addToTrip('City Plaza')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('city_plaza')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 2: Rizal Statue -->
+        <div class="spot-card" data-category="heritage">
+          <div class="spot-img-wrap" onclick="openDetailModal('rizal_statue')">
+            <img src="./images/rizal_statue.jpg" alt="Rizal Statue by Miguel Alcazar" loading="lazy">
+            <span class="spot-tag">Monument</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Rizal Avenue, City Proper</div>
+              <h3 class="spot-title" onclick="openDetailModal('rizal_statue')">Rizal Statue</h3>
+              <p class="spot-desc">By far one of the most unique depictions of our national hero, this masterpiece shows a bust of Dr. Jose Rizal placed on top of the Noli Me Tangere and El Filibusterismo while being hoisted by three naked men. Being created by local artist Miguel Alcazar serves as the connection that makes it a most beloved legacy for Catbaloganons.</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Rizal Statue" onclick="addToTrip('Rizal Statue')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('rizal_statue')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 3: Catbalogan Sky City -->
+        <div class="spot-card" data-category="nature">
+          <div class="spot-img-wrap" onclick="openDetailModal('sky_city')">
+            <img src="./images/sky_city.jpg" alt="Catbalogan Sky City Mega Project" loading="lazy">
+            <span class="spot-tag">Eco-Township</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Barangay San Andres</div>
+              <h3 class="spot-title" onclick="openDetailModal('sky_city')">Catbalogan Sky City</h3>
+              <p class="spot-desc">The Catbalogan Sky City Mega Project is a township bundled project through multi-nuclei model of expansion with an area of 440 hectares and 120 meters above sea level positioned to be a resilient, inclusive and sustainable city through localization of the national and global agenda.</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Catbalogan Sky City" onclick="addToTrip('Catbalogan Sky City')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('sky_city')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 4: Imelda Park -->
+        <div class="spot-card" data-category="heritage">
+          <div class="spot-img-wrap" onclick="openDetailModal('imelda_park')">
+            <img src="./images/imelda_park.jpg" alt="Imelda Park Catbalogan" loading="lazy">
+            <span class="spot-tag">Public Park</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Poblacion 6, City Proper</div>
+              <h3 class="spot-title" onclick="openDetailModal('imelda_park')">Imelda Park</h3>
+              <p class="spot-desc">Named after the former First Lady Imelda Marcos, the park offers various amenities such as a small stage, a gazebo, a food park and a play area for children. A renovation last 2020 brought forth several changes that make the park even more appealing to both children and adult visitors.</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Imelda Park" onclick="addToTrip('Imelda Park')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('imelda_park')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 5: Samar Provincial Capitol -->
+        <div class="spot-card" data-category="heritage">
+          <div class="spot-img-wrap" onclick="openDetailModal('capitol')">
+            <img src="./images/capitol.jpg" alt="Samar Provincial Capitol Building" loading="lazy">
+            <span class="spot-tag">Neoclassical</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Poblacion 6, City Proper</div>
+              <h3 class="spot-title" onclick="openDetailModal('capitol')">Samar Provincial Capitol</h3>
+              <p class="spot-desc">Built during the 1930s in the neoclassical style of architecture, this white two-storey building is just as enduring as the ancient Roman and Greek temples that it took inspiration from.</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Samar Provincial Capitol" onclick="addToTrip('Samar Provincial Capitol')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('capitol')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 6: Saint Bartholomew Church -->
+        <div class="spot-card" data-category="heritage">
+          <div class="spot-img-wrap" onclick="openDetailModal('church')">
+            <img src="./images/church.jpg" alt="Saint Bartholomew Church 1616" loading="lazy">
+            <span class="spot-tag">Faith &amp; History</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Mabini Avenue, City Proper</div>
+              <h3 class="spot-title" onclick="openDetailModal('church')">Saint Bartholomew Church</h3>
+              <p class="spot-desc">Established in 1616 by Jesuit missionaries to serve as its mission center, this served as the earliest roots of the city's placement as the cabecera of the entire island of Samar. Most importantly, this church serves as a symbol of the people's unwavering faith and reverence</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Saint Bartholomew Church" onclick="addToTrip('Saint Bartholomew Church')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('church')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 7: Pieta Park -->
+        <div class="spot-card" data-category="heritage">
+          <div class="spot-img-wrap" onclick="openDetailModal('pieta')">
+            <img src="./images/pieta.jpg" alt="Pieta Park Memorial Monument" loading="lazy">
+            <span class="spot-tag">Memorial</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('pieta')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Mabini Avenue, City Proper</div>
+              <h3 class="spot-title" onclick="openDetailModal('pieta')">Pieta Park</h3>
+              <p class="spot-desc">In Catbalogan, just across the century-old church of Saint Bartholomew is a memorial park dedicated to honor the Catbaloganons who perished in the December 20, 1987 tragic collision of the passenger ship MV Doña Paz and the oil tanker MT Vector</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Pieta Park" onclick="addToTrip('Pieta Park')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('pieta')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 8: Buri Baras Beach -->
+        <div class="spot-card" data-category="island">
+          <div class="spot-img-wrap" onclick="openDetailModal('buri_baras')">
+            <img src="./images/buri_baras.jpg" alt="Buri Baras Beach Cove" loading="lazy">
+            <span class="spot-tag">Beach &amp; Cove</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Barangay Estaka</div>
+              <h3 class="spot-title" onclick="openDetailModal('buri_baras')">Buri Baras Beach</h3>
+              <p class="spot-desc">With its pristine waters and the breathtaking natural cove around it, the Buri Baras Beach is the ultimate go-to for those seeking some sun, sand and sea, whether it is for a much-needed me time or for some fun with family and friends</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Buri Baras Beach" onclick="addToTrip('Buri Baras Beach')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('buri_baras')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 9: Cabugawan Eco Park -->
+        <div class="spot-card" data-category="nature">
+          <div class="spot-img-wrap" onclick="openDetailModal('cabugawan')">
+            <img src="./images/cabugawan.jpg" alt="Cabugawan Eco Park Mangrove Boardwalk" loading="lazy">
+            <span class="spot-tag">Mangrove Eco-Park</span>
+          </div>
+          <div class="spot-body">
+            <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Brgy. Cabugawan</div>
+              <h3 class="spot-title" onclick="openDetailModal('cabugawan')">Cabugawan Eco Park</h3>
+              <p class="spot-desc">Starting out with a 3-hectare mangrove area and three gazebos, the Cabugawan Eco Park continues to thrive both as a scenic spot as well as an ecological/educational park. Under the management of a community-based tourism organization, the park has since expanded its coverage so that more mangrove areas can be protected and to be able to cater to more tourists.</p>
+            </div>
+            <div class="spot-actions">
+              <button class="btn-add-trip" data-spot="Cabugawan Eco Park" onclick="addToTrip('Cabugawan Eco Park')">
+                <i class="fa-solid fa-plus"></i> Add to My Trip
+              </button>
+              <button class="btn-view-details" onclick="openDetailModal('cabugawan')">
+                View Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spot 10: Buri Island Boardwalk -->
         <div class="spot-card" data-category="island">
           <div class="spot-img-wrap" onclick="openStreetView('buri')">
-            <img src="./images/buri.jpg" alt="Buri Island Boardwalk">
+            <img src="./images/buri.jpg" alt="Buri Island Boardwalk" loading="lazy">
             <span class="spot-tag">Island</span>
             <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('buri')">
               <i class="fa-solid fa-street-view"></i> 360&deg; View
@@ -118,6 +328,7 @@
           </div>
           <div class="spot-body">
             <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Brgy. Buri, Catbalogan City</div>
               <h3 class="spot-title" onclick="openDetailModal('buri')">Buri Island Boardwalk</h3>
               <p class="spot-desc">Experience the longest wooden footbridge in the country, turquoise seas, and golden sunset panoramas over Samar Sea.</p>
             </div>
@@ -132,10 +343,10 @@
           </div>
         </div>
 
-        <!-- Spot 2: Bangon Falls -->
+        <!-- Spot 11: Bangon Falls -->
         <div class="spot-card" data-category="nature">
           <div class="spot-img-wrap" onclick="openStreetView('bangon')">
-            <img src="./images/bangon.jpg" alt="Bangon Falls">
+            <img src="./images/bangon.jpg" alt="Bangon Falls" loading="lazy">
             <span class="spot-tag">Waterfall</span>
             <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('bangon')">
               <i class="fa-solid fa-street-view"></i> 360&deg; View
@@ -143,6 +354,7 @@
           </div>
           <div class="spot-body">
             <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Brgy. Bangon / San Andres Trail</div>
               <h3 class="spot-title" onclick="openDetailModal('bangon')">Bangon Falls</h3>
               <p class="spot-desc">A magnificent cascade tucked in deep virgin rainforest with natural rock pools perfect for eco-trekkers.</p>
             </div>
@@ -157,10 +369,10 @@
           </div>
         </div>
 
-        <!-- Spot 3: The Obelisk -->
+        <!-- Spot 12: The Obelisk -->
         <div class="spot-card" data-category="heritage">
           <div class="spot-img-wrap" onclick="openStreetView('obelisk')">
-            <img src="./images/obelisk.jpg" alt="The Obelisk">
+            <img src="./images/obelisk.jpg" alt="The Obelisk" loading="lazy">
             <span class="spot-tag">Heritage</span>
             <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('obelisk')">
               <i class="fa-solid fa-street-view"></i> 360&deg; View
@@ -168,6 +380,7 @@
           </div>
           <div class="spot-body">
             <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Samar Provincial Capitol Park</div>
               <h3 class="spot-title" onclick="openDetailModal('obelisk')">The Obelisk</h3>
               <p class="spot-desc">Towering monument at the city square illustrating four defining eras of Samar's bravery and heritage.</p>
             </div>
@@ -182,35 +395,10 @@
           </div>
         </div>
 
-        <!-- Spot 4: Pieta Park -->
-        <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openStreetView('pieta')">
-            <img src="./images/pieta.jpg" alt="Pieta Park">
-            <span class="spot-tag">Heritage</span>
-            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('pieta')">
-              <i class="fa-solid fa-street-view"></i> 360&deg; View
-            </button>
-          </div>
-          <div class="spot-body">
-            <div>
-              <h3 class="spot-title" onclick="openDetailModal('pieta')">Pieta Park</h3>
-              <p class="spot-desc">Historic shrine adjoining the Cathedral grounds erected in solemn remembrance of local maritime history.</p>
-            </div>
-            <div class="spot-actions">
-              <button class="btn-add-trip" data-spot="Pieta Park" onclick="addToTrip('Pieta Park')">
-                <i class="fa-solid fa-plus"></i> Add to My Trip
-              </button>
-              <button class="btn-view-details" onclick="openDetailModal('pieta')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Spot 5: Darahuway Guti Island -->
+        <!-- Spot 13: Darahuway Guti Island -->
         <div class="spot-card" data-category="island">
           <div class="spot-img-wrap" onclick="openStreetView('darahuway')">
-            <img src="./images/darahuway.jpg" alt="Darahuway Guti Island">
+            <img src="./images/darahuway.jpg" alt="Darahuway Guti Island" loading="lazy">
             <span class="spot-tag">Island</span>
             <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('darahuway')">
               <i class="fa-solid fa-street-view"></i> 360&deg; View
@@ -218,6 +406,7 @@
           </div>
           <div class="spot-body">
             <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> 20-30 mins boat from Pier 1</div>
               <h3 class="spot-title" onclick="openDetailModal('darahuway')">Darahuway Guti Island</h3>
               <p class="spot-desc">Pristine coral sanctuaries, secluded coves, and scenic trekking bluffs overlooking Eastern Visayas waters.</p>
             </div>
@@ -232,10 +421,10 @@
           </div>
         </div>
 
-        <!-- Spot 6: Maqueda Bay Sunset -->
+        <!-- Spot 14: Maqueda Bay Sunset -->
         <div class="spot-card" data-category="nature">
           <div class="spot-img-wrap" onclick="openStreetView('maqueda')">
-            <img src="./images/maqueda.jpg" alt="Maqueda Bay Sunset">
+            <img src="./images/maqueda.jpg" alt="Maqueda Bay Sunset" loading="lazy">
             <span class="spot-tag">Scenic Vista</span>
             <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('maqueda')">
               <i class="fa-solid fa-street-view"></i> 360&deg; View
@@ -243,6 +432,7 @@
           </div>
           <div class="spot-body">
             <div>
+              <div class="spot-loc-tag"><i class="fa-solid fa-location-dot"></i> Catbalogan Bayfront Boulevard</div>
               <h3 class="spot-title" onclick="openDetailModal('maqueda')">Maqueda Bay Sunset</h3>
               <p class="spot-desc">Renowned as one of the most picturesque sunset viewing spots in the Visayas along the Catbalogan boulevard.</p>
             </div>
@@ -507,6 +697,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=46"></script>
+  <script src="js/main.js?v=47"></script>
 </body>
 </html>
