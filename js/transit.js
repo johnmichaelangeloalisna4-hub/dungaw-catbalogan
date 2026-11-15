@@ -167,6 +167,128 @@ const TRANSIT_LOCATIONS = {
     type: 'spot',
     image: './images/hero.jpg',
     address: 'Rizal Avenue Downtown'
+  },
+  // DOT Accredited Restaurants & Dining Spots
+  'resto_157th': {
+    id: 'resto_157th',
+    name: '157th Street Boutique Hotel',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7748,
+    lng: 124.8835,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_157th.jpg',
+    address: 'San Bartolome Street, City Proper'
+  },
+  'resto_jrd': {
+    id: 'resto_jrd',
+    name: 'JRD Hotel & Restaurant',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7760,
+    lng: 124.8840,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_jrd.jpg',
+    address: 'Del Rosario St. cor. Taft Ave.'
+  },
+  'resto_payao': {
+    id: 'resto_payao',
+    name: 'Payao Mangroves Grill and Restaurant',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7925,
+    lng: 124.8765,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_payao.jpg',
+    address: 'Maharlika Highway, Brgy. Payao'
+  },
+  'resto_mgrand': {
+    id: 'resto_mgrand',
+    name: 'M Grand Royale Resort',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7650,
+    lng: 124.8920,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_mgrand.jpg',
+    address: 'Executive Heights, Brgy. Guinsorongan'
+  },
+  'resto_mare_monte': {
+    id: 'resto_mare_monte',
+    name: 'Mare e Monte Restaurant',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7735,
+    lng: 124.8855,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_mare_monte.jpg',
+    address: 'Rizal Avenue Extension (Capitol Area)'
+  },
+  'resto_ernies': {
+    id: 'resto_ernies',
+    name: "Ernie's Pizza",
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7740,
+    lng: 124.8850,
+    icon: 'fa-pizza-slice',
+    type: 'dining',
+    image: './images/resto_ernies.jpg',
+    address: 'Rizal Avenue Extension'
+  },
+  'resto_secret_cafe': {
+    id: 'resto_secret_cafe',
+    name: 'The Secret Cafe',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7780,
+    lng: 124.8830,
+    icon: 'fa-mug-saucer',
+    type: 'dining',
+    image: './images/resto_secret_cafe.jpg',
+    address: '170 Del Rosario Street, Ubanon'
+  },
+  'resto_city_grill': {
+    id: 'resto_city_grill',
+    name: 'City Grill',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7755,
+    lng: 124.8842,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_city_grill.jpg',
+    address: 'Del Rosario Street, Poblacion'
+  },
+  'resto_king_bean': {
+    id: 'resto_king_bean',
+    name: 'King Bean Cafe',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7752,
+    lng: 124.8840,
+    icon: 'fa-mug-saucer',
+    type: 'dining',
+    image: './images/resto_king_bean.jpg',
+    address: 'Del Rosario St. (in front of BDO)'
+  },
+  'resto_palabok': {
+    id: 'resto_palabok',
+    name: 'Palabok House',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7746,
+    lng: 124.8838,
+    icon: 'fa-bowl-food',
+    type: 'dining',
+    image: './images/resto_palabok.jpg',
+    address: 'San Bartolome Street, Poblacion 3'
+  },
+  'resto_toril': {
+    id: 'resto_toril',
+    name: 'Toril Grill and Resto Bar',
+    category: 'DOT Accredited Restaurant',
+    lat: 11.7580,
+    lng: 124.8960,
+    icon: 'fa-utensils',
+    type: 'dining',
+    image: './images/resto_toril.jpg',
+    address: 'Barangay Socorro (Overlooking)'
   }
 };
 
@@ -376,7 +498,8 @@ function plotAllLandmarks(excludeIds = []) {
     if (excludeIds.includes(loc.id)) return;
 
     const isHub = loc.type === 'hub';
-    const pinClass = isHub ? 'pin-hub' : 'pin-spot';
+    const isDining = loc.type === 'dining';
+    const pinClass = isHub ? 'pin-hub' : (isDining ? 'pin-dining' : 'pin-spot');
 
     const customIcon = L.divIcon({
       className: 'custom-leaflet-div',
@@ -423,6 +546,8 @@ function populateDropdowns() {
   // Destinations grouped
   const optGroupSpots2 = document.createElement('optgroup');
   optGroupSpots2.label = '— Tourist Spots & Attractions —';
+  const optGroupDining = document.createElement('optgroup');
+  optGroupDining.label = '— DOT Accredited Restaurants —';
   const optGroupHubs2 = document.createElement('optgroup');
   optGroupHubs2.label = '— Hubs & Terminals —';
 
@@ -435,6 +560,7 @@ function populateDropdowns() {
     // For destination
     const opt2 = new Option(loc.name + ' (' + loc.category + ')', loc.id);
     if (loc.type === 'spot') optGroupSpots2.appendChild(opt2);
+    else if (loc.type === 'dining') optGroupDining.appendChild(opt2);
     else optGroupHubs2.appendChild(opt2);
   });
 
@@ -442,6 +568,7 @@ function populateDropdowns() {
   originSelect.appendChild(optGroupSpots1);
 
   destSelect.appendChild(optGroupSpots2);
+  destSelect.appendChild(optGroupDining);
   destSelect.appendChild(optGroupHubs2);
 
   // Defaults

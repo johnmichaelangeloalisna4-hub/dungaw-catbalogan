@@ -1433,6 +1433,39 @@ body.subpage .site-header .menu-toggle-btn:hover {
   text-decoration: underline;
 }
 
+.resto-loc-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.resto-loc-link:hover {
+  color: #0f8b84;
+}
+
+.resto-map-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  transition: all 0.2s ease;
+}
+
+.resto-loc-link:hover .resto-map-chip {
+  background: #0284c7;
+  color: #ffffff;
+}
+
 .resto-desc {
   font-size: 13.5px;
   color: #475569;
@@ -1444,8 +1477,8 @@ body.subpage .site-header .menu-toggle-btn:hover {
 .resto-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
   margin-top: auto;
   padding-top: 16px;
   border-top: 1px solid #f8fafc;
@@ -1454,15 +1487,15 @@ body.subpage .site-header .menu-toggle-btn:hover {
 .btn-resto-message {
   background: #e65100;
   color: #ffffff !important;
-  padding: 9px 24px;
+  padding: 8px 15px;
   border-radius: 50px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 3px 12px rgba(230, 81, 0, 0.28);
+  gap: 6px;
+  box-shadow: 0 3px 10px rgba(230, 81, 0, 0.25);
   transition: background 0.2s ease, transform 0.2s ease;
   border: none;
   cursor: pointer;
@@ -1470,19 +1503,82 @@ body.subpage .site-header .menu-toggle-btn:hover {
 
 .btn-resto-message:hover {
   background: #d84315;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(230, 81, 0, 0.38);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(230, 81, 0, 0.35);
+}
+
+.btn-resto-route {
+  background: #0f8b84;
+  color: #ffffff !important;
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 3px 10px rgba(15, 139, 132, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-resto-route:hover {
+  background: #096a64;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(15, 139, 132, 0.35);
+}
+
+.btn-resto-360 {
+  background: rgba(12, 35, 51, 0.06);
+  color: #0c2333;
+  border: 1px solid rgba(12, 35, 51, 0.2);
+  border-radius: 50px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-resto-360:hover {
+  background: #0c2333;
+  color: #ffffff;
+  border-color: #0c2333;
+  transform: translateY(-1px);
 }
 
 .btn-resto-save {
   background: #f8fafc;
   color: #0f8b84;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 8px 14px;
+  border-radius: 50px;
+  padding: 7px 12px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-resto-save:hover {
+  background: rgba(15, 139, 132, 0.08);
+  border-color: #0f8b84;
+}
+
+.map-pin-badge.pin-dining {
+  background: #ea580c !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.45) !important;
+}
   display: inline-flex;
   align-items: center;
   gap: 6px;

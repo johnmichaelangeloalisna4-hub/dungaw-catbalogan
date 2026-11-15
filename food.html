@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=54">
+  <link rel="stylesheet" href="css/style.css?v=55">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -394,6 +394,513 @@
               <span class="food-pill-tag"><i class="fa-solid fa-tag"></i> Appetizer</span>
               <button type="button" class="btn-food-save" onclick="addToTrip('Food Trail: Kinilaw')">
                 <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p id="noFoodMessage" style="display: none; text-align: center; color: var(--text-muted); padding: 36px 0; font-size: 15px;">
+        No delicacies match your search. <button class="btn-card-link" style="display:inline;" onclick="resetFoodFilter()">Show all delicacies</button>
+      </p>
+    </section>
+  </div>
+
+  <!-- ========================================================
+       7. DOT ACCREDITED RESTAURANTS SECTION
+       ======================================================== -->
+  <section id="restaurants" class="resto-section-wrap">
+    <div class="resto-container">
+      <div class="resto-header-wrap">
+        <h2 class="resto-section-title">
+          <i class="fa-solid fa-leaf"></i> DOT ACCREDITED RESTAURANTS
+        </h2>
+        <div class="resto-title-line"></div>
+        <p class="resto-section-subtitle">
+          Dine with peace of mind at officially accredited Department of Tourism (DOT) establishments in Catbalogan City &mdash; offering premier hospitality, curated menus, and exceptional culinary experiences.
+        </p>
+      </div>
+
+                  <div class="resto-grid">
+        <!-- 1. 157th Street Boutique Hotel -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/search/top/?q=157th%20Street%20Hotel%20Catbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit 157th Street Boutique Hotel on Facebook">
+            <img src="./images/resto_157th.jpg" alt="157th Street Boutique Hotel" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_157th')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/search/top/?q=157th%20Street%20Hotel%20Catbalogan" target="_blank" rel="noopener noreferrer">157th Street Boutique Hotel</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=157th+Street+Hotel,San+Bartolome+Street,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>San Bartolome Street, Catbalogan City</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09623531649" class="resto-phone-link">0962 353 1649</a>
+            </div>
+            <p class="resto-desc">
+              Catbalogan, the only one-stop shop business in the city that offers multiple services to customers, and where you can enjoy your favorite Chinese-Filipino deli, and more.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/search/top/?q=157th%20Street%20Hotel%20Catbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_157th" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_157th')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: 157th Street Boutique Hotel')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. JRD Hotel -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/jrdhotelcatbalogan/" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit JRD Hotel on Facebook">
+            <img src="./images/resto_jrd.jpg" alt="JRD Hotel" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_jrd')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/jrdhotelcatbalogan/" target="_blank" rel="noopener noreferrer">JRD Hotel</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=JRD+Hotel,Del+Rosario+Street,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>Del Rosario Street Corner Taft Avenue, Catbalogan City</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09266901709" class="resto-phone-link">0926 690 1709</a>
+            </div>
+            <p class="resto-desc">
+              Modern boutique hotel in the heart of Catbalogan City offering genuine Catbaloganon hospitality and panoramic sea and mountain views.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/jrdhotelcatbalogan/" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_jrd" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_jrd')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: JRD Hotel')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Payao Mangroves Grill and Restaurant -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/payaomangrovesgrill" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit Payao Mangroves Grill on Facebook">
+            <img src="./images/resto_payao.jpg" alt="Payao Mangroves Grill and Restaurant" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_payao')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/payaomangrovesgrill" target="_blank" rel="noopener noreferrer">Payao Mangroves Grill and Restaurant</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=Payao+Mangroves+Grill,Maharlika+Highway,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>RV45+W2J Maharlika Highway, Brgy. Payao, Catbalogan, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09561562772" class="resto-phone-link">0956 156 2772</a>
+            </div>
+            <p class="resto-desc">
+              The latest chill-out place in Catbalogan. Not only that, you also have the best &amp; most serene view just a few minutes from the bustling downtown.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/payaomangrovesgrill" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_payao" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_payao')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Payao Mangroves Grill')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. M Grand Royale Resort -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/M.Grand.Royale.Resort/" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit M Grand Royale Resort on Facebook">
+            <img src="./images/resto_mgrand.jpg" alt="M Grand Royale Resort" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_mgrand')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/M.Grand.Royale.Resort/" target="_blank" rel="noopener noreferrer">M Grand Royale Resort</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=M+Grand+Royale+Resort,Guinsorongan,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>Executive Heights, Brgy. Guinsorongan, Catbalogan, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09173191555" class="resto-phone-link">0917 319 1555</a>
+            </div>
+            <p class="resto-desc">
+              Executive hillside resort in Guinsorongan offering premier dining, banquet catering, serene landscapes, and authentic local and continental flavors.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/M.Grand.Royale.Resort/" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_mgrand" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_mgrand')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: M Grand Royale Resort')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Mare e Monte Restaurant -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/search/top/?q=Mare%20e%20Monte%20Restaurant%20Catbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit Mare e Monte Restaurant on Facebook">
+            <img src="./images/resto_mare_monte.jpg" alt="Mare e Monte Restaurant" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_mare_monte')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/search/top/?q=Mare%20e%20Monte%20Restaurant%20Catbalogan" target="_blank" rel="noopener noreferrer">Mare e Monte Restaurant</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=Mare+e+Monte+Restaurant,Rizal+Avenue+Extension,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>Rizal Avenue Extension (Maharlika Hi-way, Capitol Areas), 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09276034508" class="resto-phone-link">0927 603 4508</a>
+            </div>
+            <p class="resto-desc">
+              Mare e Monte, the city's first European restaurant, is led by Lourdes, shaped by 9 years in Italy, with her bro Marlon Ty&mdash;a Rome-trained, Sweden-based chef with 25 years of culinary mastery&mdash;serving Filipino food too.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/search/top/?q=Mare%20e%20Monte%20Restaurant%20Catbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_mare_monte" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_mare_monte')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Mare e Monte Restaurant')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Ernie's Pizza -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/search/top/?q=Ernie%27s%20Pizza%20Catbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit Ernie's Pizza on Facebook">
+            <img src="./images/resto_ernies.jpg" alt="Ernie's Pizza" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_ernies')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/search/top/?q=Ernie%27s%20Pizza%20Catbalogan" target="_blank" rel="noopener noreferrer">Ernie's Pizza</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=Ernies+Pizza,Rizal+Avenue+Extension,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>Rizal Ave. Ext. Catbalogan City, Samar, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09675579918" class="resto-phone-link">0967 557 9918</a>
+            </div>
+            <p class="resto-desc">
+              We simply make it Fresh and Best! Homegrown Catbalogan staple serving freshly baked pizzas and comfort snacks.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/search/top/?q=Ernie%27s%20Pizza%20Catbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_ernies" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_ernies')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Ernie\'s Pizza')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. The Secret Cafe -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/search/top/?q=The%20Secret%20Cafe%20Catbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit The Secret Cafe on Facebook">
+            <img src="./images/resto_secret_cafe.jpg" alt="The Secret Cafe" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_secret_cafe')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/search/top/?q=The%20Secret%20Cafe%20Catbalogan" target="_blank" rel="noopener noreferrer">The Secret Cafe</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=The+Secret+Cafe,170+Del+Rosario+Street,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>170 Del Rosario St. Ubanon, Catbalogan, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:0555300519" class="resto-phone-link">(055) 530 0519</a>
+            </div>
+            <p class="resto-desc">
+              A Cafe with a twist. It serves delectably crafted food and drinks that won't hurt your wallet.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/search/top/?q=The%20Secret%20Cafe%20Catbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_secret_cafe" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_secret_cafe')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: The Secret Cafe')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. City Grill -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/CityGrillCatbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit City Grill on Facebook">
+            <img src="./images/resto_city_grill.jpg" alt="City Grill" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_city_grill')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/CityGrillCatbalogan" target="_blank" rel="noopener noreferrer">City Grill</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=City+Grill,Del+Rosario+Street,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>Del Rosario St, Catbalogan, Philippines, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:0555438920" class="resto-phone-link">(055) 543 8920</a>
+            </div>
+            <p class="resto-desc">
+              To take good care of the customers and employees and provide high quality foods. Sizzling specialties and Filipino barbecue favorites.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/CityGrillCatbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_city_grill" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_city_grill')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: City Grill')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. King Bean Cafe -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/search/top/?q=King%20Bean%20Cafe%20Catbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit King Bean Cafe on Facebook">
+            <img src="./images/resto_king_bean.jpg" alt="King Bean Cafe" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_king_bean')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/search/top/?q=King%20Bean%20Cafe%20Catbalogan" target="_blank" rel="noopener noreferrer">King Bean Cafe</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=King+Bean+Cafe,Del+Rosario+Street,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>King Bean Cafe infront of BDO, Del Rosario Street, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09759336166" class="resto-phone-link">0975 933 6166</a>
+            </div>
+            <p class="resto-desc">
+              Coffee shop with pastries and local delicacies. Premium roasted espresso, milk teas, and hearty merienda.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/search/top/?q=King%20Bean%20Cafe%20Catbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_king_bean" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_king_bean')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: King Bean Cafe')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Palabok House -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/search/top/?q=Palabok%20House%20Catbalogan" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit Palabok House on Facebook">
+            <img src="./images/resto_palabok.jpg" alt="Palabok House" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_palabok')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/search/top/?q=Palabok%20House%20Catbalogan" target="_blank" rel="noopener noreferrer">Palabok House</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=Palabok+House,San+Bartolome+Street,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>San Bartolome Street, Poblacion 3, Catbalogan, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09532347258" class="resto-phone-link">0953 234 7258</a>
+            </div>
+            <p class="resto-desc">
+              Taste the Tradition. Renowned for authentic Samar-style savory noodle palabok, halo-halo, and classic merienda favorites.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/search/top/?q=Palabok%20House%20Catbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_palabok" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_palabok')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Palabok House')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. Toril Grill and Resto Bar -->
+        <article class="resto-card">
+          <a href="https://www.facebook.com/torilgrillandrestobar" target="_blank" rel="noopener noreferrer" class="resto-img-wrap" title="Visit Toril Grill and Resto Bar on Facebook">
+            <img src="./images/resto_toril.jpg" alt="Toril Grill and Resto Bar" class="resto-img" loading="lazy">
+            <button type="button" class="btn-street-badge" onclick="event.preventDefault(); event.stopPropagation(); openStreetView('resto_toril')" title="Open 360° View & Map">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
+            <span class="resto-badge-fb"><i class="fa-brands fa-facebook"></i> View Page</span>
+          </a>
+          <div class="resto-body">
+            <h3 class="resto-name">
+              <a href="https://www.facebook.com/torilgrillandrestobar" target="_blank" rel="noopener noreferrer">Toril Grill and Resto Bar</a>
+            </h3>
+            <div class="resto-meta-row resto-loc-row">
+              <i class="fa-solid fa-location-dot" style="color: #e65100;"></i>
+              <a href="https://www.google.com/maps/search/?api=1&query=Toril+Grill+and+Resto+Bar,Socorro,Catbalogan+City,Samar" target="_blank" rel="noopener noreferrer" class="resto-loc-link" title="Open Google Maps Location & Directions">
+                <span>Barangay Socorro, Catbalogan, Philippines, 6700</span>
+                <span class="resto-map-chip"><i class="fa-solid fa-map-pin"></i> View Map</span>
+              </a>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:09945441402" class="resto-phone-link">0994 544 1402</a>
+            </div>
+            <p class="resto-desc">
+              Toril Grill and Resto Bar is the newest destination restaurant and outdoor venue with an overlooking view of the Maqueda Bay. It serves continental and international cuisines like Italian, American, and Korean, in addition to popular Filipino fare.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/torilgrillandrestobar" target="_blank" rel="noopener noreferrer" class="btn-resto-message" title="Message on Facebook">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <a href="transit.html?to=resto_toril" class="btn-resto-route" title="Calculate Route & Commuter Fares">
+                <i class="fa-solid fa-diamond-turn-right"></i> Route
+              </a>
+              <button type="button" class="btn-resto-360" onclick="openStreetView('resto_toril')" title="Open Interactive 360° & Map View">
+                <i class="fa-solid fa-street-view"></i> 360&deg;
+              </button>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Toril Grill and Resto Bar')" title="Save to My Trip">
+                <i class="fa-solid fa-bookmark"></i> Save
               </button>
             </div>
           </div>
@@ -1363,6 +1870,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=54"></script>
+  <script src="js/main.js?v=55"></script>
 </body>
 </html>
