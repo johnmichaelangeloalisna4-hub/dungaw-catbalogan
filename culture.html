@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=30">
+  <link rel="stylesheet" href="css/style.css?v=35">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -155,31 +155,24 @@
         </div>
         <div id="savedTripList"></div>
 
-        <form class="drawer-form" id="tripInquiryForm" onsubmit="submitItineraryInquiry(event)">
+        <form class="drawer-form" id="tripInquiryForm" onsubmit="event.preventDefault(); openOnScreenItinerary();">
           <div class="drawer-field">
-            <label for="visitorName">Your Full Name</label>
-            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz">
-          </div>
-          <div class="drawer-field">
-            <label for="visitorEmail">Email or Contact Number</label>
-            <input type="text" id="visitorEmail" placeholder="e.g. juan@email.com / 0917...">
+            <label for="visitorName">Your Name / Group Name</label>
+            <input type="text" id="visitorName" placeholder="e.g. Juan Dela Cruz &amp; Family">
           </div>
           <div class="drawer-field">
             <label for="visitDate">Preferred Travel Date</label>
             <input type="date" id="visitDate">
           </div>
         </form>
-
-        <div class="inquiry-success-box" id="inquirySuccessBox"></div>
       </div>
       <div class="drawer-footer">
         <a href="transit.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 11px; border-radius: 10px; background: #0f8b84; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; margin-bottom: 8px;">
           <i class="fa-solid fa-route"></i> Track Route &amp; Vehicles on Map
         </a>
-        <button type="submit" form="tripInquiryForm" class="btn-submit-trip">
-          Send Inquiry &amp; Flash Itinerary on Screen <i class="fa-solid fa-receipt" style="margin-left: 6px;"></i>
+        <button type="button" class="btn-submit-trip" onclick="openOnScreenItinerary()">
+          <i class="fa-solid fa-receipt" style="margin-right: 6px;"></i> View &amp; Print My Itinerary
         </button>
-        <button type="button" class="btn-view-itinerary" onclick="openOnScreenItinerary()"><i class="fa-solid fa-eye" style="color: var(--teal-primary);"></i> View Saved Itinerary &amp; Orders</button>
       </div>
     </div>
   </div>
@@ -343,6 +336,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=30"></script>
+  <script src="js/main.js?v=35"></script>
 </body>
 </html>

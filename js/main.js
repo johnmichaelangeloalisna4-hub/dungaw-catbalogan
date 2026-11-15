@@ -1036,37 +1036,10 @@ function discoverCulture() {
   if (document.getElementById('culture')) { document.getElementById('culture').scrollIntoView({ behavior: 'smooth' }); } else { window.location.href = 'culture.html'; }
 }
 
-    function submitItineraryInquiry(e) {
-      if (e && e.preventDefault) e.preventDefault();
-      if (savedTrips.length === 0) {
-        savedTrips = ['Buri Island Boardwalk', 'Bangon Falls', 'The Obelisk', 'Maqueda Bay Sunset'];
-        persistTrips();
-        updateTripUI();
-      }
-      const rawName = document.getElementById('visitorName')?.value.trim();
-      const rawEmail = document.getElementById('visitorEmail')?.value.trim();
-      const rawDate = document.getElementById('visitDate')?.value;
-
-      const name = rawName || 'Valued Guest Tourist';
-      const email = rawEmail || 'tourist@catbalogancity.gov.ph';
-      const date = rawDate || new Date().toISOString().split('T')[0];
-
-      const refCode = 'DC-' + Math.floor(100000 + Math.random() * 900000);
-      lastInquiry = { name, email, date, refCode };
-      try {
-        localStorage.setItem(INQUIRY_KEY, JSON.stringify(lastInquiry));
-      } catch (err) {}
-
-      const box = document.getElementById('inquirySuccessBox');
-      if (box) {
-        box.innerHTML = `<strong><i class="fa-solid fa-circle-check"></i> Inquiry Confirmed (${refCode})</strong><br>Mabuhay, <strong>${escapeXml(name)}</strong>! Flashing your personal itinerary &amp; orders on screen...`;
-        box.classList.add('show');
-      }
-      showToast(`✨ Flashing itinerary on screen for ${name}!`);
-
-      // Immediately flash the digital itinerary and orders directly on screen!
-      openOnScreenItinerary(true);
-    }
+function submitItineraryInquiry(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  openOnScreenItinerary();
+}
 
     function getGoogleMapsRouteUrl(trips) {
       if (!trips || trips.length === 0) {
@@ -1099,29 +1072,27 @@ function discoverCulture() {
       window.print();
     }
 
-    function openOnScreenItinerary(isJustSubmitted) {
-      // Close side drawer so on-screen view is unobstructed
-      const drawer = document.getElementById('tripDrawer');
-      const backdrop = document.getElementById('tripDrawerBackdrop');
-      if (drawer) drawer.classList.remove('open');
-      if (backdrop) backdrop.classList.remove('open');
+function openOnScreenItinerary(isJustSubmitted) {
+  // Close side drawer so on-screen view is unobstructed
+  const drawer = document.getElementById('tripDrawer');
+  const backdrop = document.getElementById('tripDrawerBackdrop');
+  if (drawer) drawer.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('open');
 
-      if (savedTrips.length === 0) {
-        savedTrips = ['Buri Island Boardwalk', 'Bangon Falls', 'The Obelisk', 'Maqueda Bay Sunset'];
-        persistTrips();
-        updateTripUI();
-      }
+  if (savedTrips.length === 0) {
+    savedTrips = ['Buri Island Boardwalk', 'Bangon Falls', 'The Obelisk', 'Maqueda Bay Sunset'];
+    persistTrips();
+    updateTripUI();
+  }
 
   const formName = document.getElementById('visitorName')?.value.trim();
-  const formEmail = document.getElementById('visitorEmail')?.value.trim();
   const formDate = document.getElementById('visitDate')?.value;
 
   const visitorName = formName || lastInquiry?.name || 'Guest Tourist / Traveler';
-  const visitorContact = formEmail || lastInquiry?.email || 'Tourism Desk Assistance';
   const travelDate = formDate || lastInquiry?.date || new Date().toISOString().split('T')[0];
   const refCode = lastInquiry?.refCode || ('DC-' + Math.floor(100000 + Math.random() * 900000));
-  if (!lastInquiry && (formName || formEmail || formDate)) {
-    lastInquiry = { name: visitorName, email: visitorContact, date: travelDate, refCode: refCode };
+  if (!lastInquiry && (formName || formDate)) {
+    lastInquiry = { name: visitorName, date: travelDate, refCode: refCode };
     try { localStorage.setItem(INQUIRY_KEY, JSON.stringify(lastInquiry)); } catch (e) { }
   }
 
@@ -1205,7 +1176,7 @@ function discoverCulture() {
         `;
       }
 
-      const flashBannerHtml = isJustSubmitted ? `
+  const flashBannerHtml = isJustSubmitted ? `
         <div class="itinerary-flash-banner">
           <div style="display:flex; align-items:center; gap:12px;">
             <i class="fa-solid fa-circle-check" style="font-size: 24px;"></i>
@@ -1231,12 +1202,12 @@ function discoverCulture() {
                 </div>
                 <div class="itinerary-brand-text">
                   <h4>Republic of the Philippines &bull; City of Catbalogan</h4>
-                  <h2>Personal Trip Itinerary &amp; Orders</h2>
+                  <h2>Personal Trip Planner &amp; Itinerary</h2>
                 </div>
               </div>
               <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="itinerary-ref-tag">
-                  <i class="fa-solid fa-shield-halved"></i> REF: ${escapeXml(refCode)}
+                  <i class="fa-solid fa-route"></i> PLAN-${escapeXml(refCode)}
                 </span>
                 <button type="button" class="drawer-close-btn" onclick="closeOnScreenItinerary()" style="color:#fff;" aria-label="Close itinerary">&times;</button>
               </div>
@@ -1244,23 +1215,22 @@ function discoverCulture() {
           </div>
 
           <div class="drawer-body" style="padding: 20px;">
-            ${flashBannerHtml}
             <div class="itinerary-traveler-grid">
               <div class="itinerary-info-item">
-                <label>Tourist / Traveler</label>
+                <label>Tourist / Group Name</label>
                 <span><i class="fa-solid fa-user" style="color: #0f8b84; margin-right: 5px;"></i>${escapeXml(visitorName)}</span>
-              </div>
-              <div class="itinerary-info-item">
-                <label>Contact Info</label>
-                <span><i class="fa-solid fa-envelope" style="color: #0f8b84; margin-right: 5px;"></i>${escapeXml(visitorContact)}</span>
               </div>
               <div class="itinerary-info-item">
                 <label>Travel Date</label>
                 <span><i class="fa-solid fa-calendar-day" style="color: #ea580c; margin-right: 5px;"></i>${escapeXml(travelDate)}</span>
               </div>
               <div class="itinerary-info-item">
-                <label>Status</label>
-                <span style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> Confirmed &amp; Ready</span>
+                <label>Planned Stops</label>
+                <span style="color: #0f8b84;"><i class="fa-solid fa-map-pin" style="margin-right: 5px;"></i>${savedTrips.length} Destinations</span>
+              </div>
+              <div class="itinerary-info-item">
+                <label>Planner Status</label>
+                <span style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> Ready to Explore</span>
               </div>
             </div>
 
