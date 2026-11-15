@@ -2092,24 +2092,42 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
     function purgeNetlifyBadges() {
       try {
         const selectors = [
+          '#nl-badge-frame',
+          '#nl-hud-frame',
           '#netlify-badge',
           '.netlify-badge',
           '[data-netlify-badge]',
+          'iframe[id*="nl-"]',
+          'iframe[id^="nl-"]',
+          'iframe[title*="Netlify" i]',
+          'iframe[title*="Powered by Netlify" i]',
           'iframe[src*="netlify"]',
           'div[id*="netlify"]',
-          'div[class*="netlify-badge"]'
+          'div[class*="netlify-badge"]',
+          'netlify-drawer',
+          'netlify-feedback',
+          'netlify-cdp',
+          '#netlify-drawer'
         ];
         document.querySelectorAll(selectors.join(',')).forEach(el => el.remove());
         document.querySelectorAll('div, a, span').forEach(el => {
-          if (el.children.length <= 2 && el.textContent && el.textContent.trim() === 'Powered by Netlify') {
+          if (el.children.length <= 2 && el.textContent && el.textContent.trim().includes('Powered by Netlify')) {
             el.remove();
           }
         });
       } catch (err) {}
     }
 
+    // Immediate removal via MutationObserver so it never flashes or displays
+    try {
+      const netlifyObserver = new MutationObserver(() => {
+        purgeNetlifyBadges();
+      });
+      netlifyObserver.observe(document.documentElement, { childList: true, subtree: true });
+    } catch (e) {}
+
     document.addEventListener('DOMContentLoaded', () => {
       updateTripUI();
       purgeNetlifyBadges();
-      setInterval(purgeNetlifyBadges, 800);
+      setInterval(purgeNetlifyBadges, 500);
     });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
   <!-- Site Styles -->
-  <link rel="stylesheet" href="css/style.css?v=15">
+  <link rel="stylesheet" href="css/style.css?v=16">
   <link rel="stylesheet" href="css/transit.css?v=13">
 </head>
 <body class="subpage">
@@ -89,9 +89,9 @@
           Navigate with confidence: select where you are and where you want to go. Our interactive route tracker plots the optimal path on the map and tells you exactly what vehicle to ride (Tricycle, Habal-habal, Banca, or Multicab) with standard fares, travel times, and local riding tips.
         </p>
         <div class="quick-stats-row">
-          <div class="stat-pill"><i class="fa-solid fa-motorcycle"></i> Downtown Tricycle: ₱12 – ₱15 standard</div>
-          <div class="stat-pill"><i class="fa-solid fa-water"></i> Island Banca: ₱50 – ₱100 to Darahuway Guti</div>
-          <div class="stat-pill"><i class="fa-solid fa-mountain"></i> Habal-habal: ₱150 – ₱200 roundtrip to Bangon Falls</div>
+          <div class="stat-pill"><i class="fa-solid fa-motorcycle"></i> Downtown Tricycle: â‚±12 â€“ â‚±15 standard</div>
+          <div class="stat-pill"><i class="fa-solid fa-water"></i> Island Banca: â‚±50 â€“ â‚±100 to Darahuway Guti</div>
+          <div class="stat-pill"><i class="fa-solid fa-mountain"></i> Habal-habal: â‚±150 â€“ â‚±200 roundtrip to Bangon Falls</div>
           <div class="stat-pill"><i class="fa-solid fa-person-walking"></i> Historic Downtown is 100% Walkable</div>
         </div>
       </div>
@@ -145,12 +145,12 @@
           <div>
             <span style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Popular Spots:</span>
             <div class="quick-chips-wrap">
-              <button class="chip-dest active" id="chip-buri" onclick="selectQuickDest('buri')">🏖️ Buri Island</button>
-              <button class="chip-dest" id="chip-bangon" onclick="selectQuickDest('bangon')">🌿 Bangon Falls</button>
-              <button class="chip-dest" id="chip-obelisk" onclick="selectQuickDest('obelisk')">🏛️ The Obelisk</button>
-              <button class="chip-dest" id="chip-darahuway" onclick="selectQuickDest('darahuway')">⛵ Darahuway Guti</button>
-              <button class="chip-dest" id="chip-tamalos" onclick="selectQuickDest('tamalos')">🍛 Market (Tamalos)</button>
-              <button class="chip-dest" id="chip-maqueda" onclick="selectQuickDest('maqueda')">🌅 Sunset Boulevard</button>
+              <button class="chip-dest active" id="chip-buri" onclick="selectQuickDest('buri')">ðŸ–ï¸ Buri Island</button>
+              <button class="chip-dest" id="chip-bangon" onclick="selectQuickDest('bangon')">ðŸŒ¿ Bangon Falls</button>
+              <button class="chip-dest" id="chip-obelisk" onclick="selectQuickDest('obelisk')">ðŸ›ï¸ The Obelisk</button>
+              <button class="chip-dest" id="chip-darahuway" onclick="selectQuickDest('darahuway')">â›µ Darahuway Guti</button>
+              <button class="chip-dest" id="chip-tamalos" onclick="selectQuickDest('tamalos')">ðŸ› Market (Tamalos)</button>
+              <button class="chip-dest" id="chip-maqueda" onclick="selectQuickDest('maqueda')">ðŸŒ… Sunset Boulevard</button>
             </div>
           </div>
 
@@ -232,9 +232,9 @@
               <i class="fa-solid fa-motorcycle"></i>
             </div>
             <h3 class="v-card-title">Motorized Tricycle</h3>
-            <span class="v-card-fare">₱12 – ₱15 / special ₱50–₱100</span>
+            <span class="v-card-fare">â‚±12 â€“ â‚±15 / special â‚±50â€“â‚±100</span>
             <p class="v-card-desc">
-              The king of downtown streets! These customized passenger sidecars carry up to 4–5 passengers and run 24/7 across every street in the city center.
+              The king of downtown streets! These customized passenger sidecars carry up to 4â€“5 passengers and run 24/7 across every street in the city center.
             </p>
             <div class="v-card-routes">
               <strong>Best For:</strong>
@@ -248,7 +248,7 @@
               <i class="fa-solid fa-person-biking"></i>
             </div>
             <h3 class="v-card-title">Habal-habal (Motorcycle)</h3>
-            <span class="v-card-fare">₱150 – ₱200 / roundtrip</span>
+            <span class="v-card-fare">â‚±150 â€“ â‚±200 / roundtrip</span>
             <p class="v-card-desc">
               Single motorbikes driven by experienced local riders capable of taking steep mountain trails and countryside roads where four-wheel vehicles cannot go.
             </p>
@@ -264,7 +264,7 @@
               <i class="fa-solid fa-ship"></i>
             </div>
             <h3 class="v-card-title">Motorized Outrigger Banca</h3>
-            <span class="v-card-fare">₱50 – ₱80 / charter ₱500–₱800</span>
+            <span class="v-card-fare">â‚±50 â€“ â‚±80 / charter â‚±500â€“â‚±800</span>
             <p class="v-card-desc">
               Traditional twin-outrigger wooden motorized boats docked at Pier 1 and Barangay Guinsorongan coastlines, serving island barangays across Maqueda Bay.
             </p>
@@ -280,7 +280,7 @@
               <i class="fa-solid fa-van-shuttle"></i>
             </div>
             <h3 class="v-card-title">Multicab &amp; Jeepney</h3>
-            <span class="v-card-fare">₱15 – ₱30 per passenger</span>
+            <span class="v-card-fare">â‚±15 â€“ â‚±30 per passenger</span>
             <p class="v-card-desc">
               High-capacity shared public utility vehicles that run scheduled routes north and south along the Pan-Philippine (Maharlika) Highway corridor.
             </p>
@@ -460,7 +460,7 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/main.js?v=15"></script>
+  <script src="js/main.js?v=16"></script>
   <script src="js/transit.js?v=4"></script>
 
 </body>

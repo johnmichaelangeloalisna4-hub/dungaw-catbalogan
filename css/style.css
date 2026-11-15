@@ -2368,20 +2368,37 @@ body.subpage main.page-main { min-height: 70vh; }
 body.subpage .page-main > section:first-child { padding-top: 70px; }
 
 /* ==========================================================
-   HIDE NETLIFY & HOST BADGES / WATERMARKS
+   HIDE NETLIFY & HOST BADGES / WATERMARKS (MOBILE & DESKTOP)
    ========================================================== */
+#nl-badge-frame,
+#nl-hud-frame,
+iframe[id*="nl-"],
+iframe[id^="nl-"],
+iframe[title*="Netlify" i],
+iframe[title*="Powered by Netlify" i],
+iframe[src*="netlify"],
 [data-netlify-badge],
 .netlify-badge,
 iframe[id^="netlify-"],
 div[id^="netlify-"],
 #netlify-badge,
 [class*="netlify-badge"],
-[id*="netlify-identity"],
+[id*="netlify"],
+[class*="netlify"],
+netlify-drawer,
+netlify-feedback,
+netlify-cdp,
+#netlify-drawer,
 [class*="feedback-badge"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
   z-index: -9999 !important;
 }
 
