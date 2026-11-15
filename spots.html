@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=50">
+  <link rel="stylesheet" href="css/style.css?v=51">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -109,9 +109,12 @@
       <div class="spots-grid" id="spotsGrid">
         <!-- Spot 1: City Plaza -->
         <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openDetailModal('city_plaza')">
+          <div class="spot-img-wrap" onclick="openStreetView('city_plaza')">
             <img src="./images/city_plaza.jpg" alt="City Plaza Catbalogan" loading="lazy">
             <span class="spot-tag">Civic &amp; Heritage</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('city_plaza')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -123,8 +126,11 @@
               <button class="btn-add-trip" data-spot="City Plaza" onclick="addToTrip('City Plaza')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('city_plaza')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('city_plaza')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -132,9 +138,12 @@
 
         <!-- Spot 2: Rizal Statue -->
         <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openDetailModal('rizal_statue')">
+          <div class="spot-img-wrap" onclick="openStreetView('rizal_statue')">
             <img src="./images/rizal_statue.jpg" alt="Rizal Statue by Miguel Alcazar" loading="lazy">
             <span class="spot-tag">Monument</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('rizal_statue')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -146,8 +155,11 @@
               <button class="btn-add-trip" data-spot="Rizal Statue" onclick="addToTrip('Rizal Statue')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('rizal_statue')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('rizal_statue')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -155,9 +167,12 @@
 
         <!-- Spot 3: Catbalogan Sky City -->
         <div class="spot-card" data-category="nature">
-          <div class="spot-img-wrap" onclick="openDetailModal('sky_city')">
+          <div class="spot-img-wrap" onclick="openStreetView('sky_city')">
             <img src="./images/sky_city.jpg" alt="Catbalogan Sky City Mega Project" loading="lazy">
             <span class="spot-tag">Eco-Township</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('sky_city')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -169,8 +184,11 @@
               <button class="btn-add-trip" data-spot="Catbalogan Sky City" onclick="addToTrip('Catbalogan Sky City')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('sky_city')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('sky_city')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -178,9 +196,12 @@
 
         <!-- Spot 4: Imelda Park -->
         <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openDetailModal('imelda_park')">
+          <div class="spot-img-wrap" onclick="openStreetView('imelda_park')">
             <img src="./images/imelda_park.jpg" alt="Imelda Park Catbalogan" loading="lazy">
             <span class="spot-tag">Public Park</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('imelda_park')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -192,8 +213,11 @@
               <button class="btn-add-trip" data-spot="Imelda Park" onclick="addToTrip('Imelda Park')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('imelda_park')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('imelda_park')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -201,9 +225,12 @@
 
         <!-- Spot 5: Samar Provincial Capitol -->
         <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openDetailModal('capitol')">
+          <div class="spot-img-wrap" onclick="openStreetView('capitol')">
             <img src="./images/capitol.jpg" alt="Samar Provincial Capitol Building" loading="lazy">
             <span class="spot-tag">Neoclassical</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('capitol')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -215,8 +242,11 @@
               <button class="btn-add-trip" data-spot="Samar Provincial Capitol" onclick="addToTrip('Samar Provincial Capitol')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('capitol')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('capitol')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -224,9 +254,12 @@
 
         <!-- Spot 6: Saint Bartholomew Church -->
         <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openDetailModal('church')">
+          <div class="spot-img-wrap" onclick="openStreetView('church')">
             <img src="./images/church.jpg" alt="Saint Bartholomew Church 1616" loading="lazy">
             <span class="spot-tag">Faith &amp; History</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('church')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -238,8 +271,11 @@
               <button class="btn-add-trip" data-spot="Saint Bartholomew Church" onclick="addToTrip('Saint Bartholomew Church')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('church')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('church')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -247,7 +283,7 @@
 
         <!-- Spot 7: Pieta Park -->
         <div class="spot-card" data-category="heritage">
-          <div class="spot-img-wrap" onclick="openDetailModal('pieta')">
+          <div class="spot-img-wrap" onclick="openStreetView('pieta')">
             <img src="./images/pieta.jpg" alt="Pieta Park Memorial Monument" loading="lazy">
             <span class="spot-tag">Memorial</span>
             <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('pieta')">
@@ -264,8 +300,11 @@
               <button class="btn-add-trip" data-spot="Pieta Park" onclick="addToTrip('Pieta Park')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('pieta')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('pieta')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -273,9 +312,12 @@
 
         <!-- Spot 8: Buri Baras Beach -->
         <div class="spot-card" data-category="island">
-          <div class="spot-img-wrap" onclick="openDetailModal('buri_baras')">
+          <div class="spot-img-wrap" onclick="openStreetView('buri_baras')">
             <img src="./images/buri_baras.jpg" alt="Buri Baras Beach Cove" loading="lazy">
             <span class="spot-tag">Beach &amp; Cove</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('buri_baras')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -287,8 +329,11 @@
               <button class="btn-add-trip" data-spot="Buri Baras Beach" onclick="addToTrip('Buri Baras Beach')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('buri_baras')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('buri_baras')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -296,9 +341,12 @@
 
         <!-- Spot 9: Cabugawan Eco Park -->
         <div class="spot-card" data-category="nature">
-          <div class="spot-img-wrap" onclick="openDetailModal('cabugawan')">
+          <div class="spot-img-wrap" onclick="openStreetView('cabugawan')">
             <img src="./images/cabugawan.jpg" alt="Cabugawan Eco Park Mangrove Boardwalk" loading="lazy">
             <span class="spot-tag">Mangrove Eco-Park</span>
+            <button type="button" class="btn-street-badge" onclick="event.stopPropagation(); openStreetView('cabugawan')">
+              <i class="fa-solid fa-street-view"></i> 360&deg; View
+            </button>
           </div>
           <div class="spot-body">
             <div>
@@ -310,8 +358,11 @@
               <button class="btn-add-trip" data-spot="Cabugawan Eco Park" onclick="addToTrip('Cabugawan Eco Park')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('cabugawan')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('cabugawan')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -336,8 +387,11 @@
               <button class="btn-add-trip" data-spot="Buri Island Boardwalk" onclick="addToTrip('Buri Island Boardwalk')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('buri')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('buri')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -362,8 +416,11 @@
               <button class="btn-add-trip" data-spot="Bangon Falls" onclick="addToTrip('Bangon Falls')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('bangon')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('bangon')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -388,8 +445,11 @@
               <button class="btn-add-trip" data-spot="The Obelisk" onclick="addToTrip('The Obelisk')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('obelisk')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('obelisk')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -414,8 +474,11 @@
               <button class="btn-add-trip" data-spot="Darahuway Guti Island" onclick="addToTrip('Darahuway Guti Island')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('darahuway')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('darahuway')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -440,8 +503,11 @@
               <button class="btn-add-trip" data-spot="Maqueda Bay Sunset" onclick="addToTrip('Maqueda Bay Sunset')">
                 <i class="fa-solid fa-plus"></i> Add to My Trip
               </button>
+              <button type="button" class="btn-spot-360" onclick="openStreetView('maqueda')">
+                <i class="fa-solid fa-street-view"></i> 360&deg; View
+              </button>
               <button class="btn-view-details" onclick="openDetailModal('maqueda')">
-                View Details <i class="fa-solid fa-arrow-right"></i>
+                Details <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -697,6 +763,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=50"></script>
+  <script src="js/main.js?v=51"></script>
 </body>
 </html>
