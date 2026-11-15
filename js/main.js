@@ -1614,9 +1614,21 @@ function getTripMeta(name) {
     'Pasalubong: Corioso & Pastries': ['Food & Pasalubong', 'Downtown Heritage Bakeshops', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Pair with native sikwate'],
     'Shopping: Lara Samar Woven Goods': ['Local Products', 'Provincial Trade & Pasalubong Hub', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Handwoven Tikog mats & bags'],
     'Shopping: Catbalogan Pasalubong Box': ['Local Products', 'City Tourism Hub & Market', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Customizable gift assortments'],
-    'Shopping: Community Shellcraft': ['Local Products', 'Island Barangay Craft Stalls', 'Tricycle or Banca', 'PHP 15 - 20 (Standard Ride)', 'Eco-friendly coastal keepsakes']
+    'Shopping: Community Shellcraft': ['Local Products', 'Island Barangay Craft Stalls', 'Tricycle or Banca', 'PHP 15 - 20 (Standard Ride)', 'Eco-friendly coastal keepsakes'],
+    'Dining: 157th Street Boutique Hotel': ['Accredited Restaurant', 'San Bartolome Street, City Proper', 'Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Chinese-Filipino deli & hotel dining'],
+    'Dining: JRD Hotel': ['Accredited Restaurant', 'Del Rosario St. cor. Taft Ave.', 'Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Sea & mountain view boutique hotel dining'],
+    'Dining: Payao Mangroves Grill': ['Accredited Restaurant', 'Maharlika Highway, Brgy. Payao', 'Tricycle or Multicab', 'PHP 20 - 30 (Multicab / Special)', 'Serene mangrove view grill & resto'],
+    'Dining: M Grand Royale Resort': ['Accredited Restaurant', 'Executive Heights, Brgy. Guinsorongan', 'Special Tricycle or Taxi', 'PHP 40 - 60 (Guinsorongan)', 'Premier resort dining & banquet'],
+    'Dining: Mare e Monte Restaurant': ['Accredited Restaurant', 'Rizal Ave. Ext., Capitol Area', 'Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'European & Italian fine dining'],
+    'Dining: Ernie\'s Pizza': ['Accredited Restaurant', 'Rizal Ave. Ext., Catbalogan City', 'Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Fresh handmade pizza & snacks'],
+    'Dining: The Secret Cafe': ['Accredited Restaurant', '170 Del Rosario St., Ubanon', 'Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Artisanal coffee & curated drinks'],
+    'Dining: City Grill': ['Accredited Restaurant', 'Del Rosario St., City Proper', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Grilled specialties & Filipino favorites'],
+    'Dining: King Bean Cafe': ['Accredited Restaurant', 'Del Rosario St. (in front of BDO)', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Coffee, pastries & local delicacies'],
+    'Dining: Palabok House': ['Accredited Restaurant', 'San Bartolome St., Poblacion 3', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Heritage palabok & Filipino comfort food'],
+    'Dining: Toril Grill and Resto Bar': ['Accredited Restaurant', 'Barangay Socorro, Catbalogan', 'Tricycle or Habal-habal', 'PHP 25 - 40 (Socorro)', 'Overlooking Maqueda Bay resto-bar']
   };
   if (map[name]) return map[name];
+  if (name.startsWith('Dining:')) return ['Accredited Restaurant', 'Catbalogan City', 'Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'DOT Accredited dining stop'];
   if (name.startsWith('Food Trail:')) return ['Food & Delicacies', 'Catbalogan City Proper', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Local culinary stop'];
   if (name.startsWith('Pasalubong:') || name.startsWith('Shopping:')) return ['Local Products', 'Catbalogan City Proper', 'Walking or Downtown Tricycle', 'PHP 12 - 15 (Standard Tricycle)', 'Souvenir & crafts'];
   return ['Tourist Spot', 'Catbalogan City, Samar', 'Downtown Tricycle', 'PHP 12 - 20 (Standard Fare)', 'Check local hours'];

@@ -1228,6 +1228,221 @@ body.subpage .site-header .menu-toggle-btn:hover {
   }
 }
 
+/* ========================================================
+   DOT ACCREDITED RESTAURANTS SECTION
+   ======================================================== */
+.resto-section-wrap {
+  padding: 64px 0 72px;
+  background: #fbfbfd;
+  border-top: 1px solid rgba(12, 35, 51, 0.06);
+}
+
+.resto-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.resto-header-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.resto-section-title {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 800;
+  color: #ea580c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.resto-section-title i {
+  color: #ea580c;
+  font-size: 26px;
+}
+
+.resto-title-line {
+  width: 70px;
+  height: 3.5px;
+  background: #ea580c;
+  border-radius: 4px;
+  margin: 12px auto 16px;
+}
+
+.resto-section-subtitle {
+  font-size: 15.5px;
+  color: #64748b;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.resto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.resto-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(12, 35, 51, 0.06);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+}
+
+.resto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(12, 35, 51, 0.12);
+}
+
+.resto-img-wrap {
+  width: 100%;
+  height: 185px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.resto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.resto-card:hover .resto-img {
+  transform: scale(1.03);
+}
+
+.resto-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.resto-name {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 800;
+  color: #0c2333;
+  margin: 0 0 12px;
+  line-height: 1.35;
+}
+
+.resto-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.resto-meta-row i {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.resto-desc {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 12px 0 20px;
+  flex-grow: 1;
+}
+
+.resto-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #f8fafc;
+}
+
+.btn-resto-message {
+  background: #e65100;
+  color: #ffffff !important;
+  padding: 9px 24px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 12px rgba(230, 81, 0, 0.28);
+  transition: background 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-resto-message:hover {
+  background: #d84315;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(230, 81, 0, 0.38);
+}
+
+.btn-resto-save {
+  background: #f8fafc;
+  color: #0f8b84;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-resto-save:hover {
+  background: #0f8b84;
+  color: #ffffff;
+  border-color: #0f8b84;
+}
+
+@media (max-width: 992px) {
+  .resto-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .resto-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .resto-img-wrap {
+    height: 175px;
+  }
+  .resto-section-title {
+    font-size: 24px;
+  }
+}
+
 /* Sources Attribution Section */
 .sources-section {
   background: var(--bg-cream-alt);

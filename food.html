@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=49">
+  <link rel="stylesheet" href="css/style.css?v=50">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -76,6 +76,16 @@
       <p class="section-subtitle">
         Taste the rich culinary traditions passed down through generations in Catbalogan kitchens &mdash; from heirloom Spanish-era recipes to fresh Maqueda Bay seafood.
       </p>
+
+      <!-- Food Page Sub-Navigation -->
+      <div style="display: flex; gap: 12px; margin: 20px 0 28px; flex-wrap: wrap;">
+        <a href="#food" style="padding: 9px 20px; border-radius: 50px; background: #0c2333; color: #fff; font-weight: 700; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(12,35,51,0.15);">
+          <i class="fa-solid fa-bowl-food" style="color: #22d3ee;"></i> 14 Heirloom Delicacies
+        </a>
+        <a href="#restaurants" style="padding: 9px 20px; border-radius: 50px; background: #ffffff; color: #ea580c; border: 1.5px solid #ea580c; font-weight: 700; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;">
+          <i class="fa-solid fa-leaf" style="color: #ea580c;"></i> DOT Accredited Restaurants (11)
+        </a>
+      </div>
 
       <!-- Culinary Filters & Search Toolbar -->
       <div class="spots-toolbar">
@@ -395,6 +405,344 @@
       </p>
     </section>
   </div>
+
+  <!-- ========================================================
+       7. DOT ACCREDITED RESTAURANTS SECTION
+       ======================================================== -->
+  <section id="restaurants" class="resto-section-wrap">
+    <div class="resto-container">
+      <div class="resto-header-wrap">
+        <h2 class="resto-section-title">
+          <i class="fa-solid fa-leaf"></i> DOT ACCREDITED RESTAURANTS
+        </h2>
+        <div class="resto-title-line"></div>
+        <p class="resto-section-subtitle">
+          Dine with peace of mind at officially accredited Department of Tourism (DOT) establishments in Catbalogan City &mdash; offering premier hospitality, curated menus, and exceptional culinary experiences.
+        </p>
+      </div>
+
+      <div class="resto-grid">
+        <!-- 1. 157th Street Boutique Hotel -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_157th.jpg" alt="157th Street Boutique Hotel" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">157th Street Boutique Hotel</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>San Bartolome Street, Catbalogan City</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0962 353 1649</span>
+            </div>
+            <p class="resto-desc">
+              Catbalogan, the only one-stop shop business in the city that offers multiple services to customers, and where you can enjoy your favorite Chinese-Filipino deli, and more.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/157thStreetHotel" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: 157th Street Boutique Hotel')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. JRD Hotel -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_jrd.jpg" alt="JRD Hotel" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">JRD Hotel</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Del Rosario Street Corner Taft Avenue, Catbalogan City</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0926 690 1709</span>
+            </div>
+            <p class="resto-desc">
+              Modern boutique hotel in the heart of Catbalogan City offering genuine Catbaloganon hospitality and panoramic sea and mountain views.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/JRDHotelCatbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: JRD Hotel')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Payao Mangroves Grill and Restaurant -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_payao.jpg" alt="Payao Mangroves Grill and Restaurant" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">Payao Mangroves Grill and Restaurant</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>RV45+W2J Maharlika Highway, Brgy. Payao, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0956 156 2772</span>
+            </div>
+            <p class="resto-desc">
+              The latest chill-out place in Catbalogan. Not only that, you also have the best &amp; most serene view just a few minutes from the bustling downtown.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/payaomangrovesgrill" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Payao Mangroves Grill')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. M Grand Royale Resort -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_mgrand.jpg" alt="M Grand Royale Resort" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">M Grand Royale Resort</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Executive Heights, Brgy. Guinsorongan, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0917 319 1555</span>
+            </div>
+            <p class="resto-desc">
+              Executive hillside resort in Guinsorongan offering premier dining, banquet catering, serene landscapes, and authentic local and continental flavors.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/MGrandRoyaleResort" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: M Grand Royale Resort')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Mare e Monte Restaurant -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_mare_monte.jpg" alt="Mare e Monte Restaurant" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">Mare e Monte Restaurant</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Rizal Avenue Extension (Maharlika Hi-way, Capitol Areas), Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0927 603 4508</span>
+            </div>
+            <p class="resto-desc">
+              Mare e Monte, the city's first European restaurant, is led by Lourdes, shaped by 9 years in Italy, with her bro Marlon Ty&mdash;a Rome-trained, Sweden-based chef with 25 years of culinary mastery&mdash;serving Filipino food too.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/mareemontesy" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Mare e Monte Restaurant')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Ernie's Pizza -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_ernies.jpg" alt="Ernie's Pizza" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">Ernie's Pizza</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Rizal Ave. Ext. Catbalogan City, Samar, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0967 557 9918</span>
+            </div>
+            <p class="resto-desc">
+              We simply make it Fresh and Best!
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/erniespizzacatbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Ernie\'s Pizza')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. The Secret Cafe -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_secret_cafe.jpg" alt="The Secret Cafe" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">The Secret Cafe</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>170 Del Rosario St. Ubanon, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>(055) 530 0519</span>
+            </div>
+            <p class="resto-desc">
+              A Cafe with a twist. It serves delectably crafted food and drinks that won't hurt your wallet.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/thesecretcafecatbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: The Secret Cafe')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. City Grill -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_city_grill.jpg" alt="City Grill" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">City Grill</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Del Rosario St, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>(055) 543 8920</span>
+            </div>
+            <p class="resto-desc">
+              To take good care of the customers and employees and provide high quality foods.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/CityGrillCatbalogan" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: City Grill')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. King Bean Cafe -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_king_bean.jpg" alt="King Bean Cafe" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">King Bean Cafe</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>King Bean Cafe infront of BDO, Del Rosario Street, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0975 933 6166</span>
+            </div>
+            <p class="resto-desc">
+              Coffee shop with pastries and local delicacies.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/kingbeancafe" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: King Bean Cafe')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Palabok House -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_palabok.jpg" alt="Palabok House" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">Palabok House</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>San Bartolome Street, Poblacion 3 (Barangay 3), Catbalogan, 6700 Samar</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0953 234 7258</span>
+            </div>
+            <p class="resto-desc">
+              Taste the Tradition.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/palabokhousedo" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Palabok House')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11. Toril Grill and Resto Bar -->
+        <article class="resto-card">
+          <div class="resto-img-wrap">
+            <img src="./images/resto_toril.jpg" alt="Toril Grill and Resto Bar" class="resto-img" loading="lazy">
+          </div>
+          <div class="resto-body">
+            <h3 class="resto-name">Toril Grill and Resto Bar</h3>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Barangay Socorro, Catbalogan, Philippines, 6700</span>
+            </div>
+            <div class="resto-meta-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>0994 544 1402</span>
+            </div>
+            <p class="resto-desc">
+              Toril Grill and Resto Bar is the newest destination restaurant and outdoor venue with an overlooking view of the Maqueda Bay. It serves continental and international cuisines like Italian, American, and Korean, in addition to popular Filipino fare.
+            </p>
+            <div class="resto-actions">
+              <a href="https://www.facebook.com/torilgrillandrestobar" target="_blank" rel="noopener noreferrer" class="btn-resto-message">
+                <i class="fa-brands fa-facebook-messenger"></i> Message
+              </a>
+              <button type="button" class="btn-resto-save" onclick="addToTrip('Dining: Toril Grill and Resto Bar')">
+                <i class="fa-solid fa-bookmark"></i> Save to Trip
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
   </main>
 
   <div class="hero-floating-right">
@@ -640,6 +988,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=49"></script>
+  <script src="js/main.js?v=50"></script>
 </body>
 </html>
