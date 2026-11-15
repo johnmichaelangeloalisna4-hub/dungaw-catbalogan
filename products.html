@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=35">
+  <link rel="stylesheet" href="css/style.css?v=40">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -87,10 +87,10 @@
         </div>
         <div class="card-actions-dual">
           <button class="btn-card-link" style="margin-top:0;" onclick="event.stopPropagation(); openDetailModal('lara-samar')">
-            View Woven Items <i class="fa-solid fa-arrow-right"></i>
+            View Details <i class="fa-solid fa-arrow-right"></i>
           </button>
-          <button class="btn-card-order" onclick="event.stopPropagation(); openOrderModal('banig-mat')">
-            <i class="fa-solid fa-cart-shopping"></i> Order Online
+          <button class="btn-add-trip" style="margin:0; width:auto; padding:8px 14px; font-size:12px;" onclick="event.stopPropagation(); addToTrip('Shopping: Lara Samar Woven Goods')">
+            <i class="fa-solid fa-plus"></i> Add to Trip
           </button>
         </div>
       </div>
@@ -106,10 +106,10 @@
         </div>
         <div class="card-actions-dual">
           <button class="btn-card-link" style="margin-top:0;" onclick="event.stopPropagation(); openDetailModal('pasalubong')">
-            View Included Foods <i class="fa-solid fa-arrow-right"></i>
+            Where to Buy <i class="fa-solid fa-arrow-right"></i>
           </button>
-          <button class="btn-card-order" onclick="event.stopPropagation(); openOrderModal('corioso-pack')">
-            <i class="fa-solid fa-cart-shopping"></i> Order Online
+          <button class="btn-add-trip" style="margin:0; width:auto; padding:8px 14px; font-size:12px;" onclick="event.stopPropagation(); addToTrip('Shopping: Catbalogan Pasalubong Box')">
+            <i class="fa-solid fa-plus"></i> Add to Trip
           </button>
         </div>
       </div>
@@ -125,10 +125,10 @@
         </div>
         <div class="card-actions-dual">
           <button class="btn-card-link" style="margin-top:0;" onclick="event.stopPropagation(); openDetailModal('shellcraft')">
-            View Artisan Crafts <i class="fa-solid fa-arrow-right"></i>
+            Where to Buy <i class="fa-solid fa-arrow-right"></i>
           </button>
-          <button class="btn-card-order" onclick="event.stopPropagation(); openOrderModal('shell-chimes')">
-            <i class="fa-solid fa-cart-shopping"></i> Order Online
+          <button class="btn-add-trip" style="margin:0; width:auto; padding:8px 14px; font-size:12px;" onclick="event.stopPropagation(); addToTrip('Shopping: Community Shellcraft')">
+            <i class="fa-solid fa-plus"></i> Add to Trip
           </button>
         </div>
       </div>
@@ -381,6 +381,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=35"></script>
+  <script src="js/main.js?v=40"></script>
 </body>
 </html>

@@ -554,18 +554,6 @@ function openDetailModal(key) {
         const actions = document.createElement('div');
         actions.className = 'modal-item-actions';
 
-        if (item.orderKey) {
-          const orderBtn = document.createElement('button');
-          orderBtn.type = 'button';
-          orderBtn.className = 'modal-item-order-btn';
-          orderBtn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Buy / Order Online';
-          orderBtn.addEventListener('click', () => {
-            closeDetailModal();
-            openOrderModal(item.orderKey);
-          });
-          actions.appendChild(orderBtn);
-        }
-
         if (item.tripItem) {
           const tripBtn = document.createElement('button');
           tripBtn.type = 'button';
@@ -612,26 +600,8 @@ function openDetailModal(key) {
   metaEl.innerHTML = data.meta.map(line => `<div>${line}</div>`).join('');
 
   const footerEl = document.getElementById('detailModalFooter');
-  let orderMainBtn = document.getElementById('detailModalOrderMainBtn');
-  if (footerEl && !orderMainBtn) {
-    orderMainBtn = document.createElement('button');
-    orderMainBtn.type = 'button';
-    orderMainBtn.id = 'detailModalOrderMainBtn';
-    orderMainBtn.className = 'btn-order-modal-main';
-    footerEl.insertBefore(orderMainBtn, footerEl.firstChild);
-  }
-  if (orderMainBtn) {
-    if (data.orderKey) {
-      orderMainBtn.style.display = 'inline-flex';
-      orderMainBtn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Order / Buy Online Now';
-      orderMainBtn.onclick = () => {
-        closeDetailModal();
-        openOrderModal(data.orderKey);
-      };
-    } else {
-      orderMainBtn.style.display = 'none';
-    }
-  }
+  const existingOrderBtn = document.getElementById('detailModalOrderMainBtn');
+  if (existingOrderBtn) existingOrderBtn.remove();
 
   const actionBtn = document.getElementById('detailModalActionBtn');
   if (data.tripName) {
@@ -1135,62 +1105,6 @@ function openOnScreenItinerary(isJustSubmitted) {
         `;
       }).join('');
 
-      let ordersHtml = '';
-      if (orders.length > 0) {
-        ordersHtml = `
-          <div class="itinerary-section-title">
-            <i class="fa-solid fa-bag-shopping" style="color: #ea580c;"></i>
-            <span>Your Online Pasalubong &amp; Food Orders (${orders.length})</span>
-          </div>
-          <div class="itinerary-orders-box">
-            ${orders.map(o => `
-              <div class="itinerary-order-card">
-                <div>
-                  <strong style="color:#0c2333; font-size:13.5px;">${escapeXml(o.product)}</strong>
-                  <div style="font-size:12px; color:#64748b;">
-                    Ref: <strong style="color:#ea580c;">${escapeXml(o.ref)}</strong> &bull; Qty: ${o.qty} &bull; ${escapeXml(o.delivery)}
-                  </div>
-                  <div style="font-size:11.5px; color:#475569;">
-                    <i class="fa-solid fa-location-dot" style="color:#0f8b84;"></i> Deliver to: ${escapeXml(o.address)} &bull; ${escapeXml(o.payment)}
-                  </div>
-                </div>
-                <div style="text-align:right;">
-                  <strong style="font-size:15px; color:#ea580c;">&#8369;${Number(o.total).toLocaleString()}</strong>
-                  <div style="font-size:11px; color:#16a34a; font-weight:700;"><i class="fa-solid fa-check"></i> Placed (${escapeXml(o.date)})</div>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        `;
-      } else {
-        ordersHtml = `
-          <div class="itinerary-order-promo" style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 12px 16px; margin: 16px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-            <div style="font-size: 13px; color: #475569;">
-              <strong style="color: #0c2333;"><i class="fa-solid fa-gift" style="color: #ea580c; margin-right: 6px;"></i>Order Pasalubong Online:</strong>
-              Want local delicacies delivered to your hotel or airport-ready?
-            </div>
-            <button type="button" class="btn-card-order" onclick="closeOnScreenItinerary(); openOrderModal('corioso-pack');" style="margin:0; font-size:11.5px; padding:6px 12px;">
-              <i class="fa-solid fa-cart-shopping"></i> Order Pasalubong
-            </button>
-          </div>
-        `;
-      }
-
-  const flashBannerHtml = isJustSubmitted ? `
-        <div class="itinerary-flash-banner">
-          <div style="display:flex; align-items:center; gap:12px;">
-            <i class="fa-solid fa-circle-check" style="font-size: 24px;"></i>
-            <div>
-              <div style="font-weight: 800; font-size: 14.5px; letter-spacing: 0.2px;">Inquiry Confirmed! Itinerary Flashed on Screen</div>
-              <div style="font-size: 12px; opacity: 0.95;">Here is your personal Catbalogan trip itinerary with transit vehicles, fares, and placed orders.</div>
-            </div>
-          </div>
-          <span style="background: rgba(255,255,255,0.22); padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 800;">
-            REF: ${escapeXml(refCode)}
-          </span>
-        </div>
-      ` : '';
-
       modalEl.innerHTML = `
         <div class="modal-card itinerary-modal-card">
           <div class="itinerary-header-official">
@@ -1275,8 +1189,6 @@ function openOnScreenItinerary(isJustSubmitted) {
                 </tbody>
               </table>
             </div>
-
-            ${ordersHtml}
 
             <div class="itinerary-cost-summary">
               <div style="font-size: 13px; color: #475569;">
@@ -2058,7 +1970,6 @@ function svRenderNode(idx) {
             <span><strong>Exact Location:</strong> ${node.storeAddress || node.subtitle}<br><span style="color:#94a3b8;">${node.storeHours || ''}</span></span>
           </div>
           <div class="sv-store-pin-actions">
-            ${node.orderKey ? `<button type="button" class="sv-pin-btn-order" onclick="closeStreetView(); openOrderModal('${node.orderKey}')"><i class="fa-solid fa-cart-shopping"></i> Buy / Order Online</button>` : ''}
             <a href="transit.html?to=${encodeURIComponent(node.transitKey || node.key)}" class="sv-pin-btn-route">
               <i class="fa-solid fa-route"></i> How to Ride Here (Route &amp; Fare)
             </a>
