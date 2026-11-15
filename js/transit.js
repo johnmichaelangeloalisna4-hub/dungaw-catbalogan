@@ -10,7 +10,7 @@ const TRANSIT_LOCATIONS = {
   // VEHICLE TERMINALS & TRANSPORTATION HUBS
   // ========================================================
   'bus_terminal': {
-    id: 'bus_terminal',    shortLabel: '🚌 Bus Terminal (Diversion)',
+    id: 'bus_terminal',    shortLabel: 'Bus Terminal (Diversion)',
 
     name: 'Catbalogan Integrated Bus Terminal',
     category: 'Provincial Bus Terminal',
@@ -23,7 +23,7 @@ const TRANSIT_LOCATIONS = {
     address: 'Diversion Road / North Coastal Highway, Brgy. Muñoz'
   },
   'grand_tours': {
-    id: 'grand_tours',    shortLabel: '🚐 Grand Tours Van',
+    id: 'grand_tours',    shortLabel: 'Grand Tours Van',
 
     name: 'Grand Tours Van Terminal',
     category: 'Regional Van Terminal',
@@ -36,7 +36,7 @@ const TRANSIT_LOCATIONS = {
     address: 'San Francisco Street corner Del Rosario, City Proper'
   },
   'duptours': {
-    id: 'duptours',    shortLabel: '🚐 Duptours Shuttle',
+    id: 'duptours',    shortLabel: 'Duptours Shuttle',
 
     name: 'Duptours Shuttle Terminal',
     category: 'Regional Van Terminal',
@@ -49,7 +49,7 @@ const TRANSIT_LOCATIONS = {
     address: 'Mabini Avenue corner Allen Avenue, Downtown'
   },
   'port': {
-    id: 'port',    shortLabel: '🚢 Catbalogan Port (Pier 1)',
+    id: 'port',    shortLabel: 'Catbalogan Port (Pier 1)',
 
     name: 'Catbalogan Port / Pier 1',
     category: 'Ferry Seaport Terminal',
@@ -62,7 +62,7 @@ const TRANSIT_LOCATIONS = {
     address: 'Curry Avenue Seafront, Port Area'
   },
   'pier_boat_wharf': {
-    id: 'pier_boat_wharf',    shortLabel: '⛵ Island Motorboat Wharf',
+    id: 'pier_boat_wharf',    shortLabel: 'Island Motorboat Wharf',
 
     name: 'Catbalogan Motorboat & Pumpboat Wharf',
     category: 'Island Pumpboat Terminal',
@@ -75,7 +75,7 @@ const TRANSIT_LOCATIONS = {
     address: 'Pier Area / Lower Curry Avenue, Seafront'
   },
   'central_tricycle_stand': {
-    id: 'central_tricycle_stand',    shortLabel: '🛺 Downtown Tricycle Stand',
+    id: 'central_tricycle_stand',    shortLabel: 'Downtown Tricycle Stand',
 
     name: 'Central Downtown Tricycle Terminal',
     category: 'City Tricycle Stand',
@@ -88,7 +88,7 @@ const TRANSIT_LOCATIONS = {
     address: 'Rizal Avenue corner San Bartolome St. (City Plaza)'
   },
   'northbound_tricycle_stand': {
-    id: 'northbound_tricycle_stand',    shortLabel: '🛺 Northbound Tricycle Stand',
+    id: 'northbound_tricycle_stand',    shortLabel: 'Northbound Tricycle Stand',
 
     name: 'Northbound Tricycle Terminal (Silanga / Buri)',
     category: 'Inter-Barangay Tricycle Stand',
@@ -101,7 +101,7 @@ const TRANSIT_LOCATIONS = {
     address: 'San Roque Street (North Highway Exit)'
   },
   'southbound_multicab_stand': {
-    id: 'southbound_multicab_stand',    shortLabel: '🛻 Southbound Multicab Stand',
+    id: 'southbound_multicab_stand',    shortLabel: 'Southbound Multicab Stand',
 
     name: 'Southbound Multicab & Jeepney Stand (Payao)',
     category: 'Multicab & Jeepney Stand',
@@ -114,7 +114,7 @@ const TRANSIT_LOCATIONS = {
     address: 'Taft Avenue corner San Bartolome St.'
   },
   'airport': {
-    id: 'airport',    shortLabel: '✈️ Buri Airport',
+    id: 'airport',    shortLabel: 'Buri Airport',
 
     name: 'Catbalogan Buri Airport Terminal',
     category: 'Airport Terminal',
@@ -690,9 +690,9 @@ function initMap() {
 
     // Layer Switcher Control for Panelists & Commuters
     const baseMaps = {
-      '🗺️ Tourism & Road Map': googleStreets,
-      '🛰️ Satellite + Labels': googleHybrid,
-      '⛰️ Terrain Street Map': esriStreet
+      'Tourism & Road Map': googleStreets,
+      'Satellite + Labels': googleHybrid,
+      'Terrain Street Map': esriStreet
     };
     L.control.layers(baseMaps, null, { position: 'topright', collapsed: false }).addTo(transitMap);
 
@@ -824,27 +824,27 @@ function populateDropdowns() {
 
   // Origins grouped
   const optGroupTerminals1 = document.createElement('optgroup');
-  optGroupTerminals1.label = '— 🚏 Vehicle & Transport Terminals —';
+  optGroupTerminals1.label = '— Vehicle & Transport Terminals —';
   const optGroupHubs1 = document.createElement('optgroup');
-  optGroupHubs1.label = '— 🏛️ City Landmarks & Government Hubs —';
+  optGroupHubs1.label = '— City Landmarks & Government Hubs —';
   const optGroupSpots1 = document.createElement('optgroup');
-  optGroupSpots1.label = '— 🏖️ Tourist Spots & Attractions —';
+  optGroupSpots1.label = '— Tourist Spots & Attractions —';
   const optGroupHotels1 = document.createElement('optgroup');
-  optGroupHotels1.label = '— 🏨 DOT Accredited Hotels —';
+  optGroupHotels1.label = '— DOT Accredited Hotels —';
   const optGroupDining1 = document.createElement('optgroup');
-  optGroupDining1.label = '— 🍽️ DOT Accredited Restaurants —';
+  optGroupDining1.label = '— DOT Accredited Restaurants —';
 
   // Destinations grouped
   const optGroupSpots2 = document.createElement('optgroup');
-  optGroupSpots2.label = '— 🏖️ Tourist Spots & Attractions —';
+  optGroupSpots2.label = '— Tourist Spots & Attractions —';
   const optGroupTerminals2 = document.createElement('optgroup');
-  optGroupTerminals2.label = '— 🚏 Vehicle & Transport Terminals —';
+  optGroupTerminals2.label = '— Vehicle & Transport Terminals —';
   const optGroupHotels2 = document.createElement('optgroup');
-  optGroupHotels2.label = '— 🏨 DOT Accredited Hotels —';
+  optGroupHotels2.label = '— DOT Accredited Hotels —';
   const optGroupDining2 = document.createElement('optgroup');
-  optGroupDining2.label = '— 🍽️ DOT Accredited Restaurants —';
+  optGroupDining2.label = '— DOT Accredited Restaurants —';
   const optGroupHubs2 = document.createElement('optgroup');
-  optGroupHubs2.label = '— 🏛️ City Landmarks —';
+  optGroupHubs2.label = '— City Landmarks —';
 
   Object.values(TRANSIT_LOCATIONS).forEach(loc => {
     // For origin
@@ -1210,7 +1210,7 @@ function trackMyLocation() {
 
       if (!isInSamar) {
         // User is currently browsing from elsewhere (e.g. testing from Manila, Cebu, or home)
-        alert('📍 Note: You are currently outside Catbalogan City (' + userLat.toFixed(2) + ', ' + userLng.toFixed(2) + '). We will pinpoint your starting hub at Catbalogan Seaport/City Center so you can plan your trip!');
+        alert('Note: You are currently outside Catbalogan City (' + userLat.toFixed(2) + ', ' + userLng.toFixed(2) + '). We will pinpoint your starting hub at Catbalogan Seaport/City Center so you can plan your trip!');
       }
 
       // Add custom live GPS pulsing marker
@@ -1228,14 +1228,14 @@ function trackMyLocation() {
 
       if (transitMap) {
         liveGpsMarker = L.marker([targetLat, targetLng], { icon: liveIcon }).addTo(transitMap);
-        liveGpsMarker.bindPopup('<strong>📍 You Are Here</strong><br>GPS accuracy: within ' + Math.round(position.coords.accuracy) + 'm').openPopup();
+        liveGpsMarker.bindPopup('<strong>You Are Here</strong><br>GPS accuracy: within ' + Math.round(position.coords.accuracy) + 'm').openPopup();
         transitMap.setView([targetLat, targetLng], 15);
       }
 
       // Add custom "My GPS Location" to origin dropdown
       TRANSIT_LOCATIONS['my_gps'] = {
         id: 'my_gps',
-        name: '📍 My Current Location',
+        name: 'My Current Location',
         category: 'Live GPS Pin',
         lat: targetLat,
         lng: targetLng,
@@ -1248,7 +1248,7 @@ function trackMyLocation() {
       if (originSelect) {
         let gpsOpt = originSelect.querySelector('option[value="my_gps"]');
         if (!gpsOpt) {
-          gpsOpt = new Option('📍 My Current Location (GPS)', 'my_gps');
+          gpsOpt = new Option('My Current Location (GPS)', 'my_gps');
           originSelect.prepend(gpsOpt);
         }
         originSelect.value = 'my_gps';
@@ -1271,7 +1271,7 @@ function shareRoute() {
 
   if (navigator.clipboard) {
     navigator.clipboard.writeText(shareUrl).then(() => {
-      alert('✅ Route link copied to clipboard!\n' + shareUrl);
+      alert('Route link copied to clipboard!\n' + shareUrl);
     });
   } else {
     prompt('Copy this link to share the route:', shareUrl);
