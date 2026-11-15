@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Global Shared Styles -->
-  <link rel="stylesheet" href="css/style.css?v=40">
+  <link rel="stylesheet" href="css/style.css?v=45">
 
   <style>
     /* ==========================================================
@@ -189,10 +189,6 @@
 
     .menu-toggle-btn {
       display: none;
-      background: transparent;
-      font-size: 22px;
-      color: var(--navy-dark);
-      padding: 6px 10px;
     }
 
     /* ==========================================================
@@ -631,7 +627,7 @@
       body.admin-bar .site-header { top: 32px; }
     @media (max-width: 782px) { body.admin-bar .site-header { top: 46px; } }
 
-    .menu-toggle-btn { display: block; }
+    .menu-toggle-btn { display: inline-flex !important; }
       .page-title { font-size: 38px; }
       .hero-frame img { height: 260px; }
       .facts-strip { grid-template-columns: repeat(2, 1fr); }
@@ -694,8 +690,9 @@
       <a href="transit.html">Transit &amp; Map</a>
     </nav>
 
-    <button class="menu-toggle-btn" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+    <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
       <i class="fa-solid fa-bars" id="menuToggleIcon"></i>
+      <span class="menu-toggle-label" id="menuToggleText">NAV MENU</span>
     </button>
   </header>
 
@@ -1044,16 +1041,37 @@
     function toggleMobileNav() {
       const nav = document.getElementById('siteNav');
       const icon = document.getElementById('menuToggleIcon');
+      const label = document.getElementById('menuToggleText');
+      const btn = document.getElementById('menuToggleBtn');
       if (!nav) return;
       const isOpen = nav.classList.toggle('mobile-open');
+      if (btn) btn.classList.toggle('active', isOpen);
       if (icon) icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      if (label) label.textContent = isOpen ? 'CLOSE' : 'NAV MENU';
     }
+
+    document.querySelectorAll('#siteNav a').forEach(link => {
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('siteNav');
+        const icon = document.getElementById('menuToggleIcon');
+        const label = document.getElementById('menuToggleText');
+        const btn = document.getElementById('menuToggleBtn');
+        if (nav) nav.classList.remove('mobile-open');
+        if (btn) btn.classList.remove('active');
+        if (icon) icon.className = 'fa-solid fa-bars';
+        if (label) label.textContent = 'NAV MENU';
+      });
+    });
 
     window.addEventListener('resize', () => {
       if (window.innerWidth > 992) {
         document.getElementById('siteNav')?.classList.remove('mobile-open');
         const icon = document.getElementById('menuToggleIcon');
+        const label = document.getElementById('menuToggleText');
+        const btn = document.getElementById('menuToggleBtn');
         if (icon) icon.className = 'fa-solid fa-bars';
+        if (label) label.textContent = 'NAV MENU';
+        if (btn) btn.classList.remove('active');
       }
     });
   </script>

@@ -282,10 +282,67 @@ body.admin-bar .site-header {
 
 .menu-toggle-btn {
   display: none;
-  background: transparent;
-  font-size: 22px;
-  color: var(--navy-dark);
-  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  padding: 7px 15px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.22s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.menu-toggle-btn:hover,
+.menu-toggle-btn:focus-visible {
+  background: var(--teal-primary, #0f8b84);
+  border-color: var(--teal-primary, #0f8b84);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.menu-toggle-btn i {
+  font-size: 14.5px;
+  transition: transform 0.2s ease;
+}
+
+.menu-toggle-label {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Light header variations */
+.site-header.scrolled .menu-toggle-btn,
+body.subpage .site-header .menu-toggle-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0c2333;
+}
+
+.site-header.scrolled .menu-toggle-btn:hover,
+body.subpage .site-header .menu-toggle-btn:hover {
+  background: var(--teal-primary, #0f8b84);
+  border-color: var(--teal-primary, #0f8b84);
+  color: #ffffff;
+}
+
+/* When mobile navigation is open */
+.menu-toggle-btn.active {
+  background: #ea580c !important;
+  border-color: #ea580c !important;
+  color: #ffffff !important;
 }
 
 /* ==========================================================
@@ -2297,7 +2354,7 @@ body.admin-bar .site-header {
   }
 
   .menu-toggle-btn {
-    display: block;
+    display: inline-flex !important;
   }
 
   .hero-section {

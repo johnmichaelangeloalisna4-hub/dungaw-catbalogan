@@ -1617,10 +1617,16 @@ function resetSpotsFilter() {
 function toggleMobileNav() {
   const nav = document.getElementById('siteNav');
   const icon = document.getElementById('menuToggleIcon');
+  const label = document.getElementById('menuToggleText');
+  const btn = document.getElementById('menuToggleBtn');
   if (!nav) return;
   const isOpen = nav.classList.toggle('mobile-open');
+  if (btn) btn.classList.toggle('active', isOpen);
   if (icon) {
     icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  }
+  if (label) {
+    label.textContent = isOpen ? 'CLOSE' : 'NAV MENU';
   }
 }
 
@@ -1628,8 +1634,12 @@ document.querySelectorAll('#siteNav a').forEach(link => {
   link.addEventListener('click', () => {
     const nav = document.getElementById('siteNav');
     const icon = document.getElementById('menuToggleIcon');
+    const label = document.getElementById('menuToggleText');
+    const btn = document.getElementById('menuToggleBtn');
     if (nav) nav.classList.remove('mobile-open');
+    if (btn) btn.classList.remove('active');
     if (icon) icon.className = 'fa-solid fa-bars';
+    if (label) label.textContent = 'NAV MENU';
   });
 });
 
@@ -1637,8 +1647,12 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 992) {
     const nav = document.getElementById('siteNav');
     const icon = document.getElementById('menuToggleIcon');
+    const label = document.getElementById('menuToggleText');
+    const btn = document.getElementById('menuToggleBtn');
     if (nav) nav.classList.remove('mobile-open');
+    if (btn) btn.classList.remove('active');
     if (icon) icon.className = 'fa-solid fa-bars';
+    if (label) label.textContent = 'NAV MENU';
   }
 });
 
