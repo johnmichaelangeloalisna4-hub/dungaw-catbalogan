@@ -2897,7 +2897,7 @@ function svRenderNode(idx) {
     pinLbl.innerHTML = `<span style="color:#f97316; font-weight:800;">PINNED STORE / LOCATION:</span> ${node.title}`;
   }
 
-  // Inject or update the Pinned Store Card inside .sv-map-pane
+  // Inject or update the Pinned Store Card inside .sv-map-pane with Minimize & Hide controls
   const mapPane = document.querySelector('.sv-map-pane');
   if (mapPane) {
     let pinCard = document.getElementById('svStorePinCard');
@@ -2907,23 +2907,59 @@ function svRenderNode(idx) {
       pinCard.className = 'sv-store-pin-card';
       mapPane.appendChild(pinCard);
     }
+
+    let restoreBtn = document.getElementById('svRestorePinCardBtn');
+    if (!restoreBtn) {
+      restoreBtn = document.createElement('button');
+      restoreBtn.type = 'button';
+      restoreBtn.id = 'svRestorePinCardBtn';
+      restoreBtn.className = 'sv-restore-pin-btn';
+      restoreBtn.onclick = restorePinCard;
+      restoreBtn.style.display = 'none';
+      mapPane.appendChild(restoreBtn);
+    }
+
     const isFoodOrShop = Boolean(node.orderKey);
+    const wasCollapsed = pinCard.classList.contains('collapsed');
+    const wasHidden = pinCard.style.display === 'none';
+
+    restoreBtn.innerHTML = `
+      <i class="fa-solid fa-location-dot" style="color: #f97316;"></i>
+      <span>Show Info: ${node.title}</span>
+      <i class="fa-solid fa-chevron-up" style="font-size: 10px; margin-left: 2px;"></i>
+    `;
+    if (wasHidden) {
+      restoreBtn.style.display = 'inline-flex';
+    }
+
     pinCard.innerHTML = `
-          <div class="sv-store-pin-header">
+          <div class="sv-store-pin-header" onclick="if(this.parentElement.classList.contains('collapsed')) toggleMinimizePinCard(event)">
             <span class="sv-store-pin-badge">
-              <i class="fa-solid fa-location-dot"></i> ${isFoodOrShop ? 'PINNED STORE TO BUY THIS FOOD' : 'PINNED LANDMARK LOCATION'}
+              <i class="fa-solid fa-location-dot"></i> ${isFoodOrShop ? 'PINNED STORE' : 'PINNED LANDMARK'}
             </span>
+            <span class="sv-minimized-title">${node.title}</span>
             <span class="sv-store-pin-coords">GPS: ${node.lat.toFixed(4)}° N, ${node.lng.toFixed(4)}° E</span>
+            <div class="sv-store-pin-controls">
+              <button type="button" class="sv-pin-ctrl-btn" onclick="toggleMinimizePinCard(event)" title="Minimize card so you can see the map">
+                <i class="${wasCollapsed ? 'fa-solid fa-up-right-and-down-left-from-center' : 'fa-solid fa-compress'}" id="pinCardMinIcon"></i>
+                <span id="pinCardMinText">${wasCollapsed ? 'Expand' : 'Minimize'}</span>
+              </button>
+              <button type="button" class="sv-pin-ctrl-btn sv-pin-hide-btn" onclick="hidePinCard(event)" title="Hide card to see full map">
+                <i class="fa-solid fa-eye-slash"></i> <span>Hide</span>
+              </button>
+            </div>
           </div>
-          <div class="sv-store-pin-name">${node.title}</div>
-          <div class="sv-store-pin-addr">
-            <i class="fa-solid fa-map-pin" style="color:#f97316; margin-top:3px;"></i>
-            <span><strong>Exact Location:</strong> ${node.storeAddress || node.subtitle}<br><span style="color:#94a3b8;">${node.storeHours || ''}</span></span>
-          </div>
-          <div class="sv-store-pin-actions">
-            <a href="transit.html?to=${encodeURIComponent(node.transitKey || node.key)}" class="sv-pin-btn-route">
-              <i class="fa-solid fa-route"></i> How to Ride Here (Route &amp; Fare)
-            </a>
+          <div class="sv-store-pin-body">
+            <div class="sv-store-pin-name">${node.title}</div>
+            <div class="sv-store-pin-addr">
+              <i class="fa-solid fa-map-pin" style="color:#f97316; margin-top:3px;"></i>
+              <span><strong>Exact Location:</strong> ${node.storeAddress || node.subtitle}<br><span style="color:#94a3b8;">${node.storeHours || ''}</span></span>
+            </div>
+            <div class="sv-store-pin-actions">
+              <a href="transit.html?to=${encodeURIComponent(node.transitKey || node.key)}" class="sv-pin-btn-route">
+                <i class="fa-solid fa-route"></i> How to Ride Here (Route &amp; Fare)
+              </a>
+            </div>
           </div>
         `;
   }
@@ -2940,10 +2976,13 @@ function svRenderNode(idx) {
     }
     gsvBanner.innerHTML = `
           <i class="fa-solid fa-street-view" style="color:#f97316; font-size:16px;"></i>
-          <div>
+          <div style="flex: 1;">
             <div style="font-size:10px; color:#20c4b7; letter-spacing:0.08em; text-transform:uppercase;">360&deg; Street View Storefront Pin</div>
             <div>${node.title} &bull; <span style="font-weight:500; color:#cbd5e1;">${node.storeAddress || ''}</span></div>
           </div>
+          <button type="button" class="sv-banner-close-btn" onclick="toggleGsvBanner(event)" title="Hide banner to see full 360 view">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         `;
   }
 
@@ -3137,3 +3176,46 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', updateTripUI);
+
+// Street View Modal Pin Card Controls (Minimize & Hide)
+function toggleMinimizePinCard(e) {
+  if (e) e.stopPropagation();
+  const card = document.getElementById('svStorePinCard');
+  if (!card) return;
+  const isCollapsed = card.classList.toggle('collapsed');
+  const minText = document.getElementById('pinCardMinText');
+  const minIcon = document.getElementById('pinCardMinIcon');
+  if (minText) minText.textContent = isCollapsed ? 'Expand' : 'Minimize';
+  if (minIcon) minIcon.className = isCollapsed ? 'fa-solid fa-up-right-and-down-left-from-center' : 'fa-solid fa-compress';
+}
+
+function hidePinCard(e) {
+  if (e) e.stopPropagation();
+  const card = document.getElementById('svStorePinCard');
+  const restoreBtn = document.getElementById('svRestorePinCardBtn');
+  if (card) card.style.display = 'none';
+  if (restoreBtn) restoreBtn.style.display = 'inline-flex';
+}
+
+function restorePinCard(e) {
+  if (e) e.stopPropagation();
+  const card = document.getElementById('svStorePinCard');
+  const restoreBtn = document.getElementById('svRestorePinCardBtn');
+  if (card) {
+    card.style.display = 'flex';
+    card.classList.remove('collapsed');
+    const minText = document.getElementById('pinCardMinText');
+    const minIcon = document.getElementById('pinCardMinIcon');
+    if (minText) minText.textContent = 'Minimize';
+    if (minIcon) minIcon.className = 'fa-solid fa-compress';
+  }
+  if (restoreBtn) restoreBtn.style.display = 'none';
+}
+
+function toggleGsvBanner(e) {
+  if (e) e.stopPropagation();
+  const banner = document.getElementById('svGsvPinBanner');
+  if (banner) {
+    banner.style.display = (banner.style.display === 'none') ? 'inline-flex' : 'none';
+  }
+}
