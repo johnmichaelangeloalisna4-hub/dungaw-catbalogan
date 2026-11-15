@@ -1017,6 +1017,190 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
       if (document.getElementById('culture')) { document.getElementById('culture').scrollIntoView({ behavior: 'smooth' }); } else { window.location.href = 'culture.html'; }
     }
 
+    /* ==========================================================
+       GMAIL ITINERARY GENERATOR & TOP SCREEN NOTIFICATION
+       ========================================================== */
+    function ensureTopPushNotificationExists() {
+      let notif = document.getElementById('topPushNotification');
+      if (notif) return notif;
+
+      notif = document.createElement('div');
+      notif.id = 'topPushNotification';
+      notif.className = 'top-push-notification';
+      notif.innerHTML = `
+        <div class="push-notif-header">
+          <span class="push-notif-badge">
+            <span class="push-notif-pulse"></span>
+            <i class="fa-brands fa-google"></i>
+            <span>GMAIL NOTIFICATION &bull; DUNGAW CATBALOGAN</span>
+          </span>
+          <span class="push-notif-time" id="pushNotifTime">Just now</span>
+        </div>
+        <div class="push-notif-content">
+          <div class="push-notif-avatar">
+            <svg viewBox="0 0 24 24" width="24" height="24" style="display:block;">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+          <div class="push-notif-text">
+            <div class="push-notif-title" id="pushNotifTitle">Itinerary Message Ready!</div>
+            <div class="push-notif-desc" id="pushNotifDesc">Your personalized Catbalogan itinerary has been formatted for Gmail with fares and routes.</div>
+          </div>
+        </div>
+        <div class="push-notif-actions">
+          <a href="#" id="pushNotifOpenBtn" target="_blank" rel="noopener" class="push-notif-btn-main">
+            <i class="fa-solid fa-envelope-open-text"></i> Open in Gmail
+          </a>
+          <button type="button" class="push-notif-btn-dismiss" onclick="dismissTopScreenNotification()">
+            Dismiss
+          </button>
+        </div>
+      `;
+      document.body.appendChild(notif);
+      return notif;
+    }
+
+    function showTopScreenNotification({ title, desc, url, mailtoUrl }) {
+      const notif = ensureTopPushNotificationExists();
+      const titleEl = document.getElementById('pushNotifTitle');
+      const descEl = document.getElementById('pushNotifDesc');
+      const timeEl = document.getElementById('pushNotifTime');
+      const openBtn = document.getElementById('pushNotifOpenBtn');
+
+      if (titleEl) titleEl.textContent = title;
+      if (descEl) descEl.textContent = desc;
+      if (timeEl) timeEl.textContent = 'Just now';
+
+      const finalUrl = url || mailtoUrl || 'https://mail.google.com';
+      if (openBtn) {
+        openBtn.href = finalUrl;
+        openBtn.onclick = () => {
+          dismissTopScreenNotification();
+        };
+      }
+
+      // Smooth slide-in animation
+      notif.classList.remove('show');
+      void notif.offsetWidth; // force reflow
+      notif.classList.add('show');
+
+      // Native browser notification if permitted
+      if ('Notification' in window) {
+        if (Notification.permission === 'granted') {
+          try {
+            new Notification(title, {
+              body: desc,
+              icon: './images/dungaw_logo.png'
+            });
+          } catch (err) {}
+        } else if (Notification.permission === 'default') {
+          try {
+            Notification.requestPermission();
+          } catch (err) {}
+        }
+      }
+
+      clearTimeout(window._topPushTimer);
+      window._topPushTimer = setTimeout(() => {
+        dismissTopScreenNotification();
+      }, 14000);
+    }
+
+    function dismissTopScreenNotification() {
+      const notif = document.getElementById('topPushNotification');
+      if (notif) notif.classList.remove('show');
+    }
+
+    function generateItineraryEmailContent() {
+      if (savedTrips.length === 0) {
+        savedTrips = ['Buri Island Boardwalk', 'Bangon Falls', 'The Obelisk'];
+        persistTrips();
+        updateTripUI();
+      }
+
+      const formName = document.getElementById('visitorName')?.value.trim();
+      const formEmail = document.getElementById('visitorEmail')?.value.trim();
+      const formDate = document.getElementById('visitDate')?.value;
+
+      const visitorName = formName || lastInquiry?.name || 'Guest Traveler';
+      const visitorContact = formEmail || lastInquiry?.email || '';
+      const travelDate = formDate || lastInquiry?.date || 'Flexible Date';
+      const refCode = lastInquiry?.refCode || ('DC-' + Math.floor(100000 + Math.random() * 900000));
+
+      let itemsText = '';
+      savedTrips.forEach((item, idx) => {
+        const [cat, loc, vehicle, fare, tip] = getTripMeta(item);
+        itemsText += `\n${idx + 1}. ${item.toUpperCase()}\n   • Category: ${cat}\n   • Location: ${loc}\n   • Vehicle to Ride: ${vehicle}\n   • Estimated Ride Cost (Fare): ${fare}\n   • Best Time / Travel Tip: ${tip}\n`;
+      });
+
+      const subject = `Dungaw Catbalogan - Personal Trip Itinerary [${refCode}]`;
+      const body = `Mabuhay from Catbalogan City! 🌺
+
+Here is your personal travel itinerary prepared via Dungaw Catbalogan City Tourism Portal:
+
+==================================================
+TRAVELER SUMMARY
+==================================================
+Traveler Name: ${visitorName}
+Reference Code: ${refCode}
+Preferred Date: ${travelDate}
+Total Saved Experiences: ${savedTrips.length}
+
+==================================================
+YOUR SAVED DESTINATIONS & COMMUTER GUIDE
+==================================================${itemsText}
+
+==================================================
+CATBALOGAN TOURISM ASSISTANCE & HOTLINES
+==================================================
+Catbalogan City Tourism Office
+Catbalogan City Hall, Samar, Philippines
+Tourism Inquiries & Assistance: tourism@catbalogan.gov.ph
+Website: https://snappy-crystal-sitjibf.tmp.now
+
+Have a safe, colorful, and memorable trip to the City of Captivating Colors!`;
+
+      return { visitorName, visitorContact, travelDate, refCode, subject, body };
+    }
+
+    function sendItineraryToGmail() {
+      const data = generateItineraryEmailContent();
+      const recipient = data.visitorContact || '';
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.body)}`;
+      const mailtoUrl = `mailto:${encodeURIComponent(recipient)}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.body)}`;
+
+      // 1. Show Top Screen Push Notification
+      showTopScreenNotification({
+        title: `Itinerary Ready for ${data.visitorName}!`,
+        desc: `${savedTrips.length} Destinations saved • Ref: ${data.refCode}. Click below to open in Gmail.`,
+        url: gmailUrl,
+        mailtoUrl: mailtoUrl
+      });
+
+      // 2. Open Gmail in a new tab / window
+      let winOpened = false;
+      try {
+        const win = window.open(gmailUrl, '_blank');
+        if (win && !win.closed && typeof win.closed !== 'undefined') {
+          winOpened = true;
+        }
+      } catch (err) {}
+
+      if (!winOpened) {
+        // Fallback for pop-up blocked environments
+        setTimeout(() => {
+          if (!document.hidden) {
+            window.location.href = mailtoUrl;
+          }
+        }, 1200);
+      }
+
+      showToast(`✉️ Gmail notification sent for ${data.visitorName} (${data.refCode})!`);
+    }
+
     function submitItineraryInquiry(e) {
       e.preventDefault();
       if (savedTrips.length === 0) {
@@ -1036,10 +1220,24 @@ const STORAGE_KEY = 'dungaw_catbalogan_trips';
       try {
         localStorage.setItem(INQUIRY_KEY, JSON.stringify(lastInquiry));
       } catch (err) {}
+
+      const data = generateItineraryEmailContent();
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.body)}`;
+      const mailtoUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(data.body)}`;
+
       const box = document.getElementById('inquirySuccessBox');
-      box.innerHTML = `<strong><i class="fa-solid fa-circle-check"></i> Inquiry Prepared (${refCode})</strong><br>Mabuhay, <strong>${name}</strong>! Your ${savedTrips.length}-item itinerary for <strong>${date}</strong> is ready. You can download your Excel itinerary below.`;
+      box.innerHTML = `<strong><i class="fa-solid fa-circle-check"></i> Inquiry Prepared (${refCode})</strong><br>Mabuhay, <strong>${name}</strong>! Your ${savedTrips.length}-item itinerary for <strong>${date}</strong> is ready.<br><a href="${gmailUrl}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:8px; padding:6px 12px; border-radius:20px; background:#ea4335; color:#fff; font-size:12px; font-weight:700; text-decoration:none;"><i class="fa-brands fa-google"></i> Open in Gmail</a>`;
       box.classList.add('show');
-      showToast(`Itinerary ready for ${name} (${refCode})!`);
+
+      // Top Screen Push Notification
+      showTopScreenNotification({
+        title: `Gmail Notification: Itinerary Ready for ${name}!`,
+        desc: `Ref: ${refCode} • ${savedTrips.length} places saved. Click below to view in Gmail.`,
+        url: gmailUrl,
+        mailtoUrl: mailtoUrl
+      });
+
+      showToast(`Itinerary message prepared for ${name} (${refCode})!`);
       document.getElementById('tripInquiryForm').reset();
     }
 
