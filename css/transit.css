@@ -341,9 +341,9 @@
 }
 
 .tag-walk {
-  background: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #bae6fd;
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
 }
 
 .trip-metrics-row {
@@ -536,8 +536,8 @@
 
 .pin-origin { background: #0f8b84; }
 .pin-dest { background: #f97316; }
-.pin-hub { background: #0c2333; }
-.pin-spot { background: #2563eb; }
+.pin-hub { background: #c2410c; }
+.pin-spot { background: #ea580c; }
 
 .live-gps-pulse {
   position: relative;
@@ -638,7 +638,7 @@
 .icon-habal { background: #ede9fe; color: #6d28d9; }
 .icon-banca { background: #cffafe; color: #0e7490; }
 .icon-multicab { background: #d1fae5; color: #047857; }
-.icon-walk { background: #e0f2fe; color: #0369a1; }
+.icon-walk { background: #fff7ed; color: #ea580c; }
 
 .v-card-title {
   font-family: var(--font-heading);
@@ -882,4 +882,11 @@
 
 .btn-focus-terminals:hover i {
   color: #ffffff !important;
+}
+
+
+/* Orange Footer Theme */
+.site-footer {
+  background: linear-gradient(135deg, #7c2d12 0%, #9a3412 32%, #c2410c 70%, #ea580c 100%) !important;
+  border-top: 3px solid #f97316 !important;
 }
