@@ -2892,6 +2892,8 @@ function svRenderNode(idx) {
   document.getElementById('svTitle').innerHTML = node.title;
   document.getElementById('svSubtitle').innerHTML = node.subtitle;
   document.getElementById('svStepLabel').textContent = `${svState.index + 1} / ${STREET_VIEW_TOUR.length}`;
+  const pillTitle = document.getElementById('svPillTitle');
+  if (pillTitle) pillTitle.textContent = node.title;
   const pinLbl = document.getElementById('svMapPinLabel');
   if (pinLbl) {
     pinLbl.innerHTML = `<span style="color:#f97316; font-weight:800;">PINNED STORE / LOCATION:</span> ${node.title}`;
@@ -3024,16 +3026,69 @@ function svBuildStrip() {
   });
 }
 
+function svToggleTopbarMinimize(forceState) {
+  const modal = document.getElementById('streetViewModal');
+  const pill = document.getElementById('svTopbarRestorePill');
+  const minText = document.getElementById('svMinimizeText');
+  const minIcon = document.getElementById('svMinimizeIcon');
+
+  if (!modal) return;
+
+  const shouldMinimize = (typeof forceState === 'boolean')
+    ? forceState
+    : !modal.classList.contains('topbar-minimized');
+
+  svState.topbarMinimized = shouldMinimize;
+
+  if (shouldMinimize) {
+    modal.classList.add('topbar-minimized');
+    if (pill) {
+      pill.style.display = 'inline-flex';
+      const pillTitle = document.getElementById('svPillTitle');
+      const node = STREET_VIEW_TOUR[svState.index];
+      if (pillTitle && node) pillTitle.textContent = node.title;
+    }
+    if (minText) minText.textContent = 'Expand';
+    if (minIcon) minIcon.className = 'fa-solid fa-expand';
+  } else {
+    modal.classList.remove('topbar-minimized');
+    if (pill) pill.style.display = 'none';
+    if (minText) minText.textContent = 'Minimize';
+    if (minIcon) minIcon.className = 'fa-solid fa-compress';
+  }
+
+  // Allow layout transition to finish, then resize map viewports
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+  }, 120);
+}
+
 function openStreetView(key) {
   svBuildStrip();
   svSetMode('split');
   const idx = STREET_VIEW_TOUR.findIndex(item => item.key === key);
   svRenderNode(idx >= 0 ? idx : 0);
-  document.getElementById('streetViewModal')?.classList.add('open');
+  const modal = document.getElementById('streetViewModal');
+  modal?.classList.add('open');
+  modal?.classList.remove('topbar-minimized');
+  const pill = document.getElementById('svTopbarRestorePill');
+  if (pill) pill.style.display = 'none';
+  const minText = document.getElementById('svMinimizeText');
+  const minIcon = document.getElementById('svMinimizeIcon');
+  if (minText) minText.textContent = 'Minimize';
+  if (minIcon) minIcon.className = 'fa-solid fa-compress';
 }
 
 function closeStreetView() {
-  document.getElementById('streetViewModal')?.classList.remove('open');
+  const modal = document.getElementById('streetViewModal');
+  modal?.classList.remove('open');
+  modal?.classList.remove('topbar-minimized');
+  const pill = document.getElementById('svTopbarRestorePill');
+  if (pill) pill.style.display = 'none';
+  const minText = document.getElementById('svMinimizeText');
+  const minIcon = document.getElementById('svMinimizeIcon');
+  if (minText) minText.textContent = 'Minimize';
+  if (minIcon) minIcon.className = 'fa-solid fa-compress';
 }
 
 function svMoveStep(delta) {

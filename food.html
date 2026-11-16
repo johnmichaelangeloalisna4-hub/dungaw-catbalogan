@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=68">
+  <link rel="stylesheet" href="css/style.css?v=69">
 </head>
 <body class="subpage">
     <!-- ========================================================
@@ -587,7 +587,28 @@
         <a id="svGoogleMapsLink" href="https://www.google.com/maps/search/?api=1&query=Catbalogan+City+Samar" target="_blank" rel="noopener" class="sv-hud-btn">
           <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--teal-light);"></i> Open Maps
         </a>
+        <button type="button" class="sv-hud-btn sv-minimize-header-btn" id="svToggleMinimizeBtn" onclick="svToggleTopbarMinimize()" title="Minimize / Hide header for full map focus">
+          <i class="fa-solid fa-compress" id="svMinimizeIcon"></i> <span id="svMinimizeText">Minimize</span>
+        </button>
         <button type="button" class="sv-close-btn" aria-label="Close Street View" onclick="closeStreetView()">&times;</button>
+      </div>
+    </div>
+
+    
+    <!-- Floating Minimal HUD Pill when Topbar is Minimized / Hidden -->
+    <div class="sv-topbar-restore-pill" id="svTopbarRestorePill" style="display: none;">
+      <div class="sv-pill-main" onclick="svToggleTopbarMinimize()" title="Click to expand controls and modes">
+        <i class="fa-solid fa-location-dot" style="color: #f97316;"></i>
+        <span class="sv-pill-title" id="svPillTitle">Catbalogan City</span>
+        <span class="sv-pill-expand"><i class="fa-solid fa-chevron-down"></i> Expand Controls</span>
+      </div>
+      <div class="sv-pill-quick-actions">
+        <button type="button" class="sv-pill-quick-btn" onclick="svToggleMapLayer()" title="Switch Satellite / Road">
+          <i class="fa-solid fa-layer-group"></i>
+        </button>
+        <button type="button" class="sv-pill-quick-btn sv-pill-close-btn" onclick="closeStreetView()" title="Close Map Explorer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
     </div>
 
@@ -656,6 +677,6 @@
   <div class="toast-notice" id="toastNotice"></div>
 
   <!-- JAVASCRIPT LOGIC -->
-  <script src="js/main.js?v=68"></script>
+  <script src="js/main.js?v=69"></script>
 </body>
 </html>

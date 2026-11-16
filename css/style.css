@@ -4399,3 +4399,211 @@ body.subpage .page-main>section:first-child {
     font-size: 11px;
   }
 }
+
+/* ========================================================
+   STREET VIEW / 360 MODAL: TOPBAR MINIMIZE & COLLAPSE
+   Allows full-screen focus on the map and 360 viewer
+   ======================================================== */
+.sv-modal.topbar-minimized .sv-topbar {
+  max-height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  border-bottom: none !important;
+}
+
+/* Minimize / Hide Header Button inside topbar */
+.sv-minimize-header-btn {
+  background: rgba(249, 115, 22, 0.22) !important;
+  border: 1px solid rgba(249, 115, 22, 0.5) !important;
+  color: #fed7aa !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.sv-minimize-header-btn:hover {
+  background: #ea580c !important;
+  border-color: #ea580c !important;
+  color: #ffffff !important;
+}
+
+/* Floating Sleek HUD Restore Pill when topbar is minimized */
+.sv-topbar-restore-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(12, 35, 51, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  border-radius: 999px;
+  padding: 5px 8px 5px 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  animation: fadeIn 0.2s ease;
+  max-width: calc(100vw - 24px);
+  user-select: none;
+}
+
+.sv-pill-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.sv-pill-title {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 170px;
+}
+
+.sv-pill-expand {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(15, 139, 132, 0.35);
+  color: var(--teal-light);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sv-pill-expand:hover {
+  background: var(--teal-primary);
+  color: #ffffff;
+}
+
+.sv-pill-quick-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 2px;
+  padding-left: 6px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sv-pill-quick-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-size: 11.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sv-pill-quick-btn:hover {
+  background: var(--teal-primary);
+  border-color: var(--teal-primary);
+}
+
+.sv-pill-close-btn:hover {
+  background: var(--coral-accent) !important;
+  border-color: var(--coral-accent) !important;
+}
+
+/* Mobile responsive layout optimizations for topbar */
+@media (max-width: 768px) {
+  .sv-topbar {
+    padding: 8px 10px !important;
+    gap: 8px !important;
+  }
+
+  .sv-topbar-info {
+    min-width: unset !important;
+    flex: 1 1 auto !important;
+  }
+
+  .sv-info-eyebrow {
+    font-size: 9.5px !important;
+    letter-spacing: 1px !important;
+    gap: 4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .sv-info-title {
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Automatically hide lengthy description on mobile so map has more room */
+  .sv-info-sub {
+    display: none !important;
+  }
+
+  .sv-mode-tabs {
+    padding: 2px !important;
+    gap: 3px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-width: 100% !important;
+    scrollbar-width: none !important;
+  }
+
+  .sv-mode-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .sv-mode-btn {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+
+  .sv-top-actions {
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .sv-hud-btn {
+    padding: 6px 9px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  .sv-close-btn {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 18px !important;
+  }
+
+  .sv-topbar-restore-pill {
+    top: 8px !important;
+    left: 8px !important;
+    padding: 4px 6px 4px 10px !important;
+    gap: 6px !important;
+  }
+
+  .sv-pill-title {
+    font-size: 12px !important;
+    max-width: 120px !important;
+  }
+
+  .sv-pill-expand {
+    font-size: 10px !important;
+    padding: 2px 7px !important;
+  }
+}

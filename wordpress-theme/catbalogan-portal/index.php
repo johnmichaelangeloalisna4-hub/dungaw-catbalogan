@@ -2546,7 +2546,28 @@ $theme_uri = esc_url( get_template_directory_uri() );
         <a id="svGoogleMapsLink" href="https://www.google.com/maps/search/?api=1&query=Catbalogan+City+Samar" target="_blank" rel="noopener" class="sv-hud-btn">
           <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--teal-light);"></i> Open Maps
         </a>
+        <button type="button" class="sv-hud-btn sv-minimize-header-btn" id="svToggleMinimizeBtn" onclick="svToggleTopbarMinimize()" title="Minimize / Hide header for full map focus">
+          <i class="fa-solid fa-compress" id="svMinimizeIcon"></i> <span id="svMinimizeText">Minimize</span>
+        </button>
         <button type="button" class="sv-close-btn" aria-label="Close Street View" onclick="closeStreetView()">&times;</button>
+      </div>
+    </div>
+
+    
+    <!-- Floating Minimal HUD Pill when Topbar is Minimized / Hidden -->
+    <div class="sv-topbar-restore-pill" id="svTopbarRestorePill" style="display: none;">
+      <div class="sv-pill-main" onclick="svToggleTopbarMinimize()" title="Click to expand controls and modes">
+        <i class="fa-solid fa-location-dot" style="color: #f97316;"></i>
+        <span class="sv-pill-title" id="svPillTitle">Catbalogan City</span>
+        <span class="sv-pill-expand"><i class="fa-solid fa-chevron-down"></i> Expand Controls</span>
+      </div>
+      <div class="sv-pill-quick-actions">
+        <button type="button" class="sv-pill-quick-btn" onclick="svToggleMapLayer()" title="Switch Satellite / Road">
+          <i class="fa-solid fa-layer-group"></i>
+        </button>
+        <button type="button" class="sv-pill-quick-btn sv-pill-close-btn" onclick="closeStreetView()" title="Close Map Explorer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
     </div>
 
@@ -3927,16 +3948,61 @@ $theme_uri = esc_url( get_template_directory_uri() );
       });
     }
 
+    function svToggleTopbarMinimize(forceState) {
+      const modal = document.getElementById('streetViewModal');
+      const pill = document.getElementById('svTopbarRestorePill');
+      const minText = document.getElementById('svMinimizeText');
+      const minIcon = document.getElementById('svMinimizeIcon');
+      if (!modal) return;
+      const shouldMinimize = (typeof forceState === 'boolean')
+        ? forceState
+        : !modal.classList.contains('topbar-minimized');
+      svState.topbarMinimized = shouldMinimize;
+      if (shouldMinimize) {
+        modal.classList.add('topbar-minimized');
+        if (pill) {
+          pill.style.display = 'inline-flex';
+          const pillTitle = document.getElementById('svPillTitle');
+          const node = STREET_VIEW_TOUR[svState.index];
+          if (pillTitle && node) pillTitle.textContent = node.title;
+        }
+        if (minText) minText.textContent = 'Expand';
+        if (minIcon) minIcon.className = 'fa-solid fa-expand';
+      } else {
+        modal.classList.remove('topbar-minimized');
+        if (pill) pill.style.display = 'none';
+        if (minText) minText.textContent = 'Minimize';
+        if (minIcon) minIcon.className = 'fa-solid fa-compress';
+      }
+      setTimeout(() => { window.dispatchEvent(new Event('resize')); }, 120);
+    }
+
     function openStreetView(key) {
       svBuildStrip();
       svSetMode('split');
       const idx = STREET_VIEW_TOUR.findIndex(item => item.key === key);
       svRenderNode(idx >= 0 ? idx : 0);
-      document.getElementById('streetViewModal')?.classList.add('open');
+      const modal = document.getElementById('streetViewModal');
+      modal?.classList.add('open');
+      modal?.classList.remove('topbar-minimized');
+      const pill = document.getElementById('svTopbarRestorePill');
+      if (pill) pill.style.display = 'none';
+      const minText = document.getElementById('svMinimizeText');
+      const minIcon = document.getElementById('svMinimizeIcon');
+      if (minText) minText.textContent = 'Minimize';
+      if (minIcon) minIcon.className = 'fa-solid fa-compress';
     }
 
     function closeStreetView() {
-      document.getElementById('streetViewModal')?.classList.remove('open');
+      const modal = document.getElementById('streetViewModal');
+      modal?.classList.remove('open');
+      modal?.classList.remove('topbar-minimized');
+      const pill = document.getElementById('svTopbarRestorePill');
+      if (pill) pill.style.display = 'none';
+      const minText = document.getElementById('svMinimizeText');
+      const minIcon = document.getElementById('svMinimizeIcon');
+      if (minText) minText.textContent = 'Minimize';
+      if (minIcon) minIcon.className = 'fa-solid fa-compress';
     }
 
     function svMoveStep(delta) {
